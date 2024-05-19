@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>papers | Tlhey's blog</title><meta name="author" content="Tlhey"><meta name="copyright" content="Tlhey"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. Counterfactual fairnessCounterfactual fairnesslink: https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper_files&#x2F;paper&#x2F;2017&#x2F;file&#x2F;a486cd07e4ac3d270571622f4f316ec5-Paper.pdf Definitions: defs$A$: Protected attributes,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="papers">
+<meta property="og:url" content="https://tlhey.github.io/2024/05/08/2024-05-08-papers/index.html">
+<meta property="og:site_name" content="Tlhey&#39;s blog">
+<meta property="og:description" content="1. Counterfactual fairnessCounterfactual fairnesslink: https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper_files&#x2F;paper&#x2F;2017&#x2F;file&#x2F;a486cd07e4ac3d270571622f4f316ec5-Paper.pdf Definitions: defs$A$: Protected attributes,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.postimg.cc/jd1pctRK/20230404201453.jpg">
+<meta property="article:published_time" content="2024-05-08T12:11:06.000Z">
+<meta property="article:modified_time" content="2024-05-19T04:23:52.492Z">
+<meta property="article:author" content="Tlhey">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.postimg.cc/jd1pctRK/20230404201453.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://tlhey.github.io/2024/05/08/2024-05-08-papers/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.12.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Error',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.0/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'papers',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-19 12:23:52'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><meta name="generator" content="Hexo 7.1.1"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.postimg.cc/jd1pctRK/20230404201453.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a href="/" title="Tlhey's blog"><span class="site-name">Tlhey's blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">papers</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-08T12:11:06.000Z" title="Created 2024-05-08 20:11:06">2024-05-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-05-19T04:23:52.492Z" title="Updated 2024-05-19 12:23:52">2024-05-19</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="papers"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="1-Counterfactual-fairness"><a href="#1-Counterfactual-fairness" class="headerlink" title="1. Counterfactual fairness"></a>1. Counterfactual fairness</h1><p>Counterfactual fairness<br>link: <a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf</a></p>
+<h3 id><a href="#" class="headerlink" title></a></h3><p>Definitions:</p>
+<h4 id="defs"><a href="#defs" class="headerlink" title="defs"></a>defs</h4><p>$A$: Protected attributes, sensitive features<br>$X$: features of individuals, excluding A<br>$U$: latent features not observed, represented<br>$Y$: predictor    </p>
+<h4 id="Fairness-through-unawareness-FTU"><a href="#Fairness-through-unawareness-FTU" class="headerlink" title="Fairness through unawareness (FTU):"></a>Fairness through unawareness (FTU):</h4><p><em>An algorithm is fair so long as any protected attributes $A$ are not explicitly used in the decision-making process.</em><br>Shortcoming: $X$ might intersects $A$</p>
+<h4 id="Individual-Fairness-IF"><a href="#Individual-Fairness-IF" class="headerlink" title="Individual Fairness (IF)."></a>Individual Fairness (IF).</h4><p>For distance metric(should be carefully choosen), $d(\cdot , \cdot)$, if $d(i, j)$ is small, then $\hat Y(X^{(i)}, A^{(i)}) \approx \hat Y(X^{(j)}, A^{(j)})$</p>
+<h4 id="Demographic-Parity-DP-人口统计学意义上的平等"><a href="#Demographic-Parity-DP-人口统计学意义上的平等" class="headerlink" title="Demographic Parity (DP)(人口统计学意义上的平等)"></a>Demographic Parity (DP)(人口统计学意义上的平等)</h4><p>Predictor $\hat Y$ satisfies demographic partiy if $P(\hat Y|A&#x3D;0)&#x3D;P(\hat Y|A&#x3D;1)$ </p>
+<h4 id="Equality-of-Opportunity"><a href="#Equality-of-Opportunity" class="headerlink" title="Equality of Opportunity"></a>Equality of Opportunity</h4><p>$P(\hat Y|A&#x3D;0, Y&#x3D;1)&#x3D;P(\hat Y|A&#x3D;1, Y&#x3D;1)$ </p>
+<h3 id="Causal-Models-因果推断-Counterfacutal、"><a href="#Causal-Models-因果推断-Counterfacutal、" class="headerlink" title="Causal Models(因果推断), Counterfacutal、"></a>Causal Models(因果推断), Counterfacutal、</h3><p>Casual Model $(U, V, F)$,<br>$U$: latent background variables,<br>$V$: observed variables, <br>$F&#x3D;{f_1. f_2, \cdots, f_n}$, for each $V_i&#x3D;f_i(pa_i, U_{pa_i})\in V, pa_i \subseteq V \backslash {V_i}$ </p>
+<p><strong>Three Steps of Inference</strong>\</p>
+<ul>
+<li>Abduction：for a given prior on $U$, compute the posterior distribution of $U$ given the evidence $W &#x3D; w$</li>
+<li>Action：substitute the equations for $Z$ with the interventional values $z$, resulting in the modified set of equations $F_z$</li>
+<li>Prediction:</li>
+</ul>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><h3 id="Casual-Models-因果推断"><a href="#Casual-Models-因果推断" class="headerlink" title="Casual Models (因果推断)"></a>Casual Models (因果推断)</h3><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1217887302124773376">https://www.zhihu.com/column/c_1217887302124773376</a></p>
+<h4 id="Three-levels"><a href="#Three-levels" class="headerlink" title="Three levels:"></a>Three levels:</h4><ol>
+<li>Association: $A-B$ </li>
+<li>Intervention：$A&#x2F;A’ \rightarrow B?$</li>
+<li>Counterfactual $ want\ B’, how A\rightarrow A’$</li>
+</ol>
+<h4 id="Beyasian-Network"><a href="#Beyasian-Network" class="headerlink" title="Beyasian Network"></a>Beyasian Network</h4><p>In Directed acyclic Graph (DAG):<br><img src="/.io//image.png" alt="alt text"></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mantch/p/11179933.html">https://www.cnblogs.com/mantch/p/11179933.html</a><br>Component:</p>
+<ol>
+<li>head-to-head $a\rightarrow c\leftarrow b$ <br>$P(a,b,c) &#x3D; P(a)P(b)P(c|a,b)$,<br>unknown $c$, $a, b$ are blocked thus independent</li>
+<li>tail-to-tail $a\leftarrow c\rightarrow b$</li>
+</ol>
+<ul>
+<li>$c$ unknown, $P(a,b,c)&#x3D;P(c)P(a|c)P(b|c)$, $a, b$, not independent</li>
+<li>$c$ known, $P(a,b,c)&#x3D;P(c)P(a|c)P(b|c)$, $P(a,b|c)&#x3D;P(a,b,c)&#x2F;P(c)&#x3D;P(a|c)*P(b|c)$, $a, b $independent</li>
+</ul>
+<ol start="3">
+<li>head-to-tail (Markov Chain) $A\rightarrow C\rightarrow B$</li>
+</ol>
+<ul>
+<li>$c$ unknown, $a, b$, not independent</li>
+<li>$c$ known, $a, b$ independent</li>
+</ul>
+<p><strong>Factor Graph</strong></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title></a></h4><p>Confounder</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我从一天前开始看论文，被casual model的概念吸引了。我认为是很好的一个理解方式。从早上五点准备到十一点。<br>今天做了pre，效果很差。</p>
+<ol>
+<li>对概率的各种公式很不太了解。对贝叶斯和MCMC不会。</li>
+<li>没有去想过$U ,A, X$的关系。没有办法很好的解释论文中的逻辑关系。</li>
+</ol>
+<p>在开会的时候教授说重要东西：</p>
+<ol>
+<li>Counterfactual <br>这篇最重要的是： <strong>Definition 5:</strong> $P(\hat Y_{A\leftarrow a}(U)|X&#x3D;x, A&#x3D;a)&#x3D;P(\hat Y_{A\leftarrow a’}(U)|X&#x3D;x, A&#x3D;a)$ <br>很多‘概率’只是表示方法。（但是确实不很理解概率）<br>算法的思想在于：1. 引入因果图。2.寻找U（17年MCMC，现在可以GAN，或其他生成式学习方法）。</li>
+<li>$U \rightarrow X，A$<br>在计算中用$X, A \rightarrow U$ 有一些类似Adversarial learning. 可以研究怎么套用。</li>
+<li>GAD</li>
+<li>有点想做transfer learning 的那种</li>
+</ol>
+<h1 id="FairGAD"><a href="#FairGAD" class="headerlink" title="FairGAD"></a>FairGAD</h1><p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=3cE6NKYy8x">https://openreview.net/forum?id=3cE6NKYy8x</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.04937">https://arxiv.org/abs/2307.04937</a></p>
+<h2 id="Fair-GAD-problem"><a href="#Fair-GAD-problem" class="headerlink" title="Fair GAD problem"></a>Fair GAD problem</h2><p><strong>GAD</strong><br>$G&#x3D;(V, E, X)$, <br>node feature matrix $X\in \R^{n\times d}$, <br>Adjacency matrix $A\in {0,1}^{n\times n}$, <br>Anomaly labels $Y\in {0, 1}^n$, predicted $\hat Y$, <br><strong>Fair GAD</strong><br>sensitive attributes $S\in {0, 1}^n$, a binary feature $X$.<br>Performance matrix: accuracy and <em>AUCROC</em>: Area under the ROC Curve <br>Unfairness Mextrics, Statistic Parity(SP):$SP &#x3D; |P(\hat Y&#x3D;1|S&#x3D;0)−P(\hat Y &#x3D;1|S&#x3D;1)|$, <br>Equality of Odds <em>(EOO)</em>: $SP &#x3D; |P(\hat Y&#x3D;1|S&#x3D;0, Y&#x3D;1)−P(\hat Y &#x3D;1|S&#x3D;1, Y&#x3D;1)|$</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><h2 id="-2"><a href="#-2" class="headerlink" title></a></h2></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://tlhey.github.io">Tlhey</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://tlhey.github.io/2024/05/08/2024-05-08-papers/">https://tlhey.github.io/2024/05/08/2024-05-08-papers/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://i.postimg.cc/jd1pctRK/20230404201453.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/19/2024-05-19-CS224W-notes/" title="CS224W_notes"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Previous</div><div class="prev_info">CS224W_notes</div></div></a></div><div class="next-post pull-right"><a href="/2024/03/08/2024-03-08-LHY-ML/" title="LHY ML"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">Next</div><div class="next_info">LHY ML</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.postimg.cc/jd1pctRK/20230404201453.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Tlhey</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Counterfactual-fairness"><span class="toc-number">1.</span> <span class="toc-text">1. Counterfactual fairness</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#defs"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">defs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fairness-through-unawareness-FTU"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">Fairness through unawareness (FTU):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Individual-Fairness-IF"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">Individual Fairness (IF).</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Demographic-Parity-DP-%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E5%AD%A6%E6%84%8F%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B9%B3%E7%AD%89"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">Demographic Parity (DP)(人口统计学意义上的平等)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Equality-of-Opportunity"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">Equality of Opportunity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Causal-Models-%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD-Counterfacutal%E3%80%81"><span class="toc-number">1.0.2.</span> <span class="toc-text">Causal Models(因果推断), Counterfacutal、</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="toc-number">1.1.</span> <span class="toc-text">题外话</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Casual-Models-%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD"><span class="toc-number">1.1.1.</span> <span class="toc-text">Casual Models (因果推断)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Three-levels"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Three levels:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Beyasian-Network"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Beyasian Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-1"><span class="toc-number">1.1.1.3.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FairGAD"><span class="toc-number">2.</span> <span class="toc-text">FairGAD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fair-GAD-problem"><span class="toc-number">2.1.</span> <span class="toc-text">Fair GAD problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data"><span class="toc-number">2.2.</span> <span class="toc-text">Data</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-2"><span class="toc-number">2.3.</span> <span class="toc-text"></span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/19/2024-05-19-CS224W-notes/" title="CS224W_notes">CS224W_notes</a><time datetime="2024-05-19T05:01:34.000Z" title="Created 2024-05-19 13:01:34">2024-05-19</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/05/08/2024-05-08-papers/" title="papers">papers</a><time datetime="2024-05-08T12:11:06.000Z" title="Created 2024-05-08 20:11:06">2024-05-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/08/2024-03-08-LHY-ML/" title="LHY ML">LHY ML</a><time datetime="2024-03-08T02:36:24.000Z" title="Created 2024-03-08 10:36:24">2024-03-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/06/2024-03-06-A-Trial-For-HW3-CS-311/" title="A Trial For HW3 CS 311">A Trial For HW3 CS 311</a><time datetime="2024-03-06T11:50:14.000Z" title="Created 2024-03-06 19:50:14">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/02/07/2024-02-07-Transport-layer/" title="Transport layer">Transport layer</a><time datetime="2024-02-07T02:55:06.000Z" title="Created 2024-02-07 10:55:06">2024-02-07</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2024 By Tlhey</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.12.0"></script><script src="/js/main.js?v=4.12.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.32/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '',
+      appKey: '',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !true) {
+    if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
