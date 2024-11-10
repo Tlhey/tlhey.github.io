@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>CS224W_notes | Tlhey&#39;s Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="1 Introduciton，Machine learning for graphs大纲  Traditional methods: Graphlets, Graph Kernels Methods for node embeddings: DeepWalk, Node2Vec Graph Neural Networks: GCN, GraphSAGE, GAT, Theory of GNNs K">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS224W_notes">
+<meta property="og:url" content="https://tlhey.github.io/2024/05/19/2024-05-19-CS224W-notes/index.html">
+<meta property="og:site_name" content="Tlhey&#39;s Website">
+<meta property="og:description" content="1 Introduciton，Machine learning for graphs大纲  Traditional methods: Graphlets, Graph Kernels Methods for node embeddings: DeepWalk, Node2Vec Graph Neural Networks: GCN, GraphSAGE, GAT, Theory of GNNs K">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tlhey.github.io/2024/05/19/2024-05-19-CS224W-notes/2024-05-19-CS224W-notes/image.png">
+<meta property="og:image" content="https://tlhey.github.io/2024/05/19/2024-05-19-CS224W-notes/2024-05-19-CS224W-notes/image-1.png">
+<meta property="article:published_time" content="2024-05-19T05:01:34.000Z">
+<meta property="article:modified_time" content="2024-11-10T12:37:52.609Z">
+<meta property="article:author" content="Tlhey">
+<meta property="article:tag" content="12">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tlhey.github.io/2024/05/19/2024-05-19-CS224W-notes/2024-05-19-CS224W-notes/image.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Tlhey's Website" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tlhey&#39;s Website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tlhey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2024-05-19-CS224W-notes" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/19/2024-05-19-CS224W-notes/" class="article-date">
+  <time class="dt-published" datetime="2024-05-19T05:01:34.000Z" itemprop="datePublished">2024-05-19</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      CS224W_notes
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Introduciton，Machine-learning-for-graphs"><a href="#1-Introduciton，Machine-learning-for-graphs" class="headerlink" title="1 Introduciton，Machine learning for graphs"></a>1 Introduciton，Machine learning for graphs</h1><p>大纲</p>
+<ol>
+<li>Traditional methods: Graphlets, Graph Kernels</li>
+<li>Methods for node embeddings: DeepWalk, Node2Vec</li>
+<li>Graph Neural Networks: GCN, GraphSAGE, GAT, Theory of GNNs</li>
+<li>Knowledge graphs and reasoning: TransE, BetaE</li>
+<li>Deep generative models for graphs</li>
+<li>Applications to Biomedicine, Science, Industry<h2 id="Defs"><a href="#Defs" class="headerlink" title="Defs"></a>Defs</h2></li>
+<li>$G=(V, E, F)$ or $G(V, E)$</li>
+<li>Directed/ undirected</li>
+<li>Degree \<br>Directed $\bar k = \langle k \rangle = \frac{1}{N} \sum_{i=1}^{N} k_i = \frac{2E}{N}$ \<br>Undirected in-degree + out-degree = (total) degree, $\bar k= \frac{E}{N}$ </li>
+<li>Bipartite Graph</li>
+<li>Foleded/Projected Bipartite graph</li>
+<li>Representing graphs: Adjacency matrix\<br>Density of matrix $\frac{E}{N^2}$<ol>
+<li>adjacency matrix</li>
+<li>Edge List</li>
+<li>Adjacency List</li>
+</ol>
+</li>
+<li>Attribute of edges</li>
+<li>Weighted/Unweighted</li>
+<li>Self-dges</li>
+<li>Connectivity: (Un)Directed, Strong Connnected Components (in Undirevted)</li>
+</ol>
+<h1 id="2-Traditional-methods-for-ML-on-graph"><a href="#2-Traditional-methods-for-ML-on-graph" class="headerlink" title="2 Traditional methods for ML on graph"></a>2 Traditional methods for ML on graph</h1><p>Structual Feature/ Node features<br>Train on Random Forest, SVM, Neural Network; Apply on new graph. </p>
+<h3 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h3><h4 id="1-Node-Centrality"><a href="#1-Node-Centrality" class="headerlink" title="1) Node Centrality"></a>1) Node Centrality</h4><ol>
+<li>Eigenvector centrality: $c<em>v=\frac{1}{\lambda}\sum</em>{u\in N(v)} $</li>
+<li>betweenness centrality <script type="math/tex; mode=display">
+c_v = \sum_{s \neq v \neq t} \frac{\#(\text{shortest paths between } s \text{ and } t \text{ that contain } v)}{\#(\text{shortest paths between } s \text{ and } t)}</script><script type="math/tex; mode=display">
+\#: \text{the number of}</script><ol>
+<li>closeness cnetrality <script type="math/tex; mode=display">
+c_v = \frac{1}{\sum_{u\neq v} (\text{shortest path length between } u \text{ and } v)}</script></li>
+</ol>
+</li>
+</ol>
+<h4 id="2-Clutering-Coefficient"><a href="#2-Clutering-Coefficient" class="headerlink" title="2) Clutering Coefficient"></a>2) Clutering Coefficient</h4><script type="math/tex; mode=display">
+e_v = \frac{\#(\text{edges among neighboring nodes})}{\binom{k_v}{2}} \in [0,1]</script><h4 id="3-Graphlet-Rooted-connected-non-isomorphic-subgraphs"><a href="#3-Graphlet-Rooted-connected-non-isomorphic-subgraphs" class="headerlink" title="3) Graphlet: Rooted connected non-isomorphic subgraphs:"></a>3) Graphlet: Rooted connected non-isomorphic subgraphs:</h4><p>graphlet degree vector<br>Clustering coefficient.</p>
+<p>Feature-based/ structure-based features.</p>
+<h3 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h3><h4 id="1-Link-prediction"><a href="#1-Link-prediction" class="headerlink" title="1) Link prediction"></a>1) Link prediction</h4><ol>
+<li>Links missing at random:Remove a random set of links and then aim to predict them</li>
+<li>Links over time:  Given $ G[t_0, t_0’] $ a graph on edges up to time $ t_0’ $, output a ranked list $L$ of links (not in $ G[t_0, t_0’] $) that are predicted to appear in $ G[t_1, t_1’] $<h4 id="2-Local-Neighborhood-Overlap"><a href="#2-Local-Neighborhood-Overlap" class="headerlink" title="2) Local Neighborhood Overlap"></a>2) Local Neighborhood Overlap</h4></li>
+</ol>
+<ul>
+<li>Common neighbors: $ |N(v_1) \cap N(v_2)| $</li>
+<li>Jaccard’s coefficient:$\frac{|N(v_1) \cap N(v_2)|}{|N(v_1) \cup N(v_2)|}$,\<br>Normalize common neighbor, assuming having the smae number of neighbors</li>
+<li>Adamic-Adar index: $\sum_{u \in N(v_1) \cap N(v_2)} \frac{1}{\log k_u}$,\<br>Panelty those who have many neighbors<h4 id="3-Global-Neighborhood-Overlap"><a href="#3-Global-Neighborhood-Overlap" class="headerlink" title="3) Global Neighborhood Overlap"></a>3) Global Neighborhood Overlap</h4></li>
+<li>Katz index:$S<em>{uv}= \sum</em>{l=1}^{\infty} \beta ^l A^l<em>{uv}$, \<br>$A^l</em>{uv}: # $ path of length $l$ between $vu$,\<br>$\beta$: discount factor, the contribution of long path  </li>
+<li>Katz index matrix: $S= \sum_{i=1}^\infty \beta^iA^i = (I-\beta A)^{-1}-I$</li>
+</ul>
+<h3 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h3><h4 id="kernel-method"><a href="#kernel-method" class="headerlink" title="kernel method:"></a>kernel method:</h4><ol>
+<li><p><strong>Kernel function</strong>:<br>$ K(G, G’) $ measures the similarity between two graphs $ G $ and $ G’ $.\<br>maps the graphs into a higher-dimensional space where linear methods can be applied to perform complex, non-linear tasks in the original space.</p>
+</li>
+<li><p><strong>Kernel Matrix</strong>: $\mathbf{K} = \left( K(G, G’) \right)_{G, G’} $ is a symmetric matrix.\<br>is positive semidefinite, meaning all its eigenvalues are non-negative.</p>
+</li>
+<li><p><strong>Feature Representation</strong>:<br>feature mapping $\phi(\cdot)$ kernel function is expressed as dot product in feature space: $ K(G, G’) = \phi(G)\top \phi(G’) $.</p>
+</li>
+</ol>
+<p>cite: <a target="_blank" rel="noopener" href="https://blog.csdn.net/PolarisRisingWar/article/details/115598815">https://blog.csdn.net/PolarisRisingWar/article/details/115598815</a></p>
+<h4 id="design-graph-featrue-vector-phi-G"><a href="#design-graph-featrue-vector-phi-G" class="headerlink" title="design graph featrue vector $\phi(G)$"></a>design graph featrue vector $\phi(G)$</h4><p><strong>Bag-of-Words: BoW</strong>\<br>key idea: use the word counts as features(#nodes as features, #degree, #graphlet, #color)</p>
+<h4 id="Graphlet-features"><a href="#Graphlet-features" class="headerlink" title="Graphlet features"></a>Graphlet features</h4><p>key idea: Count the number of different graphlets in a graph.<br>$G<em>k=(g_1, g_2, \cdots, g</em>{n_k})$</p>
+<p>graphlet count vector $(f_G)=#(g_i\subseteq G),  i\leq n_k$</p>
+<p>$h_G= \frac{f_G}{Sum(F_G)}$, \<br>$ K(G, G’)=H_G^TH_G’$</p>
+<p>NP-hard $O(nd^{k-1})$, expensive to calculate</p>
+<h4 id="Weisfeiler-Lehman-Kernel"><a href="#Weisfeiler-Lehman-Kernel" class="headerlink" title="Weisfeiler-Lehman Kernel"></a>Weisfeiler-Lehman Kernel</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/PolarisRisingWar/article/details/117336622">https://blog.csdn.net/PolarisRisingWar/article/details/117336622</a></p>
+<h1 id="3-Node-Embedding"><a href="#3-Node-Embedding" class="headerlink" title="3 Node Embedding"></a>3 Node Embedding</h1><h2 id="3-1-Intro"><a href="#3-1-Intro" class="headerlink" title="3.1 Intro"></a>3.1 Intro</h2><p>key: How define node similarity<br><!-- （是为了避免直接Feature Engineering, 而是也反应Structual上的特征  --></p>
+<h3 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h3><p>feature representation &lt;-&gt; feature embedding<br><!-- （如果两个节点在途中类似，那么这两个点在embedding space中也是类似的 --><br><!-- 用 dot product 来衡量类似度 --><br>Similarity $(u, v)\approx z_u^T z_v$,\<br>$ENC(u)=z_u, ENC(v)=z_v$,\ <!--ENC: Encoder--><br>$z_u, z_v$ d-dim in enbedding space, d usually 64-1000\<br>$ENC(v)$ node in the input garph</p>
+<p>$ENC(v)=z_v=Z\cdot v$<br>Encoer is a lookup, embedding matrix$Z\in\R^{d\times|V|}, v\in I ^{|V|}$, </p>
+<h4 id="ENC"><a href="#ENC" class="headerlink" title="ENC"></a>ENC</h4><p>Shallow encoder: $d*|V|$<br>some ways for ENC: Deepwalk, node2vec</p>
+<h2 id="3-2-Random-walk-for-Node-Embedding"><a href="#3-2-Random-walk-for-Node-Embedding" class="headerlink" title="3.2 Random walk for Node Embedding"></a>3.2 Random walk for Node Embedding</h2><h3 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h3><ul>
+<li>Vector $z_u$: then embedding vecotr of node u(what we aim to find)</li>
+<li>$P(v|z_u)$: prob of visiting node $v$ on random walk start from u. Used to measure similarity. </li>
+<li>Softmax: $\sigma(z)_i=\frac{e^{z_i}}{\sum e^{z_j}}$</li>
+<li>sigmoimd: $S(x)=\frac{1}{1+e^{-x}}$<h3 id="random-walk-embedding"><a href="#random-walk-embedding" class="headerlink" title="random walk embedding"></a>random walk embedding</h3>Using random strategy $R$: $P_R(u|v)$<br>Given<br>$G=(V, E)$<br>Goal: Learn a mapping $f: u\rightarrow \R^d$<script type="math/tex; mode=display">
+\mathcal{L} = \sum_{u \in V} \sum_{v \in N_R(u)} -\log\left(\frac{\exp(z_u^T z_v)}{\sum_{n \in V} \exp(z_u^T z_n)}\right)</script>Negative sampling<script type="math/tex; mode=display">
+\log\left(\frac{\exp(z_u^T z_v)}{\sum_{n \in V} \exp(z_u^T z_n)}\right) \approx \log\left(\sigma(z_u^T z_v)\right) - \sum_{i=1}^{k} \log\left(\sigma(z_u^T z_{n_i})\right), \quad n_i \sim P_V</script></li>
+</ul>
+<h3 id="Random-walk-strategy"><a href="#Random-walk-strategy" class="headerlink" title="Random walk strategy"></a>Random walk strategy</h3><h4 id="Deepwalk"><a href="#Deepwalk" class="headerlink" title="Deepwalk"></a>Deepwalk</h4><p><a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol10/p13-wu.pdf">https://www.vldb.org/pvldb/vol10/p13-wu.pdf</a></p>
+<h4 id="node-2-vec"><a href="#node-2-vec" class="headerlink" title="node-2-vec"></a>node-2-vec</h4><p>node2vec</p>
+<p>Hyperparameter:</p>
+<ul>
+<li>$p$: Rerturn param</li>
+<li>$q$: in-out param <h2 id="3-3-Embedding-Entire-Graph"><a href="#3-3-Embedding-Entire-Graph" class="headerlink" title="3.3 Embedding Entire Graph"></a>3.3 Embedding Entire Graph</h2><h3 id="aaproach-1"><a href="#aaproach-1" class="headerlink" title="aaproach 1"></a>aaproach 1</h3>sum/mean $z<em>G=\sum</em>{v\in G}z_v$<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1509.09292">https://arxiv.org/pdf/1509.09292</a><h3 id="approach-2"><a href="#approach-2" class="headerlink" title="approach 2"></a>approach 2</h3>Vitual node<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1511.05493">https://arxiv.org/pdf/1511.05493</a><h3 id="approach-3"><a href="#approach-3" class="headerlink" title="approach 3"></a>approach 3</h3>Anonymous walk:<h4 id="Sampling-Anonymous-walks"><a href="#Sampling-Anonymous-walks" class="headerlink" title="Sampling Anonymous walks"></a>Sampling Anonymous walks</h4>Distribution have error less than $\epsilon$ with prob, less than $\delta$<br>$m=f(\epsilon, \sigma, \delta)$<h4 id="Walk-Embedding"><a href="#Walk-Embedding" class="headerlink" title="Walk Embedding"></a>Walk Embedding</h4>$\Delta$</li>
+</ul>
+<h1 id="4-Node-Embedding-using-Random-walk-PageRank"><a href="#4-Node-Embedding-using-Random-walk-PageRank" class="headerlink" title="4 Node Embedding using Random walk - PageRank"></a>4 Node Embedding using Random walk - PageRank</h1><h2 id="3-1-Intro-1"><a href="#3-1-Intro-1" class="headerlink" title="3.1 Intro"></a>3.1 Intro</h2><p>PageRank: $r<em>v=\sum</em>{u\in N<em>R(v)}r_u\frac{A</em>{u,v}}{d<em>u}$\<br>$d_u$: degree of node u\<br>$A</em>{u,v}$: adjacency matrix\<br>$r_v$: rank of node v\<br>$N_R(v)$: neighbors of node v</p>
+<h2 id="3-2-PageRank-for-Graph"><a href="#3-2-PageRank-for-Graph" class="headerlink" title="3.2 PageRank for Graph"></a>3.2 PageRank for Graph</h2><p>$r<em>v=\sum</em>{u\in N<em>R(v)}r_u\frac{A</em>{u,v}}{d<em>u}$<br>$d_u$: degree of node u<br>$A</em>{u,v}$: adjacency matrix<br>$r_v$: rank of node v<br>$N_R(v)$: neighbors of node v</p>
+<h2 id=""><a href="#" class="headerlink" title=" "></a> </h2><p>$r<em>v=\sum</em>{u\in N<em>R(v)}r_u\frac{A</em>{u,v}}{d_u}$</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=" "></a> </h2><ul>
+<li>Personalized PageRank (Tpoic specific pagerank)<br>rank proximity of nodes to the teleport nodes $S$,\<br>Proximity on graphs: </li>
+<li>PageRank with restarters:</li>
+</ul>
+<h2 id="Matrix-Factorization"><a href="#Matrix-Factorization" class="headerlink" title="Matrix Factorization"></a>Matrix Factorization</h2><p>Frobenius norm: $min_z||A-Z^TZ ||$\<br><img src="2024-05-19-CS224W-notes/image.png" alt="Alt text" width="400" ></p>
+<h1 id="5-Mesaage-passing-amp-Node-Classification"><a href="#5-Mesaage-passing-amp-Node-Classification" class="headerlink" title="5 Mesaage passing &amp; Node Classification"></a>5 Mesaage passing &amp; Node Classification</h1><p>Classical methods</p>
+<p>Correlation: nearby nodes have the same color\<br>$A_{n\times n}$: Adejacency matrix\<br>$Y={0, 1}^n$</p>
+<p>Collective Classification:</p>
+<ol>
+<li>local classifier 2. Relational Classifier 3. Collective Inference<br>$1^{st} \text{order markov assumption  } P(Y_v)=P(Y_v|N_v)$</li>
+</ol>
+<ul>
+<li>Relational calssification</li>
+<li>Iterative classification </li>
+<li>Belief propagation</li>
+</ul>
+<h1 id="6-GNN-Model"><a href="#6-GNN-Model" class="headerlink" title="6 GNN Model"></a>6 GNN Model</h1><h1 id="7-GNN-Design-Space"><a href="#7-GNN-Design-Space" class="headerlink" title="7 GNN Design Space"></a>7 GNN Design Space</h1><h1 id="8-Training-GNN"><a href="#8-Training-GNN" class="headerlink" title="8 Training GNN"></a>8 Training GNN</h1><h2 id="8-1-Data-augmentation"><a href="#8-1-Data-augmentation" class="headerlink" title="8.1 Data augmentation"></a>8.1 Data augmentation</h2><h3 id="Feature-based"><a href="#Feature-based" class="headerlink" title="Feature based"></a>Feature based</h3><h3 id="Structure-based"><a href="#Structure-based" class="headerlink" title="Structure based"></a>Structure based</h3><h2 id="8-2"><a href="#8-2" class="headerlink" title="8.2"></a>8.2</h2><h2 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h2><p><img src="2024-05-19-CS224W-notes/image-1.png" alt="alt text"></p>
+<p>Node Prediction<br>transductive setting<br>Inductive setting </p>
+<p>Training Validation(tuning hyperparam) test set</p>
+<p>Graph Prediction<br>Link Prediction</p>
+<h1 id="9-Theory-of-GNN"><a href="#9-Theory-of-GNN" class="headerlink" title="9 Theory of GNN"></a>9 Theory of GNN</h1><p>GCN, GAT, GraphSAGE, designspce </p>
+<h2 id="9-1"><a href="#9-1" class="headerlink" title="9.1"></a>9.1</h2><h2 id="9-2"><a href="#9-2" class="headerlink" title="9.2"></a>9.2</h2><p>GCN Mean pooling fails<br>GraphSAGE mean-pool </p>
+<p>Injective Multiset function: $\Phi(\cdot)$: a non linear funciton:\<br>$\Phi(\sum<em>{x\in S}f(x))$:<br>Multi-layer Perceptron<br>Theorem:: Universal approximation theorem<br>can arrive at a neural network can model any injective multiset function:<br>$MLP</em>{\Phi}(\sum<em>{x \in S})MLP</em>{f}(x)$</p>
+<p>Graph Isomorphism Noetwork (GIN) Xue 2019 </p>
+<p>WL Graph Kernel<br>Hash<br>$<br>\left( c^{(k)}(v), { c^{(k)}(u) }_{u \in N(v)} \right)<br>$</p>
+<p>$<br>\text{MLP}<em>{\Phi} \left( (1 + \epsilon) \cdot \text{MLP}</em>{f}(c^{(k)}(v)) + \sum<em>{u \in N(v)} \text{MLP}</em>{f}(c^{(k)}(u)) \right) $</p>
+<p>where $\epsilon$ is a learnable scalar</p>
+<p>$c^{(k+1)}(v) = \text{HASH} \left( c^{(k)}(v), { c^{(k)}(u) }_{u \in N(v)} \right)$</p>
+<p>$\text{GINConv} \left( c^{(k)}(v), { c^{(k)}(u) }<em>{u \in N(v)} \right) = \text{MLP}</em>{\Phi} \left( (1 + \epsilon) \cdot c^{(k)}(v) + \sum_{u \in N(v)} c^{(k)}(u) \right)<br>$</p>
+<h1 id="10-Hetergenous-Graphs-and-Knowldege-Graph-Enbeddings"><a href="#10-Hetergenous-Graphs-and-Knowldege-Graph-Enbeddings" class="headerlink" title="10 Hetergenous Graphs and Knowldege Graph Enbeddings"></a>10 Hetergenous Graphs and Knowldege Graph Enbeddings</h1><h2 id="10-1"><a href="#10-1" class="headerlink" title="10.1"></a>10.1</h2><h3 id="Hetergeneous-Graphs"><a href="#Hetergeneous-Graphs" class="headerlink" title="Hetergeneous Graphs"></a>Hetergeneous Graphs</h3><p>$G=(V, E, R, T)$</p>
+<h2 id="RGCN"><a href="#RGCN" class="headerlink" title="RGCN"></a>RGCN</h2><h1 id="VGAE"><a href="#VGAE" class="headerlink" title="VGAE"></a>VGAE</h1><p>讲的比较好的GAE和VGAE</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.atyun.com/17976.html">https://www.atyun.com/17976.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/5253#%E7%BB%88%E7%82%B9%E7%AB%99">https://spaces.ac.cn/archives/5253#%E7%BB%88%E7%82%B9%E7%AB%99</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_16763983/article/details/120403055?spm=1001.2101.3001.6650.7&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-120403055-blog-119531815.235%5Ev43%5Epc_blog_bottom_relevance_base8&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-120403055-blog-119531815.235%5Ev43%5Epc_blog_bottom_relevance_base8&amp;utm_relevant_index=13">https://blog.csdn.net/qq_16763983/article/details/120403055?spm=1001.2101.3001.6650.7&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-120403055-blog-119531815.235%5Ev43%5Epc_blog_bottom_relevance_base8&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromBaidu%7ERate-7-120403055-blog-119531815.235%5Ev43%5Epc_blog_bottom_relevance_base8&amp;utm_relevant_index=13</a></li>
+</ol>
+<p>CNN code”</p>
+<ol>
+<li>CNN 网络结构与部分pytorch： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wpx123/p/17616156.html">https://www.cnblogs.com/wpx123/p/17616156.html</a>, <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wpx123/p/17621303.html">https://www.cnblogs.com/wpx123/p/17621303.html</a></li>
+</ol>
+<p>Optimizer：<br>SDG, GD, Adam 都是Optimizer的种类</p>
+<ol>
+<li>pytorch源代码解读， 以及各种参数lr, gamma的影响: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346205754">https://zhuanlan.zhihu.com/p/346205754</a></li>
+<li>简单讲解了SGD， Adam的原理： <a target="_blank" rel="noopener" href="https://blog.csdn.net/xian0710830114/article/details/126551268">https://blog.csdn.net/xian0710830114/article/details/126551268</a></li>
+</ol>
+<p>一个比较有用的Casual Inference 综述的博客：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/caoyusang/p/13518354.html">https://www.cnblogs.com/caoyusang/p/13518354.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/05/19/2024-05-19-CS224W-notes/" data-id="cm3bky99x0000dkbz5dut2p1w" data-title="CS224W_notes" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/12/" rel="tag">12</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/29/2024-05-29-Casual-Inference/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Casual Inference
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/08/2024-05-08-Meetings-log/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">papers</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/12/" rel="tag">12</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/12/" style="font-size: 10px;">12</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/11/10/hello/">hello</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/05/2024-11-05-Digital-Image/">2024-11-05-Digital-Image</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/26/2024-10-26-Magic/">2024-10-26-Magic</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/25/2024-10-25-Duke-courses-selection/">2024-10-25 Duke courses selection</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/08/2024-09-08-Lofi/">2024-09-08 Lofi</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Tlhey<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Cytoid AI Charting | Tlhey&#39;s Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="相关论文实现  Survey 1: https:&#x2F;&#x2F;www.qbitai.com&#x2F;2022&#x2F;03&#x2F;33133.html 1.1 现有技术(1)：100k songs, 44GB datahttps:&#x2F;&#x2F;github.com&#x2F;chrisdonahue&#x2F;ddchttps:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1703.06891.pdf 1.2 GeneLive在DDC基础上improve：现有技术2：G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cytoid AI Charting">
+<meta property="og:url" content="https://tlhey.github.io/2024/06/03/2024-06-03-Cytoid-AI-Charting/index.html">
+<meta property="og:site_name" content="Tlhey&#39;s Website">
+<meta property="og:description" content="相关论文实现  Survey 1: https:&#x2F;&#x2F;www.qbitai.com&#x2F;2022&#x2F;03&#x2F;33133.html 1.1 现有技术(1)：100k songs, 44GB datahttps:&#x2F;&#x2F;github.com&#x2F;chrisdonahue&#x2F;ddchttps:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1703.06891.pdf 1.2 GeneLive在DDC基础上improve：现有技术2：G">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-03T07:58:56.000Z">
+<meta property="article:modified_time" content="2024-11-10T12:38:25.399Z">
+<meta property="article:author" content="Tlhey">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Tlhey's Website" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tlhey&#39;s Website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tlhey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2024-06-03-Cytoid-AI-Charting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/03/2024-06-03-Cytoid-AI-Charting/" class="article-date">
+  <time class="dt-published" datetime="2024-06-03T07:58:56.000Z" itemprop="datePublished">2024-06-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Cytoid AI Charting
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>相关论文实现</li>
+</ol>
+<p>Survey 1: <a target="_blank" rel="noopener" href="https://www.qbitai.com/2022/03/33133.html">https://www.qbitai.com/2022/03/33133.html</a></p>
+<p>1.1 现有技术(1)：100k songs, 44GB data<br><a target="_blank" rel="noopener" href="https://github.com/chrisdonahue/ddc">https://github.com/chrisdonahue/ddc</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1703.06891.pdf">https://arxiv.org/pdf/1703.06891.pdf</a></p>
+<p>1.2 GeneLive在DDC基础上improve：<br>现有技术2：GenéLive! Generating Rhythm Actions in Love Live! | Proceedings of the AAAI Conference on Artificial Intelligence<br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.12823">https://arxiv.org/abs/2202.12823</a><br><a target="_blank" rel="noopener" href="https://github.com/chrisdonahue/ddc">https://github.com/chrisdonahue/ddc</a></p>
+<p>1.3 现有技术3：<br>MuG Diffusion:<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sg4y1j7sz/?vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1Sg4y1j7sz/?vd_source=441679270dda23308fe16f3c5602b058</a><br><a target="_blank" rel="noopener" href="https://github.com/Keytoyze/Mug-Diffusion">https://github.com/Keytoyze/Mug-Diffusion</a></p>
+<ol>
+<li>音游相关特征</li>
+</ol>
+<ul>
+<li>这次使用的音游：<br>  <a target="_blank" rel="noopener" href="https://cytoid.io/">https://cytoid.io/</a></li>
+<li>扒谱网站：<br>  <a target="_blank" rel="noopener" href="https://cytoid.io/levels">https://cytoid.io/levels</a></li>
+<li>扒谱工具：（应该用不到）<br>  <a target="_blank" rel="noopener" href="https://sites.google.com/site/cytoidcommunity/charting/introduction-cy2unity">https://sites.google.com/site/cytoidcommunity/charting/introduction-cy2unity</a></li>
+<li>谱面格式介绍：<br>  <a target="_blank" rel="noopener" href="https://github.com/openmusicgame/omgc">https://github.com/openmusicgame/omgc</a></li>
+<li>这个教授研究很多音乐：<br>  <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=MgzHAPQAAAAJ&amp;hl=en&amp;oi=ao">https://scholar.google.com/citations?user=MgzHAPQAAAAJ&amp;hl=en&amp;oi=ao</a></li>
+</ul>
+<ol>
+<li><p>前人一些工程上经验（按照规模排序）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/107010304">https://zhuanlan.zhihu.com/p/107010304</a></p>
+</li>
+<li><a target="_blank" rel="noopener" href="https://www.mirrorange.com/ai-beatmap-generator-train/">https://www.mirrorange.com/ai-beatmap-generator-train/</a></li>
+<li>MuG Diffusion</li>
+</ol>
+<p>ChoreoGraph Chart for Musical Game<br>Step Placement: When to place step<br>Step Selection: Which step to place</p>
+<p>4.音游数据<br><a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1J43x9f8u2lIzaHBolQaZveCv62XQM8Lv">https://drive.google.com/drive/folders/1J43x9f8u2lIzaHBolQaZveCv62XQM8Lv</a></p>
+<p>Music library:<br><a target="_blank" rel="noopener" href="https://soundcloud.com/openai_audio/rachmaninoff">https://soundcloud.com/openai_audio/rachmaninoff</a></p>
+<h1 id="DDC-Paper-17"><a href="#DDC-Paper-17" class="headerlink" title="DDC Paper 17"></a>DDC Paper 17</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1703.06891">https://arxiv.org/pdf/1703.06891</a></p>
+<p>MIR Music information retrival<br>onset detection:<br>tasks: (learning to choreograph)</p>
+<ol>
+<li>step placement</li>
+<li>step selection</li>
+</ol>
+<h1 id="GeneLive-23"><a href="#GeneLive-23" class="headerlink" title="GeneLive 23"></a>GeneLive 23</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.12823">https://arxiv.org/abs/2202.12823</a><br>generatiive deep learning</p>
+<p>文中提及 BiLSTM 比 Transformer也许更适合。<br>two novel techniques: beat guide, multi-sclae conv-stack</p>
+<ol>
+<li>beat guide寻找节奏型</li>
+<li></li>
+</ol>
+<h1 id="TaikoNation-21"><a href="#TaikoNation-21" class="headerlink" title="TaikoNation 21:"></a>TaikoNation 21:</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2107.12506">https://arxiv.org/pdf/2107.12506</a><br>LSTM</p>
+<h1 id="Other-related-papers"><a href="#Other-related-papers" class="headerlink" title="Other related papers"></a>Other related papers</h1><h2 id="19-via-DL"><a href="#19-via-DL" class="headerlink" title="19 via DL"></a>19 via DL</h2><p><a target="_blank" rel="noopener" href="https://inria.hal.science/hal-03652042v1/document">https://inria.hal.science/hal-03652042v1/document</a></p>
+<h2 id="19-aaai-keysounded"><a href="#19-aaai-keysounded" class="headerlink" title="19 aaai keysounded"></a>19 aaai keysounded</h2><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1806.11170">https://arxiv.org/pdf/1806.11170</a></p>
+<h1 id="problems-encountered"><a href="#problems-encountered" class="headerlink" title="problems encountered"></a>problems encountered</h1><p>0.首先做的是关于给定t和diffculty ，生成对应的对应的（是预测下个tick 是否放置key还是预测下一个note的出现时间）</p>
+<ol>
+<li>combine of level and others <ul>
+<li>可以看一下前人论文Genelive 是怎么解决的</li>
+<li>Hetergenous variable in BiLSTM(a type on RNN)</li>
+<li></li>
+</ul>
+</li>
+<li>time series</li>
+<li>how to pose x. </li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/06/03/2024-06-03-Cytoid-AI-Charting/" data-id="cm3bkyy520000tkbzdi8acoor" data-title="Cytoid AI Charting" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/07/14/2024-07-14-Papers-Collection/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Papers Collection
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/29/2024-05-29-Casual-Inference/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Casual Inference</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/12/" rel="tag">12</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/12/" style="font-size: 10px;">12</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/11/10/hello/">hello</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/05/2024-11-05-Digital-Image/">2024-11-05-Digital-Image</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/26/2024-10-26-Magic/">2024-10-26-Magic</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/25/2024-10-25-Duke-courses-selection/">2024-10-25 Duke courses selection</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/08/2024-09-08-Lofi/">2024-09-08 Lofi</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Tlhey<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
