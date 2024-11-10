@@ -102,10 +102,10 @@
 <li>diff types: IP, routers</li>
 <li>Computin between nodes: Routing protocols</li>
 </ul>
-<h1 id="3-1-Switching-basics"><a href="#3-1-Switching-basics" class="headerlink" title="3.1 - Switching basics"></a>3.1 - Switching basics</h1><h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def"></a>Def</h3><blockquote>
+<h1 id="3-1-Switching-basics"><a title="3.1 - Switching basics" class="headerlink" href="#3-1-Switching-basics"></a>3.1 - Switching basics</h1><h2 id="Switch"><a title="Switch" class="headerlink" href="#Switch"></a>Switch</h2><h3 id="Def"><a title="Def" class="headerlink" href="#Def"></a>Def</h3><blockquote>
 <p>A switch is a multi-input, multi-output device that transfers packets from an input to one or more outputs.”. Network switches interconnect links of the same type</p>
 </blockquote>
-<h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><ul>
+<h3 id="Property"><a title="Property" class="headerlink" href="#Property"></a>Property</h3><ul>
 <li>Interconnect switch <strong>(Scalable)</strong></li>
 <li>connect switches to each other and to hosts using point-to-point links</li>
 <li>Providing high aggregate throughput<blockquote>
@@ -113,15 +113,15 @@
 </blockquote>
 </li>
 </ul>
-<h3 id="Job"><a href="#Job" class="headerlink" title="Job"></a>Job</h3><p><strong>Swithching</strong> or <strong>Forwarding</strong> Accoding to <strong>OSI(Open System Interconnceting)</strong></p>
+<h3 id="Job"><a title="Job" class="headerlink" href="#Job"></a>Job</h3><p><strong>Swithching</strong> or <strong>Forwarding</strong> Accoding to <strong>OSI(Open System Interconnceting)</strong></p>
 <blockquote>
 <p>A switch’s primary job is to receive incoming packets on one of its links and to transmit them on some other link.</p>
 </blockquote>
-<h2 id="Swithcing"><a href="#Swithcing" class="headerlink" title="Swithcing"></a>Swithcing</h2><h3 id="Assumption"><a href="#Assumption" class="headerlink" title="Assumption"></a>Assumption</h3><ol>
+<h2 id="Swithcing"><a title="Swithcing" class="headerlink" href="#Swithcing"></a>Swithcing</h2><h3 id="Assumption"><a title="Assumption" class="headerlink" href="#Assumption"></a>Assumption</h3><ol>
 <li>A way to identify the end nodes: <strong>Address</strong>, which is <strong>gloablly unique</strong>. e.g. MAC address in Esthernet, which is burned in the chip and is globally unique.</li>
 <li>There are ways to identify the input and output port for each switch by numbering them.</li>
 </ol>
-<h3 id="Datagram"><a href="#Datagram" class="headerlink" title="Datagram"></a>Datagram</h3><p>To decide how to forward a packet, a switch consults a forwarding table (sometimes called a routing table)</p>
+<h3 id="Datagram"><a title="Datagram" class="headerlink" href="#Datagram"></a>Datagram</h3><p>To decide how to forward a packet, a switch consults a forwarding table (sometimes called a routing table)</p>
 <table>
 <thead>
 <tr>
@@ -142,14 +142,14 @@
 <td>…</td>
 </tr>
 </tbody></table>
-<h3 id="Tyoes"><a href="#Tyoes" class="headerlink" title="Tyoes"></a>Tyoes</h3><p>Forwading types</p>
+<h3 id="Tyoes"><a title="Tyoes" class="headerlink" href="#Tyoes"></a>Tyoes</h3><p>Forwading types</p>
 <ul>
-<li>Frame&#x2F;packet forwarding </li>
+<li>Frame/packet forwarding </li>
 <li>Circuit frowarding </li>
 <li>Source forwarding</li>
 </ul>
-<h2 id="Frame-forwading"><a href="#Frame-forwading" class="headerlink" title="Frame forwading"></a>Frame forwading</h2><p>Which is called Datagram networks. (without connections)</p>
-<h2 id="Circult-forwarding"><a href="#Circult-forwarding" class="headerlink" title="Circult forwarding"></a>Circult forwarding</h2><h3 id="VC-Table"><a href="#VC-Table" class="headerlink" title="VC Table"></a>VC Table</h3><p>VCI: virtual circuit identifier </p>
+<h2 id="Frame-forwading"><a title="Frame forwading" class="headerlink" href="#Frame-forwading"></a>Frame forwading</h2><p>Which is called Datagram networks. (without connections)</p>
+<h2 id="Circult-forwarding"><a title="Circult forwarding" class="headerlink" href="#Circult-forwarding"></a>Circult forwarding</h2><h3 id="VC-Table"><a title="VC Table" class="headerlink" href="#VC-Table"></a>VC Table</h3><p>VCI: virtual circuit identifier </p>
 <table>
 <thead>
 <tr>
@@ -175,31 +175,31 @@
 <ul>
 <li>The VCI can be reused: VCI is not a globally significant identifier for the connection.</li>
 </ul>
-<h3 id="Eastablish-a-VC-Tbale"><a href="#Eastablish-a-VC-Tbale" class="headerlink" title="Eastablish a VC Tbale"></a>Eastablish a VC Tbale</h3><blockquote>
+<h3 id="Eastablish-a-VC-Tbale"><a title="Eastablish a VC Tbale" class="headerlink" href="#Eastablish-a-VC-Tbale"></a>Eastablish a VC Tbale</h3><blockquote>
 <p>Signaling: A host can send messages into the network to cause the state to be established. This is referred to as signalling, and the resulting virtual circuits are said to <strong>be switched</strong>.</p>
 </blockquote>
-<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes!"></a>Notes!</h3><ul>
+<h3 id="Notes"><a title="Notes!" class="headerlink" href="#Notes"></a>Notes!</h3><ul>
 <li>At least one round-trip time (RTT) of delay before data is sent to build the VC.</li>
 <li>(?)Connection request contains the full address for host B, each data packet contains only a small identifier, which is only unique on one link. Thus, the per-packet overhead caused by the header is reduced relative to the datagram model. More importantly, the lookup is fast because the virtual circuit number can be treated as an index into a table rather than as a key that has to be looked up.</li>
 </ul>
-<h2 id="Comparsion-btween-Frame-base-Circult-based-forwarding"><a href="#Comparsion-btween-Frame-base-Circult-based-forwarding" class="headerlink" title="Comparsion btween Frame-base&#x2F; Circult-based forwarding"></a>Comparsion btween Frame-base&#x2F; Circult-based forwarding</h2><p><img src="/3-Internetworking/image.png" alt="Alt text"></p>
-<h2 id="Source-based-routing"><a href="#Source-based-routing" class="headerlink" title="Source-based routing"></a>Source-based routing</h2><p>Path defined by the source and encoded in frame</p>
-<h1 id="3-2-Switched-Ethernet"><a href="#3-2-Switched-Ethernet" class="headerlink" title="3.2 Switched Ethernet"></a>3.2 Switched Ethernet</h1><h2 id="Bridges"><a href="#Bridges" class="headerlink" title="Bridges"></a>Bridges</h2><h2 id="Spanning-tree-algorithm"><a href="#Spanning-tree-algorithm" class="headerlink" title="Spanning tree algorithm"></a>Spanning tree algorithm</h2><h2 id="Broadcast"><a href="#Broadcast" class="headerlink" title="Broadcast"></a>Broadcast</h2><h2 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h2><h1 id="3-3-Internet-IP"><a href="#3-3-Internet-IP" class="headerlink" title="3.3 Internet(IP)"></a>3.3 Internet(IP)</h1><h2 id="Service-model"><a href="#Service-model" class="headerlink" title="Service model"></a>Service model</h2><h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><h2 id="link-Phys"><a href="#link-Phys" class="headerlink" title="link &amp; Phys"></a>link &amp; Phys</h2><ul>
+<h2 id="Comparsion-btween-Frame-base-Circult-based-forwarding"><a title="Comparsion btween Frame-base/ Circult-based forwarding" class="headerlink" href="#Comparsion-btween-Frame-base-Circult-based-forwarding"></a>Comparsion btween Frame-base/ Circult-based forwarding</h2><p><img alt="Alt text" src="/3-Internetworking/image.png"></p>
+<h2 id="Source-based-routing"><a title="Source-based routing" class="headerlink" href="#Source-based-routing"></a>Source-based routing</h2><p>Path defined by the source and encoded in frame</p>
+<h1 id="3-2-Switched-Ethernet"><a title="3.2 Switched Ethernet" class="headerlink" href="#3-2-Switched-Ethernet"></a>3.2 Switched Ethernet</h1><h2 id="Bridges"><a title="Bridges" class="headerlink" href="#Bridges"></a>Bridges</h2><h2 id="Spanning-tree-algorithm"><a title="Spanning tree algorithm" class="headerlink" href="#Spanning-tree-algorithm"></a>Spanning tree algorithm</h2><h2 id="Broadcast"><a title="Broadcast" class="headerlink" href="#Broadcast"></a>Broadcast</h2><h2 id="VLAN"><a title="VLAN" class="headerlink" href="#VLAN"></a>VLAN</h2><h1 id="3-3-Internet-IP"><a title="3.3 Internet(IP)" class="headerlink" href="#3-3-Internet-IP"></a>3.3 Internet(IP)</h1><h2 id="Service-model"><a title="Service model" class="headerlink" href="#Service-model"></a>Service model</h2><h1 id="Recap"><a title="Recap" class="headerlink" href="#Recap"></a>Recap</h1><h2 id="link-Phys"><a title="link &amp; Phys" class="headerlink" href="#link-Phys"></a>link &amp; Phys</h2><ul>
 <li>5</li>
 </ul>
-<h2 id="netowork"><a href="#netowork" class="headerlink" title="netowork"></a>netowork</h2><ul>
+<h2 id="netowork"><a title="netowork" class="headerlink" href="#netowork"></a>netowork</h2><ul>
 <li>switches</li>
 <li>IP</li>
 <li>routing</li>
 </ul>
-<h2 id="Transport"><a href="#Transport" class="headerlink" title="Transport"></a>Transport</h2><ul>
+<h2 id="Transport"><a title="Transport" class="headerlink" href="#Transport"></a>Transport</h2><ul>
 <li>demultiplexing , port-number</li>
 </ul>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+<h2 id=""><a title="" class="headerlink" href="#"></a></h2>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tlhey.github.io/2024/02/07/2024-02-07-3-Internetworking/" data-id="cm3bkdmq20000o9bz19sj842r" data-title="3 - Internetworking" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://tlhey.github.io/2024/02/07/2024-02-07-3-Internetworking/" data-id="cm3blx8in0003f6bzdezm0fcu" data-title="3 - Internetworking" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -241,7 +241,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/12/" rel="tag">12</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li></ul>
     </div>
   </div>
 
@@ -251,7 +251,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/12/" style="font-size: 10px;">12</a>
+      <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a>
     </div>
   </div>
 

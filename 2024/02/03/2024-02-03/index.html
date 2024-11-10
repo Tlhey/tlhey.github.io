@@ -100,7 +100,7 @@
 </li>
 <li><p>Inserting the index page picture: <a target="_blank" rel="noopener" href="https://android99.com/2021/08/10/butterfly-top-image-modify/">https://android99.com/2021/08/10/butterfly-top-image-modify/</a></p>
 </li>
-<li><p>Markdown picture copy&#x2F;paste with vscode: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xbotter/p/17528063.html">https://www.cnblogs.com/xbotter/p/17528063.html</a></p>
+<li><p>Markdown picture copy/paste with vscode: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/xbotter/p/17528063.html">https://www.cnblogs.com/xbotter/p/17528063.html</a></p>
 </li>
 </ul>
 <ol>
@@ -117,49 +117,49 @@
 <li></li>
 </ul>
 <p>Wordpress搭建个人网站:<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wongbingming/p/13819905.html">https://www.cnblogs.com/wongbingming/p/13819905.html</a></p>
-<h1 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h1><p>如果 <code>pnpm install</code> 卡住了，可以尝试以下几种解决方案：</p>
-<h3 id="1-检查网络连接"><a href="#1-检查网络连接" class="headerlink" title="1. 检查网络连接"></a>1. 检查网络连接</h3><p>确认你的网络连接是否稳定。可以尝试访问一些网站，确保没有网络问题。</p>
-<h3 id="2-更改-DNS-设置"><a href="#2-更改-DNS-设置" class="headerlink" title="2. 更改 DNS 设置"></a>2. 更改 DNS 设置</h3><p>有时候 DNS 设置可能会导致网络请求超时。可以尝试更改 DNS 设置为公共 DNS（如 Google 的 8.8.8.8 或 Cloudflare 的 1.1.1.1）：</p>
+<h1 id="网络问题"><a title="网络问题" class="headerlink" href="#网络问题"></a>网络问题</h1><p>如果 <code>pnpm install</code> 卡住了，可以尝试以下几种解决方案：</p>
+<h3 id="1-检查网络连接"><a title="1. 检查网络连接" class="headerlink" href="#1-检查网络连接"></a>1. 检查网络连接</h3><p>确认你的网络连接是否稳定。可以尝试访问一些网站，确保没有网络问题。</p>
+<h3 id="2-更改-DNS-设置"><a title="2. 更改 DNS 设置" class="headerlink" href="#2-更改-DNS-设置"></a>2. 更改 DNS 设置</h3><p>有时候 DNS 设置可能会导致网络请求超时。可以尝试更改 DNS 设置为公共 DNS（如 Google 的 8.8.8.8 或 Cloudflare 的 1.1.1.1）：</p>
 <ul>
 <li><p><strong>在 Linux 系统上</strong>，你可以编辑 <code>/etc/resolv.conf</code> 文件：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sudo</span> nano /etc/resolv.conf</span><br></pre></td></tr></table></figure>
+
 
 <p>添加以下行：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 8.8.8.8</span><br><span class="line">nameserver 1.1.1.1</span><br></pre></td></tr></table></figure>
+
 </li>
 <li><p>然后保存并退出。</p>
 </li>
 </ul>
-<h3 id="3-增加超时设置"><a href="#3-增加超时设置" class="headerlink" title="3. 增加超时设置"></a>3. 增加超时设置</h3><p>你可以通过设置 <code>pnpm</code> 的超时来防止其卡住。可以使用以下命令增加超时时间：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install --<span class="built_in">timeout</span> 60000</span><br></pre></td></tr></table></figure>
+<h3 id="3-增加超时设置"><a title="3. 增加超时设置" class="headerlink" href="#3-增加超时设置"></a>3. 增加超时设置</h3><p>你可以通过设置 <code>pnpm</code> 的超时来防止其卡住。可以使用以下命令增加超时时间：</p>
+
 
 <p>这个命令会将超时时间设置为 60 秒。</p>
-<h3 id="4-清理缓存"><a href="#4-清理缓存" class="headerlink" title="4. 清理缓存"></a>4. 清理缓存</h3><p>有时候清理缓存能够解决问题，可以使用以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm store prune</span><br></pre></td></tr></table></figure>
+<h3 id="4-清理缓存"><a title="4. 清理缓存" class="headerlink" href="#4-清理缓存"></a>4. 清理缓存</h3><p>有时候清理缓存能够解决问题，可以使用以下命令：</p>
+
 
 <p>然后再次尝试安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install</span><br></pre></td></tr></table></figure>
 
-<h3 id="5-使用-no-progress-选项"><a href="#5-使用-no-progress-选项" class="headerlink" title="5. 使用 --no-progress 选项"></a>5. 使用 <code>--no-progress</code> 选项</h3><p>使用 <code>--no-progress</code> 选项可以禁用安装进度条，这可能会帮助安装更快完成：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pnpm install --no-progress</span><br></pre></td></tr></table></figure>
 
-<h3 id="6-代理设置"><a href="#6-代理设置" class="headerlink" title="6. 代理设置"></a>6. 代理设置</h3><p>如果你在公司或校园网络中，可能需要设置代理。检查和设置你的 npm 代理：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config get proxy</span><br><span class="line">npm config get https-proxy</span><br></pre></td></tr></table></figure>
+<h3 id="5-使用-no-progress-选项"><a title="5. 使用 --no-progress 选项" class="headerlink" href="#5-使用-no-progress-选项"></a>5. 使用 <code>--no-progress</code> 选项</h3><p>使用 <code>--no-progress</code> 选项可以禁用安装进度条，这可能会帮助安装更快完成：</p>
+
+
+<h3 id="6-代理设置"><a title="6. 代理设置" class="headerlink" href="#6-代理设置"></a>6. 代理设置</h3><p>如果你在公司或校园网络中，可能需要设置代理。检查和设置你的 npm 代理：</p>
+
 
 <p>如果没有设置，可以使用以下命令设置：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> proxy http://your-proxy-url:port</span><br><span class="line">npm config <span class="built_in">set</span> https-proxy http://your-proxy-url:port</span><br></pre></td></tr></table></figure>
 
-<h3 id="7-使用其他安装方式"><a href="#7-使用其他安装方式" class="headerlink" title="7. 使用其他安装方式"></a>7. 使用其他安装方式</h3><p>如果 <code>pnpm</code> 继续卡住，可以尝试使用 <code>npm</code> 来安装依赖：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install</span><br></pre></td></tr></table></figure>
 
-<h3 id="8-查看日志"><a href="#8-查看日志" class="headerlink" title="8. 查看日志"></a>8. 查看日志</h3><p>如果仍然卡住，检查 <code>pnpm</code> 的日志文件，可以查看输出的错误信息，以确定问题的根本原因。</p>
-<h3 id="9-重启终端"><a href="#9-重启终端" class="headerlink" title="9. 重启终端"></a>9. 重启终端</h3><p>有时简单地关闭终端并重新打开，然后再尝试安装可以解决问题。</p>
+<h3 id="7-使用其他安装方式"><a title="7. 使用其他安装方式" class="headerlink" href="#7-使用其他安装方式"></a>7. 使用其他安装方式</h3><p>如果 <code>pnpm</code> 继续卡住，可以尝试使用 <code>npm</code> 来安装依赖：</p>
+
+
+<h3 id="8-查看日志"><a title="8. 查看日志" class="headerlink" href="#8-查看日志"></a>8. 查看日志</h3><p>如果仍然卡住，检查 <code>pnpm</code> 的日志文件，可以查看输出的错误信息，以确定问题的根本原因。</p>
+<h3 id="9-重启终端"><a title="9. 重启终端" class="headerlink" href="#9-重启终端"></a>9. 重启终端</h3><p>有时简单地关闭终端并重新打开，然后再尝试安装可以解决问题。</p>
 <p>如果以上方法仍未解决问题，请提供更多的上下文信息，例如任何错误消息或卡住时的具体行为，这样我可以帮助你更好地排查。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://tlhey.github.io/2024/02/03/2024-02-03/" data-id="cm3bkahmr0000eqbz2t5tdnin" data-title="First attempt on deploying blog" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://tlhey.github.io/2024/02/03/2024-02-03/" data-id="cm3blx8ij0000f6bzb5od4ept" data-title="First attempt on deploying blog" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -196,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/12/" rel="tag">12</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/music/" rel="tag">music</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tools/" rel="tag">tools</a></li></ul>
     </div>
   </div>
 
@@ -206,7 +206,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/12/" style="font-size: 10px;">12</a>
+      <a href="/tags/music/" style="font-size: 10px;">music</a> <a href="/tags/tools/" style="font-size: 10px;">tools</a>
     </div>
   </div>
 
