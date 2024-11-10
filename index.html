@@ -558,7 +558,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="与贝叶斯有关的"><a href="#与贝叶斯有关的" class="headerlink" title="与贝叶斯有关的"></a>与贝叶斯有关的</h1><p>频率派的观点<br>为 $p(X|\theta)\mathop{&#x3D;}\limits_{iid}\prod\limits <em>{i&#x3D;1}^{N}p(x</em>{i}|\theta)$ </p>
+        <h2 id="与贝叶斯有关的"><a href="#与贝叶斯有关的" class="headerlink" title="与贝叶斯有关的"></a>与贝叶斯有关的</h2><p>频率派的观点<br>为 $p(X|\theta)\mathop{&#x3D;}\limits_{iid}\prod\limits <em>{i&#x3D;1}^{N}p(x</em>{i}|\theta)$ </p>
 <p>为了求常量 $\theta$ 的大小,最大对数似然MLE的方法：<br>$\theta_{MLE}&#x3D;\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{&#x3D;}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)$</p>
 <p>贝叶斯派的观点<br>$p(x|\theta)$ 中的 $\theta$ 不是一个常量。这个 $\theta$ 满足一个预设的先验的分布 $\theta\sim p(\theta)$</p>
 <p>$p(\theta|X)&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{p(X)}&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}$</p>
@@ -566,24 +566,24 @@
 <p>$\theta_{MAP}&#x3D;\mathop{argmax}\limits _{\theta}p(\theta|X)&#x3D;\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)$</p>
 <h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="/2024-05-29-Casual-Inference/image.png" alt="alt text"><br><img src="/2024-05-29-Casual-Inference/image-1.png" alt="alt text"></p>
 <p>基础知识和概念，包括d-分离<br>do算子<br>后门调整<br>前门调整<br>逆概率加权<br>反事实<br>因果关系发现中最基本的两类方法：基于独立性测试的方法，以及通过加性噪声模型的形式分析残差与预测者独立性关系的方法</p>
-<h1 id="chap1"><a href="#chap1" class="headerlink" title="chap1"></a>chap1</h1><p>partition, law of total probability<br>summing up its probabilities over all Bi is called marginalizing over $B$, and the resulting probability P(A) is called the marginal probability of $A$.<br>$P(A)&#x3D;P(A,B_1)+P(A,B_2)+···+P(A,B_n)$</p>
+<h2 id="chap1"><a href="#chap1" class="headerlink" title="chap1"></a>chap1</h2><p>partition, law of total probability<br>summing up its probabilities over all Bi is called marginalizing over $B$, and the resulting probability P(A) is called the marginal probability of $A$.<br>$P(A)&#x3D;P(A,B_1)+P(A,B_2)+···+P(A,B_n)$</p>
 <p>Def conditional probabilities<br>$P(A|B)&#x3D;P(A,B)∕P(B)$</p>
 <p>independence, giving no additional information<br>$P(A,B)&#x3D;P(A)P(B)$</p>
 <p>$P(A|B)&#x3D;\frac{P(B|A)P(A)}{P(B)}$</p>
 <p>$P(A)&#x3D;P(A|B_1)P(B_1)+P(A|B_2)P(B-2)+···+P(A|B_k)P(B_k)$</p>
 <p>Sructual Casual Models SCM<br>U exogenous variables, external to the model;</p>
-<h1 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h1><h2 id="https-www-yuque-com-bystander-wg876-yc5f72-dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC-等-Def-lambda-pi-A-B-pi-is-the-initial-state-distribution-o-t-来表示观测变量，-O-为观测序列，-V-v-1-v-2-cdots-v-M-表示观测的值域-i-t-表示状态变量，-I-为状态序列，-Q-q-1-q-2-cdots-q-N-表示状态变量的值域-A-a-ij-p-i-t-1-q-j-i-t-q-i-状态转移矩阵-B-b-j-k-p-o-t-v-k-i-t-q-j-发射矩阵"><a href="#https-www-yuque-com-bystander-wg876-yc5f72-dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC-等-Def-lambda-pi-A-B-pi-is-the-initial-state-distribution-o-t-来表示观测变量，-O-为观测序列，-V-v-1-v-2-cdots-v-M-表示观测的值域-i-t-表示状态变量，-I-为状态序列，-Q-q-1-q-2-cdots-q-N-表示状态变量的值域-A-a-ij-p-i-t-1-q-j-i-t-q-i-状态转移矩阵-B-b-j-k-p-o-t-v-k-i-t-q-j-发射矩阵" class="headerlink" title="https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC 等## Def$\lambda&#x3D;(\pi,A,B)$- $\pi$ is the initial state distribution- $o_t$ 来表示观测变量，$O$ 为观测序列，$V&#x3D;{v_1,v_2,\cdots,v_M}$ 表示观测的值域- $i_t$ 表示状态变量，$I$ 为状态序列，$Q&#x3D;{q_1,q_2,\cdots,q_N}$ 表示状态变量的值域- $A&#x3D;(a_{ij}&#x3D;p(i_{t+1}&#x3D;q_j|i_t&#x3D;q_i))$状态转移矩阵- $B&#x3D;(b_j(k)&#x3D;p(o_t&#x3D;v_k|i_t&#x3D;q_j))$ 发射矩阵"></a><a target="_blank" rel="noopener" href="https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b">https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b</a><br>机器学习模型可以从频率派和贝叶斯派<br>频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC 等<br>## Def<br>$\lambda&#x3D;(\pi,A,B)$<br><br>- $\pi$ is the initial state distribution<br>- $o_t$ 来表示观测变量，$O$ 为观测序列，$V&#x3D;{v_1,v_2,\cdots,v_M}$ 表示观测的值域<br>- $i_t$ 表示状态变量，$I$ 为状态序列，$Q&#x3D;{q_1,q_2,\cdots,q_N}$ 表示状态变量的值域<br>- $A&#x3D;(a_{ij}&#x3D;p(i_{t+1}&#x3D;q_j|i_t&#x3D;q_i))$状态转移矩阵<br>- $B&#x3D;(b_j(k)&#x3D;p(o_t&#x3D;v_k|i_t&#x3D;q_j))$ 发射矩阵</h2><h3 id="两个基本假设"><a href="#两个基本假设" class="headerlink" title="两个基本假设"></a>两个基本假设</h3><ol>
+<h2 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h2><h2 id="https-www-yuque-com-bystander-wg876-yc5f72-dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC-等-Def-lambda-pi-A-B-pi-is-the-initial-state-distribution-o-t-来表示观测变量，-O-为观测序列，-V-v-1-v-2-cdots-v-M-表示观测的值域-i-t-表示状态变量，-I-为状态序列，-Q-q-1-q-2-cdots-q-N-表示状态变量的值域-A-a-ij-p-i-t-1-q-j-i-t-q-i-状态转移矩阵-B-b-j-k-p-o-t-v-k-i-t-q-j-发射矩阵"><a href="#https-www-yuque-com-bystander-wg876-yc5f72-dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC-等-Def-lambda-pi-A-B-pi-is-the-initial-state-distribution-o-t-来表示观测变量，-O-为观测序列，-V-v-1-v-2-cdots-v-M-表示观测的值域-i-t-表示状态变量，-I-为状态序列，-Q-q-1-q-2-cdots-q-N-表示状态变量的值域-A-a-ij-p-i-t-1-q-j-i-t-q-i-状态转移矩阵-B-b-j-k-p-o-t-v-k-i-t-q-j-发射矩阵" class="headerlink" title="https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC 等### Def$\lambda&#x3D;(\pi,A,B)$- $\pi$ is the initial state distribution- $o_t$ 来表示观测变量，$O$ 为观测序列，$V&#x3D;{v_1,v_2,\cdots,v_M}$ 表示观测的值域- $i_t$ 表示状态变量，$I$ 为状态序列，$Q&#x3D;{q_1,q_2,\cdots,q_N}$ 表示状态变量的值域- $A&#x3D;(a_{ij}&#x3D;p(i_{t+1}&#x3D;q_j|i_t&#x3D;q_i))$状态转移矩阵- $B&#x3D;(b_j(k)&#x3D;p(o_t&#x3D;v_k|i_t&#x3D;q_j))$ 发射矩阵"></a><a target="_blank" rel="noopener" href="https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b">https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b</a><br>机器学习模型可以从频率派和贝叶斯派<br>频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC 等<br>### Def<br>$\lambda&#x3D;(\pi,A,B)$<br><br>- $\pi$ is the initial state distribution<br>- $o_t$ 来表示观测变量，$O$ 为观测序列，$V&#x3D;{v_1,v_2,\cdots,v_M}$ 表示观测的值域<br>- $i_t$ 表示状态变量，$I$ 为状态序列，$Q&#x3D;{q_1,q_2,\cdots,q_N}$ 表示状态变量的值域<br>- $A&#x3D;(a_{ij}&#x3D;p(i_{t+1}&#x3D;q_j|i_t&#x3D;q_i))$状态转移矩阵<br>- $B&#x3D;(b_j(k)&#x3D;p(o_t&#x3D;v_k|i_t&#x3D;q_j))$ 发射矩阵</h2><h4 id="两个基本假设"><a href="#两个基本假设" class="headerlink" title="两个基本假设"></a>两个基本假设</h4><ol>
 <li>齐次 Markov 假设（未来只依赖于当前）：<br>$p(i_{t+1}|i_t,i_{t-1},\cdots,i_1,o_t,o_{t-1},\cdots,o_1)&#x3D;p(i_{t+1}|i_t)$</li>
 <li>观测独立假设：<br>$p(o_t|i_t,i_{t-1},\cdots,i_1,o_{t-1},\cdots,o_1)&#x3D;p(o_t|i_t)$</li>
 </ol>
-<h3 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h3><ol>
+<h4 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h4><ol>
 <li>Evaluation：$p(O|\lambda)$，Forward-Backward </li>
 <li>Learning：$\lambda&#x3D;\mathop{argmax}\limits_{\lambda}p(O|\lambda)$，EM （Baum-Welch）</li>
 <li>Decoding：$I&#x3D;\mathop{argmax}\limits_{I}p(I|O,\lambda)$，Vierbi 算法<br>  a. 预测问题：$p(i_{t+1}|o_1,o_2,\cdots,o_t)$<br>  b. 滤波问题：$p(i_t|o_1,o_2,\cdots,o_t)$</li>
 </ol>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h1 id="有关MCMC"><a href="#有关MCMC" class="headerlink" title="有关MCMC"></a>有关MCMC</h1><h2 id="一个比较基础的介绍：-https-zhuanlan-zhihu-com-p-420214359-Abstract-贝叶斯推断估计参数的方法是：我们可以算出参数-Theta-的分布函数-P-Theta-，我们用参数分布的数学期望作为对参数的估计值-MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计-我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值"><a href="#一个比较基础的介绍：-https-zhuanlan-zhihu-com-p-420214359-Abstract-贝叶斯推断估计参数的方法是：我们可以算出参数-Theta-的分布函数-P-Theta-，我们用参数分布的数学期望作为对参数的估计值-MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计-我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值" class="headerlink" title="一个比较基础的介绍： https://zhuanlan.zhihu.com/p/420214359- Abstract:  - 贝叶斯推断估计参数的方法是：我们可以算出参数$\Theta$的分布函数$P(\Theta)$，我们用参数分布的数学期望作为对参数的估计值  - MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计  - 我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值"></a>一个比较基础的介绍： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/420214359">https://zhuanlan.zhihu.com/p/420214359</a><br>- Abstract:<br>  - 贝叶斯推断估计参数的方法是：我们可以算出参数$\Theta$的分布函数$P(\Theta)$，我们用参数分布的数学期望作为对参数的估计值<br>  - MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计<br>  - 我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值</h2><h2 id="1-Monte-Carlo-Sampling"><a href="#1-Monte-Carlo-Sampling" class="headerlink" title="1 Monte Carlo Sampling"></a>1 Monte Carlo Sampling</h2><p>如果$X$服从$f(x)$这个概率分布，我怎么获得$E(X)$<br>最常见的一种Monte Carlo方法的使用场景就是：对随机变量进行充分多的采样后，使用这些采样的均值来估计总体的期望</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h2 id="有关MCMC"><a href="#有关MCMC" class="headerlink" title="有关MCMC"></a>有关MCMC</h2><h2 id="一个比较基础的介绍：-https-zhuanlan-zhihu-com-p-420214359-Abstract-贝叶斯推断估计参数的方法是：我们可以算出参数-Theta-的分布函数-P-Theta-，我们用参数分布的数学期望作为对参数的估计值-MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计-我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值"><a href="#一个比较基础的介绍：-https-zhuanlan-zhihu-com-p-420214359-Abstract-贝叶斯推断估计参数的方法是：我们可以算出参数-Theta-的分布函数-P-Theta-，我们用参数分布的数学期望作为对参数的估计值-MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计-我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值" class="headerlink" title="一个比较基础的介绍： https://zhuanlan.zhihu.com/p/420214359- Abstract:  - 贝叶斯推断估计参数的方法是：我们可以算出参数$\Theta$的分布函数$P(\Theta)$，我们用参数分布的数学期望作为对参数的估计值  - MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计  - 我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值"></a>一个比较基础的介绍： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/420214359">https://zhuanlan.zhihu.com/p/420214359</a><br>- Abstract:<br>  - 贝叶斯推断估计参数的方法是：我们可以算出参数$\Theta$的分布函数$P(\Theta)$，我们用参数分布的数学期望作为对参数的估计值<br>  - MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计<br>  - 我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值</h2><h3 id="1-Monte-Carlo-Sampling"><a href="#1-Monte-Carlo-Sampling" class="headerlink" title="1 Monte Carlo Sampling"></a>1 Monte Carlo Sampling</h3><p>如果$X$服从$f(x)$这个概率分布，我怎么获得$E(X)$<br>最常见的一种Monte Carlo方法的使用场景就是：对随机变量进行充分多的采样后，使用这些采样的均值来估计总体的期望</p>
 <p>对于随机变量$X$，它的概率密度函数为$p(x)$，因此它的数学期望为<br>$E(x)&#x3D;\int_{-\infty}^{+\infty}xp(x)dx$<br>我们对于这个随机变量随机采样得到$n$个采样值$x_i$，根据大数定理，有<br>$\lim_{n\rightarrow+\infty}{\frac1n\sum_i^n{x_i}}&#x3D;E(X)$</p>
-<h2 id="2-Bayes-MCMC"><a href="#2-Bayes-MCMC" class="headerlink" title="2 Bayes &amp; MCMC"></a>2 Bayes &amp; MCMC</h2><h3 id="2-1-Bayes-Model-参数-Theta-，Observed-data-D"><a href="#2-1-Bayes-Model-参数-Theta-，Observed-data-D" class="headerlink" title="2.1 Bayes Model: 参数$\Theta$ ，Observed data: $D$"></a>2.1 Bayes Model: 参数$\Theta$ ，Observed data: $D$</h3><p>贝叶斯公式：$P(\Theta|D)&#x3D;\frac1{P(D)}P(D|\Theta)P(\Theta)$</p>
+<h3 id="2-Bayes-MCMC"><a href="#2-Bayes-MCMC" class="headerlink" title="2 Bayes &amp; MCMC"></a>2 Bayes &amp; MCMC</h3><h4 id="2-1-Bayes-Model-参数-Theta-，Observed-data-D"><a href="#2-1-Bayes-Model-参数-Theta-，Observed-data-D" class="headerlink" title="2.1 Bayes Model: 参数$\Theta$ ，Observed data: $D$"></a>2.1 Bayes Model: 参数$\Theta$ ，Observed data: $D$</h4><p>贝叶斯公式：$P(\Theta|D)&#x3D;\frac1{P(D)}P(D|\Theta)P(\Theta)$</p>
 <p>由于$P(D)$是一个无关紧要的常数，因此上式往往直接写成一个正比关系式：<br>$P(\Theta|D)\propto P(D|\Theta)P(\Theta)$</p>
 <p>在贝叶斯推断里：</p>
 <ol>
@@ -591,32 +591,32 @@
 <li>模型给出$P(D|\Theta)$， 即likelihood$P(D|\Theta)$</li>
 <li>还可以通过$P(\Theta)$来对参数的分布情况做一些先验的猜测。（如果你什么都不知道，$P(\Theta)$自然可以猜一个均匀分布）</li>
 </ol>
-<h3 id="2-2-通过后验概率-P-Theta-D-获取参数-Theta-的估计值"><a href="#2-2-通过后验概率-P-Theta-D-获取参数-Theta-的估计值" class="headerlink" title="2.2 通过后验概率$P(\Theta|D)$获取参数$\Theta$的估计值"></a>2.2 通过后验概率$P(\Theta|D)$获取参数$\Theta$的估计值</h3><p>想法：众数或者期望作为<br>估计值</p>
+<h4 id="2-2-通过后验概率-P-Theta-D-获取参数-Theta-的估计值"><a href="#2-2-通过后验概率-P-Theta-D-获取参数-Theta-的估计值" class="headerlink" title="2.2 通过后验概率$P(\Theta|D)$获取参数$\Theta$的估计值"></a>2.2 通过后验概率$P(\Theta|D)$获取参数$\Theta$的估计值</h4><p>想法：众数或者期望作为<br>估计值</p>
 <ol>
 <li>众数：$\hat\Theta&#x3D;\arg\max_\Theta{P(\Theta|D)}$</li>
 <li>期望：$\hat\Theta&#x3D;\int_\Theta\Theta P(\Theta|D)d\Theta$</li>
 </ol>
 <p>MCMC就是教我们怎么在一个没有解析形式的数据上「抽样几个数据算平均值」的方法</p>
-<h2 id="3-Sampling-采样"><a href="#3-Sampling-采样" class="headerlink" title="3 Sampling 采样"></a>3 Sampling 采样</h2><ol>
+<h3 id="3-Sampling-采样"><a href="#3-Sampling-采样" class="headerlink" title="3 Sampling 采样"></a>3 Sampling 采样</h3><ol>
 <li>Uniform</li>
 <li>Gaussian:<br>Given $U_1,U_2$<br>  $$<br>   Z_0 &#x3D; \sqrt{-2 \ln U_1} \cos(2\pi U_2)<br>   $$<br>   $$<br>   Z_1 &#x3D; \sqrt{-2 \ln U_1} \sin(2\pi U_2)<br>   $$</li>
 <li>Reject-Accept: 用于对很不规则的$f(x)$采样。具体细节没看</li>
 <li></li>
 </ol>
-<h2 id="Markov-Chain"><a href="#Markov-Chain" class="headerlink" title="Markov Chain"></a>Markov Chain</h2><p>一个对马尔可夫状态讲的比较详细的文章：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/250146007">https://zhuanlan.zhihu.com/p/250146007</a></p>
-<h3 id="Def"><a href="#Def" class="headerlink" title="Def"></a>Def</h3><p>转移概率矩阵：</p>
+<h3 id="Markov-Chain"><a href="#Markov-Chain" class="headerlink" title="Markov Chain"></a>Markov Chain</h3><p>一个对马尔可夫状态讲的比较详细的文章：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/250146007">https://zhuanlan.zhihu.com/p/250146007</a></p>
+<h4 id="Def"><a href="#Def" class="headerlink" title="Def"></a>Def</h4><p>转移概率矩阵：</p>
 <p>$P&#x3D;\begin{bmatrix}p_{11} &amp; p_{12} &amp;p_{13} \ p_{21} &amp; p_{22} &amp;p_{23} \ p_{31} &amp; p_{32} &amp;p_{33}\end{bmatrix}$ </p>
 <p>其中 $p_{ij}&#x3D;P(X_{t}&#x3D;i|X_{t-1}&#x3D;j)$ 。</p>
 <p>定义：马尔科夫链在 $t$ 时刻的概率分布称为 $t$ 时刻的状态分布：</p>
 <p>$\pi (t)&#x3D;\begin{bmatrix}\pi_{1}(t) \ \pi_{2}(t) \ \pi_{3}(t)\end{bmatrix}$ </p>
 <p>其中  $\pi_{i} (t)&#x3D;P(X_{t}&#x3D;i),i&#x3D;1,2,…$ 。</p>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<h4 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h4><ol>
 <li><p>定理：给定一个马尔科夫链 $X&#x3D;\left{ X_0,X_1,…,X_t,… \right}$ ， $t$ 时刻的状态分布：<br> $\pi&#x3D;(\pi_1,\pi_2,…)$ 是 $X$ 的平稳分布的条件是 $\pi&#x3D;(\pi_1,\pi_2,…)$ 是下列方程组的解：<br> $x_{i}&#x3D;\sum_{j}{p_{ij}x_j},i&#x3D;1,2,…$<br> $x_i\geq0,i&#x3D;1,2,…$<br> $\sum_{i}{x_{i}&#x3D;1}$</p>
 </li>
 <li></li>
 </ol>
-<h2 id="MCMC具体细节"><a href="#MCMC具体细节" class="headerlink" title="MCMC具体细节"></a>MCMC具体细节</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/253784711">https://zhuanlan.zhihu.com/p/253784711</a></p>
-<h1 id="Conditional-Random-Field-CRF"><a href="#Conditional-Random-Field-CRF" class="headerlink" title="Conditional Random Field(CRF)"></a>Conditional Random Field(CRF)</h1><ul>
+<h3 id="MCMC具体细节"><a href="#MCMC具体细节" class="headerlink" title="MCMC具体细节"></a>MCMC具体细节</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/253784711">https://zhuanlan.zhihu.com/p/253784711</a></p>
+<h2 id="Conditional-Random-Field-CRF"><a href="#Conditional-Random-Field-CRF" class="headerlink" title="Conditional Random Field(CRF)"></a>Conditional Random Field(CRF)</h2><ul>
 <li>HMM 生成模型</li>
 <li>MEMM Maximum Entropy Markov Model</li>
 </ul>
@@ -626,8 +626,8 @@
 <li>MEMM:<br>$$ P(y_t | y_{t-1}, x_t) $$</li>
 <li>CRF:<br>$$ P(\mathbf{Y} | \mathbf{X}, \lambda) &#x3D; \frac{1}{Z(\mathbf{X})} \exp \left( \sum_{t&#x3D;1}^{T} \lambda_t f(y_t, y_{t-1}, \mathbf{X}, t) \right) $$</li>
 </ul>
-<h1 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BW41117xo/?spm_id_from=333.999.0.0&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1BW41117xo/?spm_id_from=333.999.0.0&amp;vd_source=441679270dda23308fe16f3c5602b058</a></p>
-<h2 id="概率和图"><a href="#概率和图" class="headerlink" title="概率和图"></a>概率和图</h2><p>概率图</p>
+<h2 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BW41117xo/?spm_id_from=333.999.0.0&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1BW41117xo/?spm_id_from=333.999.0.0&amp;vd_source=441679270dda23308fe16f3c5602b058</a></p>
+<h3 id="概率和图"><a href="#概率和图" class="headerlink" title="概率和图"></a>概率和图</h3><p>概率图</p>
 <ul>
 <li>表示 Representation<ul>
 <li>有向图 Beyesian Netowrk</li>
@@ -688,7 +688,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="概率补充知识"><a href="#概率补充知识" class="headerlink" title="概率补充知识"></a>概率补充知识</h3><p>指数族分布</p>
+<h4 id="概率补充知识"><a href="#概率补充知识" class="headerlink" title="概率补充知识"></a>概率补充知识</h4><p>指数族分布</p>
 <ul>
 <li>充分统计量$\phi(x)$</li>
 <li>共轭</li>
@@ -738,7 +738,7 @@
 <li>Link funciton -&gt;aactivation function</li>
 <li>指数分布 $y|x\sim$指数组分布（$Bernulli, Poisson, N(\mu, \Sigma)$）</li>
 </ul>
-<h4 id="Gaussian"><a href="#Gaussian" class="headerlink" title="Gaussian"></a>Gaussian</h4><ul>
+<h5 id="Gaussian"><a href="#Gaussian" class="headerlink" title="Gaussian"></a>Gaussian</h5><ul>
 <li>$P(x|\mu,\Sigma)&#x3D;\frac{1}{(2\pi)^{n&#x2F;2}|\Sigma|^{1&#x2F;2}}\exp\left(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right)$</li>
 <li>$\eta&#x3D;<br>\left(!<br>  \begin{array}{c}<br>\eta_1 &#x3D;\frac{\mu}{\sigma^2}\<br>\eta_2&#x3D;-\frac{1}{\sigma^2}<br>  \end{array}<br>  !\right)$</li>
 <li>$\phi(x)&#x3D;\left(!<br>  \begin{array}{c}<br>x\<br>x^2<br>  \end{array}<br>  !\right)$</li>
@@ -764,7 +764,7 @@
 <li>$A’(\eta) &#x3D; \int \frac{h(x) \exp(\eta^T \phi(x)) \phi(x) , dx}{\exp(A(\eta))}$</li>
 <li>$A’(\eta) &#x3D; \int P(x | \eta) \phi(x) , dx &#x3D; \mathbb{E}_{P(x|\eta)}[\phi(x)]$</li>
 </ul>
-<h4 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h4><p>$D&#x3D;{x_1, \cdots, x_N}$</p>
+<h5 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h5><p>$D&#x3D;{x_1, \cdots, x_N}$</p>
 <p>$\eta_{MLE}&#x3D;\text{argmax  } log(P(D|\eta))$</p>
 <ul>
 <li>$&#x3D;\sum_{i&#x3D;1}^N\text{argmax  }log\cdot h(x_i)+(\eta^T \phi(x_i) - A(\eta))$</li>
@@ -777,7 +777,7 @@
 <ul>
 <li>$\sum \phi(x_i)-NA’(\eta)&#x3D;0$</li>
 </ul>
-<h4 id="Entorpy-最大熵"><a href="#Entorpy-最大熵" class="headerlink" title="Entorpy 最大熵"></a>Entorpy 最大熵</h4><p>信息熵 $-log\ p$<br>熵，（对可能性的衡量）</p>
+<h5 id="Entorpy-最大熵"><a href="#Entorpy-最大熵" class="headerlink" title="Entorpy 最大熵"></a>Entorpy 最大熵</h5><p>信息熵 $-log\ p$<br>熵，（对可能性的衡量）</p>
 <ul>
 <li><p>$E_{p(x)}[-log\ p]&#x3D;\int -p(x)log\ p(x)dx&#x3D; \sum -p(x)log\ p(x)$</p>
 </li>
@@ -790,20 +790,20 @@
 </ul>
 </li>
 </ul>
-<h4 id="经验分布"><a href="#经验分布" class="headerlink" title="经验分布"></a>经验分布</h4><p>$Data &#x3D; {x_1, \cdots, x_N}$</p>
+<h5 id="经验分布"><a href="#经验分布" class="headerlink" title="经验分布"></a>经验分布</h5><p>$Data &#x3D; {x_1, \cdots, x_N}$</p>
 <ul>
 <li><strong>频率分布</strong>： $P(x_1, x_2, \ldots, x_n) \approx \hat{P}(x) &#x3D; \frac{\text{count}(x)}{N}$</li>
 <li><strong>经验期望</strong>： $\mathbb{E}<em>p[f(x)] &#x3D; \Delta \approx \frac{1}{N} \sum</em>{i&#x3D;1}^N f(x_i)$</li>
 </ul>
 <p>最大熵问题的求解<br>$$<br>\begin{aligned}<br>\min_{p(x)} &amp; \sum_x p(x) \log p(x) \<br>\text{subject to} &amp; \sum_x p(x) &#x3D; 1 \<br>&amp; \mathbb{E}<em>p[f(x)] &#x3D; \mathbb{E}</em>{\hat{p}}[f(x)] &#x3D; \Delta<br>\end{aligned}<br>$$</p>
 <p>拉格朗日乘数法求解<br>$$<br>\begin{aligned}<br>L(p, \lambda, \eta) &amp;&#x3D; \sum_x p(x) \log p(x) + \lambda (1 - \sum_x p(x)) + \eta (\Delta - \sum_x p(x) f(x)) \<br>\frac{\partial}{\partial p(x)} &amp;&#x3D; \log p(x) + 1 - \lambda_0 - \lambda f(x) &#x3D; 0 \<br>p(x) &amp;&#x3D; \exp(\lambda_1 f(x) + \lambda_0 - 1) \<br>&amp;&#x3D; \frac{\exp(\eta^T f(x))}{Z(\eta)}<br>\end{aligned}<br>$$</p>
-<h2 id="贝叶斯网络"><a href="#贝叶斯网络" class="headerlink" title="贝叶斯网络"></a>贝叶斯网络</h2><p>有向无环图<br>因子分解</p>
+<h3 id="贝叶斯网络"><a href="#贝叶斯网络" class="headerlink" title="贝叶斯网络"></a>贝叶斯网络</h3><p>有向无环图<br>因子分解</p>
 <ul>
 <li>$P(X_1,X_2,…,X_n)&#x3D;\prod_{i}{P(X_i|Pa(X_i))}$</li>
 <li>$P(X_i|Pa(X_i))$是局部概率分布</li>
 <li>$Pa(X_i)$是$X_i$的父节点集合</li>
 </ul>
-<h3 id="三种模型"><a href="#三种模型" class="headerlink" title="三种模型"></a>三种模型</h3><h4 id="tail-to-tail"><a href="#tail-to-tail" class="headerlink" title="tail-to-tail"></a>tail-to-tail</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a--&gt; b</span><br><span class="line">  a--&gt; c</span><br></pre></td></tr></table></figure>
+<h4 id="三种模型"><a href="#三种模型" class="headerlink" title="三种模型"></a>三种模型</h4><h5 id="tail-to-tail"><a href="#tail-to-tail" class="headerlink" title="tail-to-tail"></a>tail-to-tail</h5>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a--&gt; b</span><br><span class="line">  a--&gt; c</span><br></pre></td></tr></table></figure>
 <p>因子分解：</p>
 <ul>
 <li>$P(a, b, c)&#x3D;P(a)P(b|a)P(c|a)$</li>
@@ -813,15 +813,15 @@
 <li>$P(a, b, c)&#x3D;P(a)P(b|a)P(c|a, b)$</li>
 </ul>
 <p>$\implies P(c|a)&#x3D;P(c|a, b)\implies c\perp b |a$<br>若$b$ 被观测则路径被阻塞： </p>
-<h4 id="head-to-tail"><a href="#head-to-tail" class="headerlink" title="head-to-tail"></a>head-to-tail</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a --&gt;b </span><br><span class="line">  b --&gt;c </span><br></pre></td></tr></table></figure>
+<h5 id="head-to-tail"><a href="#head-to-tail" class="headerlink" title="head-to-tail"></a>head-to-tail</h5>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a --&gt;b </span><br><span class="line">  b --&gt;c </span><br></pre></td></tr></table></figure>
 <p>$a\perp c |b$<br>若$b$ 被观测则路径被阻塞： </p>
-<h4 id="head-to-head"><a href="#head-to-head" class="headerlink" title="head-to-head"></a>head-to-head</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  b--&gt; c</span><br><span class="line">  a--&gt; c</span><br></pre></td></tr></table></figure>
+<h5 id="head-to-head"><a href="#head-to-head" class="headerlink" title="head-to-head"></a>head-to-head</h5>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  b--&gt; c</span><br><span class="line">  a--&gt; c</span><br></pre></td></tr></table></figure>
 <ul>
 <li>$P(a, b, c)&#x3D;P(a)P(b)P(c|a, b)$</li>
 <li>$P(a, b, c)&#x3D;P(a)P(b|a)P(c | a, b)$</li>
 </ul>
 <p>$\implies P(b)&#x3D;P(b|a)\implies a\perp b$<br>若$b$ 被观测则路径被连通：</p>
-<h3 id="D-seperation"><a href="#D-seperation" class="headerlink" title="D-seperation"></a>D-seperation</h3>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a  --&gt; b1</span><br><span class="line">  a  --&gt; b2</span><br><span class="line">  a  --&gt; b*</span><br><span class="line">  b1 --&gt; c</span><br><span class="line">  b2 --&gt; c</span><br><span class="line">  c  --&gt; b*</span><br></pre></td></tr></table></figure>
+<h4 id="D-seperation"><a href="#D-seperation" class="headerlink" title="D-seperation"></a>D-seperation</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a  --&gt; b1</span><br><span class="line">  a  --&gt; b2</span><br><span class="line">  a  --&gt; b*</span><br><span class="line">  b1 --&gt; c</span><br><span class="line">  b2 --&gt; c</span><br><span class="line">  c  --&gt; b*</span><br></pre></td></tr></table></figure>
 <ul>
 <li>如果$b1, b2\in B$被观测了<br>，那么$a$和$c$被阻断，</li>
 <li>但是$b*$没有被观测到,且$b*$的后续节点都不在$b$中<br>$a\perp c|b$</li>
@@ -843,7 +843,7 @@
 <p>马尔可夫毯的作用是在给定马尔可夫毯内所有节点的情况下，$x_i$ 与网络中其他节点条件独立。</p>
 <p>$$<br>P(x_i | x_{-i}) &#x3D; \frac{P(x_i, x_{-i})}{P(x_{-i})} &#x3D; \frac{P(x)}{\int_{x_i} P(x_{-i})} &#x3D; \frac{ \int_{x_i} P(x) , dx_i }{ \int_{x_i} P(x_j | x_{\text{pa}(j)}) , dx_i }<br>$$</p>
 <p>$$<br>P(x_{\text{child}(i)} | x_i, x_{\text{Parent}(\text{Child}(i))})<br>$$</p>
-<h3 id="贝叶斯网络-Beyesian-Network"><a href="#贝叶斯网络-Beyesian-Network" class="headerlink" title="贝叶斯网络 Beyesian Network"></a>贝叶斯网络 Beyesian Network</h3><p>NB<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  y--&gt; x1 </span><br><span class="line">  y--&gt; xp</span><br></pre></td></tr></table></figure></p>
+<h4 id="贝叶斯网络-Beyesian-Network"><a href="#贝叶斯网络-Beyesian-Network" class="headerlink" title="贝叶斯网络 Beyesian Network"></a>贝叶斯网络 Beyesian Network</h4><p>NB<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  y--&gt; x1 </span><br><span class="line">  y--&gt; xp</span><br></pre></td></tr></table></figure></p>
 <p>GMM<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  z--&gt; x</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>Beyesian Network</p>
 <ul>
 <li>单一： Naive Bayes<ul>
@@ -868,7 +868,7 @@
 <li>LDS Kalman Filter 连续线性</li>
 <li>Particle filter 非线性非高斯</li>
 </ul>
-<h2 id="Markov-Network"><a href="#Markov-Network" class="headerlink" title="Markov Network"></a>Markov Network</h2><p>条件独立性</p>
+<h3 id="Markov-Network"><a href="#Markov-Network" class="headerlink" title="Markov Network"></a>Markov Network</h3><p>条件独立性</p>
 <ul>
 <li>全局 Global Markov Property<ul>
 <li>$X_A \perp X_C \mid X_B$</li>
@@ -886,7 +886,7 @@
 </ul>
 </li>
 </ul>
-<h3 id="Factorization"><a href="#Factorization" class="headerlink" title="Factorization"></a>Factorization</h3><p>团: Clique<br>最大团: Maximal Clique<br>$$<br>P(X) &#x3D; \frac{1}{Z} \prod_{i&#x3D;1}^K \psi(X_{C_i})<br>$$</p>
+<h4 id="Factorization"><a href="#Factorization" class="headerlink" title="Factorization"></a>Factorization</h4><p>团: Clique<br>最大团: Maximal Clique<br>$$<br>P(X) &#x3D; \frac{1}{Z} \prod_{i&#x3D;1}^K \psi(X_{C_i})<br>$$</p>
 <ul>
 <li>$c_i$ 最大团</li>
 <li>$x_{c_i}$: 最大团随机变量集合</li>
@@ -898,7 +898,7 @@
 <li>$\psi(X_{C_i})$ 是定义在最大团 $C_i$ 上的因子函数</li>
 </ul>
 <p>何弃疗<br><img src="/2024-05-29-Casual-Inference/image-3.png" alt="alt text"></p>
-<h2 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h2><ul>
+<h3 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h3><ul>
 <li><p>联合概率 Joint Probability</p>
 <ul>
 <li>$P(X) &#x3D; P(x_1, x_2, \ldots, x_p)$</li>
@@ -937,8 +937,8 @@
 </ul>
 </li>
 </ul>
-<h3 id="Variable-Elimination"><a href="#Variable-Elimination" class="headerlink" title="Variable Elimination"></a>Variable Elimination</h3><p>$P(x) &#x3D; \prod_{i} \phi_i(x_i)$</p>
-<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设我们有四个二值随机变量 $a, b, c, d\in {0,1}$。我们想计算边缘概率 $P(d)$。<br>$a\rightarrow b \rightarrow c \rightarrow d$</p>
+<h4 id="Variable-Elimination"><a href="#Variable-Elimination" class="headerlink" title="Variable Elimination"></a>Variable Elimination</h4><p>$P(x) &#x3D; \prod_{i} \phi_i(x_i)$</p>
+<h4 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h4><p>假设我们有四个二值随机变量 $a, b, c, d\in {0,1}$。我们想计算边缘概率 $P(d)$。<br>$a\rightarrow b \rightarrow c \rightarrow d$</p>
 <ol>
 <li><p>展开联合分布：</p>
 <ul>
