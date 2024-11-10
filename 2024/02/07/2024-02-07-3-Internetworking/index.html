@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>3 - Internetworking | Tlhey&#39;s Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Internetwoking: To build global newtworks.  Three main tasks of interconnecting networks.  same type: Switches (Bridges) diff types: IP, routers Computin between nodes: Routing protocols  3.1 - Switch">
+<meta property="og:type" content="article">
+<meta property="og:title" content="3 - Internetworking">
+<meta property="og:url" content="https://tlhey.github.io/2024/02/07/2024-02-07-3-Internetworking/index.html">
+<meta property="og:site_name" content="Tlhey&#39;s Website">
+<meta property="og:description" content="Internetwoking: To build global newtworks.  Three main tasks of interconnecting networks.  same type: Switches (Bridges) diff types: IP, routers Computin between nodes: Routing protocols  3.1 - Switch">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://tlhey.github.io/3-Internetworking/image.png">
+<meta property="article:published_time" content="2024-02-07T01:14:34.000Z">
+<meta property="article:modified_time" content="2024-11-10T12:21:49.759Z">
+<meta property="article:author" content="Tlhey">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://tlhey.github.io/3-Internetworking/image.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Tlhey's Website" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Tlhey&#39;s Website</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://tlhey.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-2024-02-07-3-Internetworking" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/02/07/2024-02-07-3-Internetworking/" class="article-date">
+  <time class="dt-published" datetime="2024-02-07T01:14:34.000Z" itemprop="datePublished">2024-02-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      3 - Internetworking
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Internetwoking: To build global newtworks. </p>
+<p>Three main tasks of interconnecting networks.</p>
+<ul>
+<li>same type: Switches (Bridges)</li>
+<li>diff types: IP, routers</li>
+<li>Computin between nodes: Routing protocols</li>
+</ul>
+<h1 id="3-1-Switching-basics"><a href="#3-1-Switching-basics" class="headerlink" title="3.1 - Switching basics"></a>3.1 - Switching basics</h1><h2 id="Switch"><a href="#Switch" class="headerlink" title="Switch"></a>Switch</h2><h3 id="Def"><a href="#Def" class="headerlink" title="Def"></a>Def</h3><blockquote>
+<p>A switch is a multi-input, multi-output device that transfers packets from an input to one or more outputs.”. Network switches interconnect links of the same type</p>
+</blockquote>
+<h3 id="Property"><a href="#Property" class="headerlink" title="Property"></a>Property</h3><ul>
+<li>Interconnect switch <strong>(Scalable)</strong></li>
+<li>connect switches to each other and to hosts using point-to-point links</li>
+<li>Providing high aggregate throughput<blockquote>
+<p>Adding a new host to the network by connecting it to a switch does not necessarily reduce the performance of the network for other hosts already connected.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="Job"><a href="#Job" class="headerlink" title="Job"></a>Job</h3><p><strong>Swithching</strong> or <strong>Forwarding</strong> Accoding to <strong>OSI(Open System Interconnceting)</strong></p>
+<blockquote>
+<p>A switch’s primary job is to receive incoming packets on one of its links and to transmit them on some other link.</p>
+</blockquote>
+<h2 id="Swithcing"><a href="#Swithcing" class="headerlink" title="Swithcing"></a>Swithcing</h2><h3 id="Assumption"><a href="#Assumption" class="headerlink" title="Assumption"></a>Assumption</h3><ol>
+<li>A way to identify the end nodes: <strong>Address</strong>, which is <strong>gloablly unique</strong>. e.g. MAC address in Esthernet, which is burned in the chip and is globally unique.</li>
+<li>There are ways to identify the input and output port for each switch by numbering them.</li>
+</ol>
+<h3 id="Datagram"><a href="#Datagram" class="headerlink" title="Datagram"></a>Datagram</h3><p>To decide how to forward a packet, a switch consults a forwarding table (sometimes called a routing table)</p>
+<table>
+<thead>
+<tr>
+<th>Destination</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A</td>
+<td>1</td>
+</tr>
+<tr>
+<td>B</td>
+<td>2</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<h3 id="Tyoes"><a href="#Tyoes" class="headerlink" title="Tyoes"></a>Tyoes</h3><p>Forwading types</p>
+<ul>
+<li>Frame&#x2F;packet forwarding </li>
+<li>Circuit frowarding </li>
+<li>Source forwarding</li>
+</ul>
+<h2 id="Frame-forwading"><a href="#Frame-forwading" class="headerlink" title="Frame forwading"></a>Frame forwading</h2><p>Which is called Datagram networks. (without connections)</p>
+<h2 id="Circult-forwarding"><a href="#Circult-forwarding" class="headerlink" title="Circult forwarding"></a>Circult forwarding</h2><h3 id="VC-Table"><a href="#VC-Table" class="headerlink" title="VC Table"></a>VC Table</h3><p>VCI: virtual circuit identifier </p>
+<table>
+<thead>
+<tr>
+<th>Input port</th>
+<th>Input VCI</th>
+<th>Out port</th>
+<th>Out CVI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody></table>
+<ul>
+<li>The VCI can be reused: VCI is not a globally significant identifier for the connection.</li>
+</ul>
+<h3 id="Eastablish-a-VC-Tbale"><a href="#Eastablish-a-VC-Tbale" class="headerlink" title="Eastablish a VC Tbale"></a>Eastablish a VC Tbale</h3><blockquote>
+<p>Signaling: A host can send messages into the network to cause the state to be established. This is referred to as signalling, and the resulting virtual circuits are said to <strong>be switched</strong>.</p>
+</blockquote>
+<h3 id="Notes"><a href="#Notes" class="headerlink" title="Notes!"></a>Notes!</h3><ul>
+<li>At least one round-trip time (RTT) of delay before data is sent to build the VC.</li>
+<li>(?)Connection request contains the full address for host B, each data packet contains only a small identifier, which is only unique on one link. Thus, the per-packet overhead caused by the header is reduced relative to the datagram model. More importantly, the lookup is fast because the virtual circuit number can be treated as an index into a table rather than as a key that has to be looked up.</li>
+</ul>
+<h2 id="Comparsion-btween-Frame-base-Circult-based-forwarding"><a href="#Comparsion-btween-Frame-base-Circult-based-forwarding" class="headerlink" title="Comparsion btween Frame-base&#x2F; Circult-based forwarding"></a>Comparsion btween Frame-base&#x2F; Circult-based forwarding</h2><p><img src="/3-Internetworking/image.png" alt="Alt text"></p>
+<h2 id="Source-based-routing"><a href="#Source-based-routing" class="headerlink" title="Source-based routing"></a>Source-based routing</h2><p>Path defined by the source and encoded in frame</p>
+<h1 id="3-2-Switched-Ethernet"><a href="#3-2-Switched-Ethernet" class="headerlink" title="3.2 Switched Ethernet"></a>3.2 Switched Ethernet</h1><h2 id="Bridges"><a href="#Bridges" class="headerlink" title="Bridges"></a>Bridges</h2><h2 id="Spanning-tree-algorithm"><a href="#Spanning-tree-algorithm" class="headerlink" title="Spanning tree algorithm"></a>Spanning tree algorithm</h2><h2 id="Broadcast"><a href="#Broadcast" class="headerlink" title="Broadcast"></a>Broadcast</h2><h2 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h2><h1 id="3-3-Internet-IP"><a href="#3-3-Internet-IP" class="headerlink" title="3.3 Internet(IP)"></a>3.3 Internet(IP)</h1><h2 id="Service-model"><a href="#Service-model" class="headerlink" title="Service model"></a>Service model</h2><h1 id="Recap"><a href="#Recap" class="headerlink" title="Recap"></a>Recap</h1><h2 id="link-Phys"><a href="#link-Phys" class="headerlink" title="link &amp; Phys"></a>link &amp; Phys</h2><ul>
+<li>5</li>
+</ul>
+<h2 id="netowork"><a href="#netowork" class="headerlink" title="netowork"></a>netowork</h2><ul>
+<li>switches</li>
+<li>IP</li>
+<li>routing</li>
+</ul>
+<h2 id="Transport"><a href="#Transport" class="headerlink" title="Transport"></a>Transport</h2><ul>
+<li>demultiplexing , port-number</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/02/07/2024-02-07-3-Internetworking/" data-id="cm3bkdmq20000o9bz19sj842r" data-title="3 - Internetworking" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/02/07/2024-02-07-Transport-layer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Transport layer
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/02/05/2024-02-05-ML/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ML</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/11/10/hello/">hello</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/05/2024-11-05-Digital-Image/">2024-11-05-Digital-Image</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/26/2024-10-26-Magic/">2024-10-26-Magic</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/25/2024-10-25-Duke-courses-selection/">2024-10-25 Duke courses selection</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/08/2024-09-08-Lofi/">2024-09-08 Lofi</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 Tlhey<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

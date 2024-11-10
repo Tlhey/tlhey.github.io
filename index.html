@@ -108,7 +108,1444 @@
 
 
   
+    <article id="post-2024-11-05-Digital-Image" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/11/05/2024-11-05-Digital-Image/" class="article-date">
+  <time class="dt-published" datetime="2024-11-05T04:45:14.000Z" itemprop="datePublished">2024-11-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/11/05/2024-11-05-Digital-Image/">2024-11-05-Digital-Image</a>
+    </h1>
+  
 
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Lecture-8"><a href="#Lecture-8" class="headerlink" title="Lecture 8"></a>Lecture 8</h1><p> Gaussian Blur Matrix:</p>
+<ul>
+<li>Influence by the standard deviation</li>
+</ul>
+<h2 id="Sliding-window"><a href="#Sliding-window" class="headerlink" title="Sliding window"></a>Sliding window</h2><ol>
+<li>Edge Detection</li>
+<li>Scale Edge Map<br>Sobel</li>
+</ol>
+<p>让我给你用简单直观的方式解释 <strong>Laplacian 变换</strong> 和 <strong>Sobel 算子</strong>，它们都是图像处理中的边缘检测工具。</p>
+<hr>
+<h3 id="1-Laplacian-变换"><a href="#1-Laplacian-变换" class="headerlink" title="1. Laplacian 变换"></a><strong>1. Laplacian 变换</strong></h3><ul>
+<li><p><strong>什么是 Laplacian 变换？</strong></p>
+<ul>
+<li>Laplacian 变换是一种二阶导数边缘检测方法，它能在图像中快速捕捉到亮度变化非常大的区域，也就是边缘。</li>
+<li><strong>原理</strong>：Laplacian 变换计算图像中每个像素的灰度值变化速率的变化，或者说灰度的二阶导数。这样，图像中的边缘（亮度变化剧烈的区域）就能被明显地突出。</li>
+</ul>
+</li>
+<li><p><strong>数学表达</strong>：<br>[<br>\nabla^2 f &#x3D; \frac{\partial^2 f}{\partial x^2} + \frac{\partial^2 f}{\partial y^2}<br>]<br>这个公式描述了 Laplacian 变换，计算图像在 x 和 y 方向上的二阶导数之和。这样可以检测到边缘的方向和强度。</p>
+</li>
+<li><p><strong>Laplacian 的特点</strong>：</p>
+<ul>
+<li>它对噪声非常敏感，所以通常需要先对图像进行平滑处理（如高斯模糊）来减少噪声，然后再应用 Laplacian。</li>
+<li>它检测到的边缘是无方向性的，即它能检测到水平方向、垂直方向和对角线方向的边缘。</li>
+</ul>
+</li>
+<li><p><strong>用途</strong>：</p>
+<ul>
+<li>常用于医学图像、工业检测等领域，帮助突出关键结构。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="2-Sobel-算子"><a href="#2-Sobel-算子" class="headerlink" title="2. Sobel 算子"></a><strong>2. Sobel 算子</strong></h3><ul>
+<li><p><strong>什么是 Sobel 算子？</strong></p>
+<ul>
+<li>Sobel 算子是一种一阶导数边缘检测方法，专门用来检测图像中的水平和垂直边缘。</li>
+<li>它通过计算图像在 x 和 y 方向上的梯度（灰度值的变化率）来检测边缘。</li>
+</ul>
+</li>
+<li><p><strong>Sobel 算子的滤波器</strong>：</p>
+<ul>
+<li>水平方向的 Sobel 滤波器（用于检测垂直边缘）：<br>[<br>\begin{bmatrix}<br>-1 &amp; 0 &amp; 1 \<br>-2 &amp; 0 &amp; 2 \<br>-1 &amp; 0 &amp; 1<br>\end{bmatrix}<br>]</li>
+<li>垂直方向的 Sobel 滤波器（用于检测水平边缘）：<br>[<br>\begin{bmatrix}<br>-1 &amp; -2 &amp; -1 \<br>0 &amp; 0 &amp; 0 \<br>1 &amp; 2 &amp; 1<br>\end{bmatrix}<br>]</li>
+<li>通过这两个滤波器，我们可以分别得到图像在 x 和 y 方向上的边缘信息。</li>
+</ul>
+</li>
+<li><p><strong>Sobel 的特点</strong>：</p>
+<ul>
+<li>它对噪声的敏感性较低，因为它在计算梯度时会对像素进行平滑处理。</li>
+<li>它更适合用于检测具有明确边缘的对象，比如建筑物、道路等。</li>
+</ul>
+</li>
+<li><p><strong>用途</strong>：</p>
+<ul>
+<li>常用于实时边缘检测，比如自动驾驶中的车道检测和机器人视觉。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a><strong>总结</strong></h3><ul>
+<li><strong>Laplacian 变换</strong>是一种高敏感度、无方向性的边缘检测方法，可以检测到图像中所有方向的边缘，但对噪声敏感。</li>
+<li><strong>Sobel 算子</strong>是一种更常用的、有方向性的边缘检测方法，适合检测水平和垂直边缘，并且对噪声有一定的抑制能力。</li>
+</ul>
+<p><strong>希望这些解释能帮助你理解它们的作用！</strong> 如果你想深入了解它们的实现或在特定场景中的应用，我很乐意提供更多帮助。继续努力，你在学习图像处理方面会越来越棒的！🌸</p>
+<h2 id="Chapter-14-Morphological-Image-Processing-形态学图像处理"><a href="#Chapter-14-Morphological-Image-Processing-形态学图像处理" class="headerlink" title="Chapter 14 Morphological Image Processing 形态学图像处理"></a>Chapter 14 Morphological Image Processing 形态学图像处理</h2><p>in Morphological </p>
+<ul>
+<li>1: black</li>
+<li>0: white</li>
+</ul>
+<p>Set operator:</p>
+<p>Binary Connectivity:<br>4-Connectivity: N, E, W, S<br>8-Connectivity: NW, NE, SW, SE</p>
+<p>Bond Weighing:<br> 4-c: 2<br> 8-c: 4</p>
+<p>Structuring Element (SE):</p>
+<p>Hit or Miss Transformations:</p>
+<h1 id="Morphological-Image-Processing"><a href="#Morphological-Image-Processing" class="headerlink" title="Morphological Image Processing"></a>Morphological Image Processing</h1><p>Morphological image processing is a set of operations that change the shape or structure of objects in an image. The main operations include:</p>
+<ul>
+<li><strong>Dilation</strong>: Expands the boundaries of objects.</li>
+<li><strong>Erosion</strong>: Shrinks the boundaries of objects.</li>
+<li><strong>Skeletonization</strong>: Reduces objects to thin lines or their skeletons.</li>
+</ul>
+<p>These techniques are useful for analyzing the shape, size, and structure of objects in an image.</p>
+<h2 id="Key-Concepts"><a href="#Key-Concepts" class="headerlink" title="Key Concepts"></a>Key Concepts</h2><ol>
+<li><p><strong>Binary Image Connectivity</strong></p>
+<ul>
+<li>Connectivity refers to how pixels are grouped as a part of the same object.</li>
+<li>There are two main types:<ul>
+<li><strong>4-connected</strong>: Pixels connected in the north, south, east, or west directions.</li>
+<li><strong>8-connected</strong>: Pixels connected in all directions, including diagonals.</li>
+</ul>
+</li>
+<li>Pixel connectivity can affect how shapes are interpreted, such as whether a set of pixels forms a closed ring.</li>
+</ul>
+</li>
+<li><p><strong>Hit-or-Miss Transform</strong></p>
+<ul>
+<li>This is used to detect specific shapes or patterns in a binary image.</li>
+<li>A small mask (like a 3x3 grid) is applied to see if pixels match a specific pattern (hit) or not (miss).</li>
+<li>This transform is useful for cleaning up noise in images.</li>
+</ul>
+</li>
+<li><p><strong>Additive and Subtractive Operators</strong></p>
+<ul>
+<li><strong>Additive Operators</strong>: Add black pixels based on certain rules, such as filling gaps.</li>
+<li><strong>Subtractive Operators</strong>: Remove black pixels to clean up or simplify the image.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Applications"><a href="#Applications" class="headerlink" title="Applications"></a>Applications</h2><ul>
+<li>Filling small gaps in objects.</li>
+<li>Cleaning up noise.</li>
+<li>Analyzing object connectivity and shape.</li>
+</ul>
+<p>These techniques are fundamental in image analysis and computer vision, where understanding the shape and structure of objects is crucial.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/11/05/2024-11-05-Digital-Image/" data-id="cm3bkfugb0001tvbzc3y2b445" data-title="2024-11-05-Digital-Image" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-10-26-Magic" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/26/2024-10-26-Magic/" class="article-date">
+  <time class="dt-published" datetime="2024-10-25T18:46:12.000Z" itemprop="datePublished">2024-10-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/26/2024-10-26-Magic/">2024-10-26-Magic</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="网安教学"><a href="#网安教学" class="headerlink" title="网安教学"></a>网安教学</h1><p><a target="_blank" rel="noopener" href="https://program-think.blogspot.com/2019/01/Security-Guide-for-Political-Activists.html">https://program-think.blogspot.com/2019/01/Security-Guide-for-Political-Activists.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/10/26/2024-10-26-Magic/" data-id="cm3bkfug70000tvbz5fg0h9j1" data-title="2024-10-26-Magic" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-10-25-Duke-courses-selection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/10/25/2024-10-25-Duke-courses-selection/" class="article-date">
+  <time class="dt-published" datetime="2024-10-25T10:06:08.000Z" itemprop="datePublished">2024-10-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/10/25/2024-10-25-Duke-courses-selection/">2024-10-25 Duke courses selection</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>COMPSCI 527 CV<br>prof: <a target="_blank" rel="noopener" href="https://www.ratemyprofessors.com/professor/782570">https://www.ratemyprofessors.com/professor/782570</a></p>
+<p>COMPSCI 572 NLP<br><a target="_blank" rel="noopener" href="https://scholars.duke.edu/person/monica.agrawal/credentials">https://scholars.duke.edu/person/monica.agrawal/credentials</a><br><a target="_blank" rel="noopener" href="https://www.ratemyprofessors.com/professor/2877561">https://www.ratemyprofessors.com/professor/2877561</a></p>
+<p>MATH 317S<br>有点难？？？计算考的比较多<br><a target="_blank" rel="noopener" href="https://www.ratemyprofessors.com/professor/2843167">https://www.ratemyprofessors.com/professor/2843167</a></p>
+<p>ECE 590 Generative AI<br><a target="_blank" rel="noopener" href="https://scholars.duke.edu/person/Zhenqiang.Gong">https://scholars.duke.edu/person/Zhenqiang.Gong</a></p>
+<p>ECE 590 FOURIER TRANSFORM &amp;APPLICATION<br><a target="_blank" rel="noopener" href="https://scholars.duke.edu/person/cummer/publications">https://scholars.duke.edu/person/cummer/publications</a><br><a target="_blank" rel="noopener" href="https://www.ratemyprofessors.com/professor/610337">https://www.ratemyprofessors.com/professor/610337</a></p>
+<p>ECON 101<br>CR</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/10/25/2024-10-25-Duke-courses-selection/" data-id="cm3bkfbaj0001k7bzb8o3husl" data-title="2024-10-25 Duke courses selection" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-09-08-Lofi" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/08/2024-09-08-Lofi/" class="article-date">
+  <time class="dt-published" datetime="2024-09-08T15:21:24.000Z" itemprop="datePublished">2024-09-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/08/2024-09-08-Lofi/">2024-09-08 Lofi</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="lofi-pixel"><a href="#lofi-pixel" class="headerlink" title="lofi pixel"></a>lofi pixel</h1><p><a target="_blank" rel="noopener" href="https://github.com/nixonsu/lofi-lounge?tab=readme-ov-file">https://github.com/nixonsu/lofi-lounge?tab=readme-ov-file</a><br><a target="_blank" rel="noopener" href="https://lofi-lounge.com/">https://lofi-lounge.com/</a></p>
+<h2 id="pixel-art-drwaing-gif"><a href="#pixel-art-drwaing-gif" class="headerlink" title="pixel art drwaing&#x2F;gif"></a>pixel art drwaing&#x2F;gif</h2><p><a target="_blank" rel="noopener" href="https://www.pixilart.com/draw">https://www.pixilart.com/draw</a></p>
+<h1 id="Music"><a href="#Music" class="headerlink" title="Music"></a>Music</h1><p><a target="_blank" rel="noopener" href="https://github.com/jacbz/Lofi">https://github.com/jacbz/Lofi</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/09/08/2024-09-08-Lofi/" data-id="cm3bkfbah0000k7bzdqph71vo" data-title="2024-09-08 Lofi" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-08-14-Webpages" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/14/2024-08-14-Webpages/" class="article-date">
+  <time class="dt-published" datetime="2024-08-14T10:00:02.000Z" itemprop="datePublished">2024-08-14</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/08/14/2024-08-14-Webpages/">Webpages</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="Wordpress-收费"><a href="#Wordpress-收费" class="headerlink" title="Wordpress (收费)"></a>Wordpress (收费)</h1><p>零代码编辑网页 Wordpress<br><a target="_blank" rel="noopener" href="https://wordpress.com/">https://wordpress.com/</a><br>Wordpress 部署：<br><a target="_blank" rel="noopener" href="https://wordpress.com/setup/domain-transfer/intro">https://wordpress.com/setup/domain-transfer/intro</a><br>（这个收费的，搭完才发现，，，）</p>
+<p>搭配模板<br><a target="_blank" rel="noopener" href="https://startertemplatecloud.com/g11/">https://startertemplatecloud.com/g11/</a></p>
+<p>除了那些流行的模板框架，还有一些比较小众但很有特色的选择，它们可能更适合特定类型的项目或设计偏好：</p>
+<p>TurretCSS: 一个基于约束的 CSS 框架，通过声明式语法实现灵活的布局和响应式设计。<br>BassCSS: 一个轻量级、模块化的 CSS 框架，专注于提供简洁、易于理解的样式。<br>Milligram: 一个极简主义的 CSS 框架，旨在提供最小的样式，让开发者能够自由地构建自定义设计。<br>Picnic CSS: 一个轻量级、易于使用的 CSS 框架，提供简洁、现代的样式和组件。<br>Chota: 一个极简的 CSS 框架，文件大小非常小，适合对性能要求高的项目。<br>Blaze CSS: 一个模块化、可扩展的 CSS 框架，提供灵活的网格系统和丰富的组件。</p>
+<h1 id="个人网页教程"><a href="#个人网页教程" class="headerlink" title="个人网页教程"></a>个人网页教程</h1><p>Hexo, WordPress<br><a target="_blank" rel="noopener" href="https://pdpeng.github.io/2022/01/19/setup-personal-blog/">https://pdpeng.github.io/2022/01/19/setup-personal-blog/</a></p>
+<p>Wordpress<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wongbingming/p/13819905.html">https://www.cnblogs.com/wongbingming/p/13819905.html</a></p>
+<h1 id="Github-Page"><a href="#Github-Page" class="headerlink" title="Github Page"></a>Github Page</h1><p>Github page 域名：<br><a target="_blank" rel="noopener" href="https://pages.github.com/">https://pages.github.com/</a></p>
+<h1 id="Free-Gallery-template"><a href="#Free-Gallery-template" class="headerlink" title="Free Gallery template"></a>Free Gallery template</h1><p>好用好看<br><a target="_blank" rel="noopener" href="https://www.free-css.com/template-categories/gallery">https://www.free-css.com/template-categories/gallery</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/08/14/2024-08-14-Webpages/" data-id="cm3bkf6dq0001h1bzf8sq8s1d" data-title="Webpages" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-08-12-Music-tech-exploring" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/08/13/2024-08-12-Music-tech-exploring/" class="article-date">
+  <time class="dt-published" datetime="2024-08-13T06:19:24.000Z" itemprop="datePublished">2024-08-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/08/13/2024-08-12-Music-tech-exploring/">Music tech exploring</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>跟音乐相关的ML<br>应该先看survey 而不是自己做survey???</p>
+<ol>
+<li>survey 17: Deep Learning Techniques for Music Generation – A Survey 17<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1709.01620">https://arxiv.org/pdf/1709.01620</a></li>
+</ol>
+<ul>
+<li>symbolic AI – dealing with high-level symbolic representations (e.g., chords, harmony. . . ) and processes (harmonization, analysis. . . ); and</li>
+<li>sub-symbolic AI – dealing with low-level representations (e.g., sound, timbre. . . ) and processes (pitch recognition,<br>classification. . . ).<br><img src="/2024-06-03-Cytoid-AI-Charting/image-1.png" alt="alt text"><br>(a) Musical score of a C-major scale. (b) Chromagram obtained from the score. (c) Audio recording of the C-major scale played on a piano. (d) Chromagram obtained from the audio recording.</li>
+</ul>
+<p>4.11.2 One-hot, Many-Hot and to Multi-One-Hot</p>
+<p>Dataset:<br>4.12.2 Datasets and Libraries</p>
+<ul>
+<li>Classical piano MIDI database <a target="_blank" rel="noopener" href="http://piano-midi.de/">http://piano-midi.de/</a></li>
+</ul>
+<h1 id="CONCERT-94"><a href="#CONCERT-94" class="headerlink" title="CONCERT 94"></a>CONCERT 94</h1><p>Neural network music composition by prediction: Exploring the benefits of psychoacoustic constraints and multi-scale processing”</p>
+<ul>
+<li>estimating the probability of playing the next note</li>
+<li>generated notes: $P(Y_{n+1}&#x3D;y_{n+1}|Y_n&#x3D;y_n, Y_{n−1}&#x3D;y_{n−1}, Y_{n−2}&#x3D;y_{n−2},…)$</li>
+</ul>
+<h1 id="DeepJ-18"><a href="#DeepJ-18" class="headerlink" title="DeepJ 18"></a>DeepJ 18</h1><p>增强改变 Style 和 type<br>polyphonic music conditioned on a specific or a mixture of multiple composer styles</p>
+<ul>
+<li>polyphonic (复调): not monophonic</li>
+</ul>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method:"></a>Method:</h2><ul>
+<li>previous: comb of RNN, RBM (restricted Boltzmann machines):</li>
+<li><strong>Novel</strong>:  Biaxial LSTM</li>
+</ul>
+<p>Biaxial LSTM</p>
+<ol>
+<li>rep: MIDI $N×T$ </li>
+<li>architecture:  $P(Y_{t, n}\vert Y_{t, n-1}, \ Y_{t, n-2}, \ \ldots, \ Y_{t-1, N}, \ Y_{t-1, N-1}, \ldots, \ Y_{1, 2}, \ Y_{1, 1})$<br><img src="/2024-06-03-Cytoid-AI-Charting/image.png" alt="alt text"></li>
+</ol>
+<h1 id="Bach-2-0"><a href="#Bach-2-0" class="headerlink" title="Bach 2.0"></a>Bach 2.0</h1><p><a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1877050919313444?via=ihub">https://www.sciencedirect.com/science/article/pii/S1877050919313444?via%3Dihub</a></p>
+<h1 id="ISMIR"><a href="#ISMIR" class="headerlink" title="ISMIR"></a>ISMIR</h1><p><a target="_blank" rel="noopener" href="https://ismir.net/conferences/">https://ismir.net/conferences/</a></p>
+<h1 id="Prof-Shlomo-Dubnov"><a href="#Prof-Shlomo-Dubnov" class="headerlink" title="Prof Shlomo Dubnov"></a>Prof Shlomo Dubnov</h1><p>Google scholar: <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?view_op=list_works&hl=en&hl=en&user=NJfiIl8AAAAJ&sortby=pubdate">https://scholar.google.com/citations?view_op=list_works&amp;hl=en&amp;hl=en&amp;user=NJfiIl8AAAAJ&amp;sortby=pubdate</a><br>Webpage: <a target="_blank" rel="noopener" href="http://shlomodubnov.wikidot.com/research">http://shlomodubnov.wikidot.com/research</a></p>
+<h1 id="prof-Gus-Xia-的讲座"><a href="#prof-Gus-Xia-的讲座" class="headerlink" title="prof Gus Xia 的讲座"></a>prof Gus Xia 的讲座</h1><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=dPeh3XVlmlE">https://www.youtube.com/watch?v=dPeh3XVlmlE</a></p>
+<h2 id="Intro-pitches-tuning"><a href="#Intro-pitches-tuning" class="headerlink" title="Intro: pitches tuning:"></a>Intro: pitches tuning:</h2><p>pythagorean tuning: 三分损益法， 五度相生律<br>Octave 2：1 with fifth 3:2<br>八度 2：1， 五度3：2<br>十二平均律： $2^{(x&#x2F;12)}$</p>
+<h2 id="AI-Music-listening"><a href="#AI-Music-listening" class="headerlink" title="AI+ Music listening"></a>AI+ Music listening</h2><h3 id="Fingerprint"><a href="#Fingerprint" class="headerlink" title="Fingerprint"></a>Fingerprint</h3><p>Extraction Algorithm: Philips (2002)<br><img src="/2024-08-12-Music-tech-exploring/image.png" alt="alt text"><br>傅里叶分析什么的<br>Short-time fourier transform<br>FFT size 0.37<br>Hanning window</p>
+<h3 id="Query-by-Humming"><a href="#Query-by-Humming" class="headerlink" title="Query by Humming"></a>Query by Humming</h3><ol>
+<li>partial matching</li>
+<li>fuzzy match</li>
+<li>out of pitch</li>
+</ol>
+<p>MIDI + 合成器<br>MIDI(straigthforward like a string) !&#x3D; Audio (quantization)</p>
+<p>Absolute pitch<br>relatice pitch<br>IOI(Inter Onset Interval) ratio</p>
+<p>Dynamic programming<br>Pattern recognition:</p>
+<h3 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h3><p>spectrum(energy at diss frequencies), MFCC, Zero crossing, Chroma, Estimtates of tempo<br>chromagram, spectrogram<br><img src="/2024-08-12-Music-tech-exploring/image-1.png" alt="alt text"></p>
+<h2 id="AI-Music-Composition"><a href="#AI-Music-Composition" class="headerlink" title="AI+ Music Composition"></a>AI+ Music Composition</h2><p>Algorithmic composition</p>
+<p>Canon, </p>
+<h3 id="Deterministic"><a href="#Deterministic" class="headerlink" title="Deterministic"></a>Deterministic</h3><p>Fractal:分型</p>
+<h3 id="Stochastic-process"><a href="#Stochastic-process" class="headerlink" title="Stochastic process"></a>Stochastic process</h3><h3 id="ML-Music-as-sequence"><a href="#ML-Music-as-sequence" class="headerlink" title="ML: Music as sequence"></a>ML: Music as sequence</h3><h3 id="Mapping-natural-phenomena-ot-music"><a href="#Mapping-natural-phenomena-ot-music" class="headerlink" title="Mapping natural phenomena ot music"></a>Mapping natural phenomena ot music</h3><h2 id="AI-Music-Composition-1"><a href="#AI-Music-Composition-1" class="headerlink" title="AI+ Music Composition"></a>AI+ Music Composition</h2><h1 id="Fugue"><a href="#Fugue" class="headerlink" title="Fugue"></a>Fugue</h1><p>在赋格中，基本元素包括：</p>
+<p>主题 (Subject)：赋格开始时由一个声部提出的旋律动机。<br>答题 (Answer)：另一声部紧接主题以模仿的形式进入，一般会转调至属音。<br>对题 (Countersubject)：伴随答题出现的第二个旋律动机。<br>插段 (Episode)：主题和答题出现后，插入的自由发展段落。<br>codetta<br>interlude<br>赋格的陈述部分 (Exposition) 是其最严格的部分，之后的段落则允许更自由的变化。作曲家可以通过各种技术手段如加倍 (augmentation)、减缩 (diminution)、倒影 (inversion) 和紧缩 (stretto) 来改变主题的原型。</p>
+<h1 id="Fourier-Transform"><a href="#Fourier-Transform" class="headerlink" title="Fourier Transform"></a>Fourier Transform</h1><p><a target="_blank" rel="noopener" href="https://ltyxh.com/blog/2022/05/17/%E9%9F%B3%E9%A2%91%E6%8A%80%E6%9C%AF4/">https://ltyxh.com/blog/2022/05/17/%E9%9F%B3%E9%A2%91%E6%8A%80%E6%9C%AF4/</a><br>这个系列讲的特别清楚</p>
+<h1 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h1><p>从0教你VAE：<br>    - 交叉熵与KL散度(信息论)：<br>        - <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/345025351">https://zhuanlan.zhihu.com/p/345025351</a><br>            - $I(x) &#x3D; K log(P(x)), K&lt;0$ Information<br>            - $H(p) &#x3D; -\sum p(x_i)logp(x_i)$ Entropy<br>        - <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346518942">https://zhuanlan.zhihu.com/p/346518942</a><br>    - MSE, 0-1 loss, Logistic loss:<br>        -  <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346935187">https://zhuanlan.zhihu.com/p/346935187</a><br>    - VAE：<br>        - <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/348498294">https://zhuanlan.zhihu.com/p/348498294</a><br>        - <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/34998569">https://zhuanlan.zhihu.com/p/34998569</a><br>        - VAE讲解：<a target="_blank" rel="noopener" href="https://www.zhangzhenhu.com/aigc/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8.html">https://www.zhangzhenhu.com/aigc/%E5%8F%98%E5%88%86%E8%87%AA%E7%BC%96%E7%A0%81%E5%99%A8.html</a></p>
+<h2 id="Loss-Functions"><a href="#Loss-Functions" class="headerlink" title="Loss Functions"></a>Loss Functions</h2><p>Cross Entropy Loss:<br>$H(p, q) &#x3D; \mathbb{E}_{X \sim p(X)} \left[ - \log q(X) \right].\$</p>
+<p>KL Divergence:<br>对于离散随机变量，分布$p$和$q$的KL散度的定义如下：</p>
+<p>$D_{K L}(p | q) &#x3D; -\sum_{i&#x3D;1}^{n} p(x_{i}) \cdot \log \frac{q(x_{i})}{p(x_{i})}.\$</p>
+<p>对KL散度在信息论中的一个直观的理解是将其写开，即</p>
+<p>$\begin{aligned} D_{K L}(p | q) &amp;&#x3D; -\sum_{i&#x3D;1}^{n} p(x_{i}) \cdot \log \frac{q(x_{i})}{p(x_{i})} \                 &amp;&#x3D; -\sum_{i&#x3D;1}^{n} p(x_{i}) \cdot \log q(x_{i}) + \sum_{i&#x3D;1}^{n} p(x_{i}) \cdot \log p(x_{i}) \                 &amp;&#x3D; H(p,q) - H(p). \end{aligned}\$</p>
+<h2 id="好东西，，"><a href="#好东西，，" class="headerlink" title="好东西，，"></a>好东西，，</h2><p>loss详解<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1334301979816820736">https://www.zhihu.com/column/c_1334301979816820736</a></p>
+<p>除了我都会，，图神经网络<br><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1322582255018184704">https://www.zhihu.com/column/c_1322582255018184704</a></p>
+<h2 id="VAE-1"><a href="#VAE-1" class="headerlink" title="VAE"></a>VAE</h2><p>总的来说觉得x和z是对称的，但x可采样，打破对称性。</p>
+<h1 id="Diffusion-model"><a href="#Diffusion-model" class="headerlink" title="Diffusion model"></a>Diffusion model</h1><p>介绍了consisitency model, VAE, Diffusion model , stable diffusion, LoRA, Latent Consistency Model 之间的关系，<br>从头讲解的Consistency model 的原理<br><a target="_blank" rel="noopener" href="https://wrong.wang/blog/20220605-%E4%BB%80%E4%B9%88%E6%98%AFdiffusion%E6%A8%A1%E5%9E%8B/">https://wrong.wang/blog/20220605-%E4%BB%80%E4%B9%88%E6%98%AFdiffusion%E6%A8%A1%E5%9E%8B/</a></p>
+<p><a target="_blank" rel="noopener" href="https://antarina.tech/posts/notes/articles/%E7%AC%94%E8%AE%B0speed_sd.html">https://antarina.tech/posts/notes/articles/%E7%AC%94%E8%AE%B0speed_sd.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://lilianweng.github.io/posts/2021-07-11-diffusion-models/">https://lilianweng.github.io/posts/2021-07-11-diffusion-models/</a></p>
+<h1 id="Consisitency-Diffusion"><a href="#Consisitency-Diffusion" class="headerlink" title="Consisitency Diffusion"></a>Consisitency Diffusion</h1><p><a target="_blank" rel="noopener" href="https://wrong.wang/blog/20231111-consistency-is-all-you-need/">https://wrong.wang/blog/20231111-consistency-is-all-you-need/</a></p>
+<h1 id="DIFF-A-RIFF-Musical-Acoompanimetn-via-latent-diffusion-models"><a href="#DIFF-A-RIFF-Musical-Acoompanimetn-via-latent-diffusion-models" class="headerlink" title="DIFF-A-RIFF: Musical Acoompanimetn via latent diffusion models"></a>DIFF-A-RIFF: Musical Acoompanimetn via latent diffusion models</h1><ol>
+<li>Consistency Autoencoder</li>
+<li>Elucidated Diffusion Models (EDMs)</li>
+</ol>
+<h2 id="Related-1-End-to-End-Autoregressive-model-high-fidelity-and-ability-to-produce-coherent-long-range-sequences-expensive-cost-for-calculateion-GANs-VAEs-are-faster-but-limiting-fidelity-Denoising-Difussion-Implicit-Models-2-Latent-models-q3-Control-Mechanism-Music-ControlNet"><a href="#Related-1-End-to-End-Autoregressive-model-high-fidelity-and-ability-to-produce-coherent-long-range-sequences-expensive-cost-for-calculateion-GANs-VAEs-are-faster-but-limiting-fidelity-Denoising-Difussion-Implicit-Models-2-Latent-models-q3-Control-Mechanism-Music-ControlNet" class="headerlink" title="Related:1. End-to-End Autoregressive model:    - high fidelity and ability to produce coherent, long-range sequences    - expensive cost for calculateion    - GANs&#x2F;VAEs are faster but limiting fidelity    - Denoising Difussion Implicit Models:2. Latent models    -  q3. Control Mechanism   - Music ControlNet"></a>Related:<br>1. End-to-End Autoregressive model:<br>    - high fidelity and ability to produce coherent, long-range sequences<br>    - expensive cost for calculateion<br>    - GANs&#x2F;VAEs are faster but limiting fidelity<br>    - Denoising Difussion Implicit Models:<br>2. Latent models<br>    -  q<br>3. Control Mechanism<br>   - Music ControlNet</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/08/13/2024-08-12-Music-tech-exploring/" data-id="cm3bkf6dn0000h1bzdsy03jff" data-title="Music tech exploring" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-05-29-Casual-Inference" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/29/2024-05-29-Casual-Inference/" class="article-date">
+  <time class="dt-published" datetime="2024-05-29T05:53:31.000Z" itemprop="datePublished">2024-05-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/29/2024-05-29-Casual-Inference/">Casual Inference</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="与贝叶斯有关的"><a href="#与贝叶斯有关的" class="headerlink" title="与贝叶斯有关的"></a>与贝叶斯有关的</h1><p>频率派的观点<br>为 $p(X|\theta)\mathop{&#x3D;}\limits_{iid}\prod\limits <em>{i&#x3D;1}^{N}p(x</em>{i}|\theta)$ </p>
+<p>为了求常量 $\theta$ 的大小,最大对数似然MLE的方法：<br>$\theta_{MLE}&#x3D;\mathop{argmax}\limits _{\theta}\log p(X|\theta)\mathop{&#x3D;}\limits _{iid}\mathop{argmax}\limits _{\theta}\sum\limits <em>{i&#x3D;1}^{N}\log p(x</em>{i}|\theta)$</p>
+<p>贝叶斯派的观点<br>$p(x|\theta)$ 中的 $\theta$ 不是一个常量。这个 $\theta$ 满足一个预设的先验的分布 $\theta\sim p(\theta)$</p>
+<p>$p(\theta|X)&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{p(X)}&#x3D;\frac{p(X|\theta)\cdot p(\theta)}{\int\limits _{\theta}p(X|\theta)\cdot p(\theta)d\theta}$</p>
+<p>为了求 $\theta$ 的值，我们要最大化这个参数后验MAP：</p>
+<p>$\theta_{MAP}&#x3D;\mathop{argmax}\limits _{\theta}p(\theta|X)&#x3D;\mathop{argmax}\limits _{\theta}p(X|\theta)\cdot p(\theta)$</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1><p><img src="/2024-05-29-Casual-Inference/image.png" alt="alt text"><br><img src="/2024-05-29-Casual-Inference/image-1.png" alt="alt text"></p>
+<p>基础知识和概念，包括d-分离<br>do算子<br>后门调整<br>前门调整<br>逆概率加权<br>反事实<br>因果关系发现中最基本的两类方法：基于独立性测试的方法，以及通过加性噪声模型的形式分析残差与预测者独立性关系的方法</p>
+<h1 id="chap1"><a href="#chap1" class="headerlink" title="chap1"></a>chap1</h1><p>partition, law of total probability<br>summing up its probabilities over all Bi is called marginalizing over $B$, and the resulting probability P(A) is called the marginal probability of $A$.<br>$P(A)&#x3D;P(A,B_1)+P(A,B_2)+···+P(A,B_n)$</p>
+<p>Def conditional probabilities<br>$P(A|B)&#x3D;P(A,B)∕P(B)$</p>
+<p>independence, giving no additional information<br>$P(A,B)&#x3D;P(A)P(B)$</p>
+<p>$P(A|B)&#x3D;\frac{P(B|A)P(A)}{P(B)}$</p>
+<p>$P(A)&#x3D;P(A|B_1)P(B_1)+P(A|B_2)P(B-2)+···+P(A|B_k)P(B_k)$</p>
+<p>Sructual Casual Models SCM<br>U exogenous variables, external to the model;</p>
+<h1 id="HMM"><a href="#HMM" class="headerlink" title="HMM"></a>HMM</h1><h2 id="https-www-yuque-com-bystander-wg876-yc5f72-dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC-等-Def-lambda-pi-A-B-pi-is-the-initial-state-distribution-o-t-来表示观测变量，-O-为观测序列，-V-v-1-v-2-cdots-v-M-表示观测的值域-i-t-表示状态变量，-I-为状态序列，-Q-q-1-q-2-cdots-q-N-表示状态变量的值域-A-a-ij-p-i-t-1-q-j-i-t-q-i-状态转移矩阵-B-b-j-k-p-o-t-v-k-i-t-q-j-发射矩阵"><a href="#https-www-yuque-com-bystander-wg876-yc5f72-dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC-等-Def-lambda-pi-A-B-pi-is-the-initial-state-distribution-o-t-来表示观测变量，-O-为观测序列，-V-v-1-v-2-cdots-v-M-表示观测的值域-i-t-表示状态变量，-I-为状态序列，-Q-q-1-q-2-cdots-q-N-表示状态变量的值域-A-a-ij-p-i-t-1-q-j-i-t-q-i-状态转移矩阵-B-b-j-k-p-o-t-v-k-i-t-q-j-发射矩阵" class="headerlink" title="https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b机器学习模型可以从频率派和贝叶斯派频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC 等## Def$\lambda&#x3D;(\pi,A,B)$- $\pi$ is the initial state distribution- $o_t$ 来表示观测变量，$O$ 为观测序列，$V&#x3D;{v_1,v_2,\cdots,v_M}$ 表示观测的值域- $i_t$ 表示状态变量，$I$ 为状态序列，$Q&#x3D;{q_1,q_2,\cdots,q_N}$ 表示状态变量的值域- $A&#x3D;(a_{ij}&#x3D;p(i_{t+1}&#x3D;q_j|i_t&#x3D;q_i))$状态转移矩阵- $B&#x3D;(b_j(k)&#x3D;p(o_t&#x3D;v_k|i_t&#x3D;q_j))$ 发射矩阵"></a><a target="_blank" rel="noopener" href="https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b">https://www.yuque.com/bystander-wg876/yc5f72/dvgo5b</a><br>机器学习模型可以从频率派和贝叶斯派<br>频率派的方法中的核心是优化问题，而在贝叶斯派的方法中，核心是积分问题，也发展出来了一系列的积分方法如变分推断，MCMC 等<br>## Def<br>$\lambda&#x3D;(\pi,A,B)$<br><br>- $\pi$ is the initial state distribution<br>- $o_t$ 来表示观测变量，$O$ 为观测序列，$V&#x3D;{v_1,v_2,\cdots,v_M}$ 表示观测的值域<br>- $i_t$ 表示状态变量，$I$ 为状态序列，$Q&#x3D;{q_1,q_2,\cdots,q_N}$ 表示状态变量的值域<br>- $A&#x3D;(a_{ij}&#x3D;p(i_{t+1}&#x3D;q_j|i_t&#x3D;q_i))$状态转移矩阵<br>- $B&#x3D;(b_j(k)&#x3D;p(o_t&#x3D;v_k|i_t&#x3D;q_j))$ 发射矩阵</h2><h3 id="两个基本假设"><a href="#两个基本假设" class="headerlink" title="两个基本假设"></a>两个基本假设</h3><ol>
+<li>齐次 Markov 假设（未来只依赖于当前）：<br>$p(i_{t+1}|i_t,i_{t-1},\cdots,i_1,o_t,o_{t-1},\cdots,o_1)&#x3D;p(i_{t+1}|i_t)$</li>
+<li>观测独立假设：<br>$p(o_t|i_t,i_{t-1},\cdots,i_1,o_{t-1},\cdots,o_1)&#x3D;p(o_t|i_t)$</li>
+</ol>
+<h3 id="三个基本问题"><a href="#三个基本问题" class="headerlink" title="三个基本问题"></a>三个基本问题</h3><ol>
+<li>Evaluation：$p(O|\lambda)$，Forward-Backward </li>
+<li>Learning：$\lambda&#x3D;\mathop{argmax}\limits_{\lambda}p(O|\lambda)$，EM （Baum-Welch）</li>
+<li>Decoding：$I&#x3D;\mathop{argmax}\limits_{I}p(I|O,\lambda)$，Vierbi 算法<br>  a. 预测问题：$p(i_{t+1}|o_1,o_2,\cdots,o_t)$<br>  b. 滤波问题：$p(i_t|o_1,o_2,\cdots,o_t)$</li>
+</ol>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><h2 id="-2"><a href="#-2" class="headerlink" title=""></a></h2><h1 id="有关MCMC"><a href="#有关MCMC" class="headerlink" title="有关MCMC"></a>有关MCMC</h1><h2 id="一个比较基础的介绍：-https-zhuanlan-zhihu-com-p-420214359-Abstract-贝叶斯推断估计参数的方法是：我们可以算出参数-Theta-的分布函数-P-Theta-，我们用参数分布的数学期望作为对参数的估计值-MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计-我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值"><a href="#一个比较基础的介绍：-https-zhuanlan-zhihu-com-p-420214359-Abstract-贝叶斯推断估计参数的方法是：我们可以算出参数-Theta-的分布函数-P-Theta-，我们用参数分布的数学期望作为对参数的估计值-MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计-我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值" class="headerlink" title="一个比较基础的介绍： https://zhuanlan.zhihu.com/p/420214359- Abstract:  - 贝叶斯推断估计参数的方法是：我们可以算出参数$\Theta$的分布函数$P(\Theta)$，我们用参数分布的数学期望作为对参数的估计值  - MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计  - 我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值"></a>一个比较基础的介绍： <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/420214359">https://zhuanlan.zhihu.com/p/420214359</a><br>- Abstract:<br>  - 贝叶斯推断估计参数的方法是：我们可以算出参数$\Theta$的分布函数$P(\Theta)$，我们用参数分布的数学期望作为对参数的估计值<br>  - MCMC的作用是：可以帮我们从任意（无论有没有解析形式的）分布上抽样一批数据，然后用这堆抽样数据的均值作为对这个分布期望的估计<br>  - 我们用MCMC这种求期望的方法求参数分布期望的估计值，以此求出参数的估计值</h2><h2 id="1-Monte-Carlo-Sampling"><a href="#1-Monte-Carlo-Sampling" class="headerlink" title="1 Monte Carlo Sampling"></a>1 Monte Carlo Sampling</h2><p>如果$X$服从$f(x)$这个概率分布，我怎么获得$E(X)$<br>最常见的一种Monte Carlo方法的使用场景就是：对随机变量进行充分多的采样后，使用这些采样的均值来估计总体的期望</p>
+<p>对于随机变量$X$，它的概率密度函数为$p(x)$，因此它的数学期望为<br>$E(x)&#x3D;\int_{-\infty}^{+\infty}xp(x)dx$<br>我们对于这个随机变量随机采样得到$n$个采样值$x_i$，根据大数定理，有<br>$\lim_{n\rightarrow+\infty}{\frac1n\sum_i^n{x_i}}&#x3D;E(X)$</p>
+<h2 id="2-Bayes-MCMC"><a href="#2-Bayes-MCMC" class="headerlink" title="2 Bayes &amp; MCMC"></a>2 Bayes &amp; MCMC</h2><h3 id="2-1-Bayes-Model-参数-Theta-，Observed-data-D"><a href="#2-1-Bayes-Model-参数-Theta-，Observed-data-D" class="headerlink" title="2.1 Bayes Model: 参数$\Theta$ ，Observed data: $D$"></a>2.1 Bayes Model: 参数$\Theta$ ，Observed data: $D$</h3><p>贝叶斯公式：$P(\Theta|D)&#x3D;\frac1{P(D)}P(D|\Theta)P(\Theta)$</p>
+<p>由于$P(D)$是一个无关紧要的常数，因此上式往往直接写成一个正比关系式：<br>$P(\Theta|D)\propto P(D|\Theta)P(\Theta)$</p>
+<p>在贝叶斯推断里：</p>
+<ol>
+<li>通过$P(\Theta|D)$来得到$\Theta$的估计值</li>
+<li>模型给出$P(D|\Theta)$， 即likelihood$P(D|\Theta)$</li>
+<li>还可以通过$P(\Theta)$来对参数的分布情况做一些先验的猜测。（如果你什么都不知道，$P(\Theta)$自然可以猜一个均匀分布）</li>
+</ol>
+<h3 id="2-2-通过后验概率-P-Theta-D-获取参数-Theta-的估计值"><a href="#2-2-通过后验概率-P-Theta-D-获取参数-Theta-的估计值" class="headerlink" title="2.2 通过后验概率$P(\Theta|D)$获取参数$\Theta$的估计值"></a>2.2 通过后验概率$P(\Theta|D)$获取参数$\Theta$的估计值</h3><p>想法：众数或者期望作为<br>估计值</p>
+<ol>
+<li>众数：$\hat\Theta&#x3D;\arg\max_\Theta{P(\Theta|D)}$</li>
+<li>期望：$\hat\Theta&#x3D;\int_\Theta\Theta P(\Theta|D)d\Theta$</li>
+</ol>
+<p>MCMC就是教我们怎么在一个没有解析形式的数据上「抽样几个数据算平均值」的方法</p>
+<h2 id="3-Sampling-采样"><a href="#3-Sampling-采样" class="headerlink" title="3 Sampling 采样"></a>3 Sampling 采样</h2><ol>
+<li>Uniform</li>
+<li>Gaussian:<br>Given $U_1,U_2$<br>  $$<br>   Z_0 &#x3D; \sqrt{-2 \ln U_1} \cos(2\pi U_2)<br>   $$<br>   $$<br>   Z_1 &#x3D; \sqrt{-2 \ln U_1} \sin(2\pi U_2)<br>   $$</li>
+<li>Reject-Accept: 用于对很不规则的$f(x)$采样。具体细节没看</li>
+<li></li>
+</ol>
+<h2 id="Markov-Chain"><a href="#Markov-Chain" class="headerlink" title="Markov Chain"></a>Markov Chain</h2><p>一个对马尔可夫状态讲的比较详细的文章：<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/250146007">https://zhuanlan.zhihu.com/p/250146007</a></p>
+<h3 id="Def"><a href="#Def" class="headerlink" title="Def"></a>Def</h3><p>转移概率矩阵：</p>
+<p>$P&#x3D;\begin{bmatrix}p_{11} &amp; p_{12} &amp;p_{13} \ p_{21} &amp; p_{22} &amp;p_{23} \ p_{31} &amp; p_{32} &amp;p_{33}\end{bmatrix}$ </p>
+<p>其中 $p_{ij}&#x3D;P(X_{t}&#x3D;i|X_{t-1}&#x3D;j)$ 。</p>
+<p>定义：马尔科夫链在 $t$ 时刻的概率分布称为 $t$ 时刻的状态分布：</p>
+<p>$\pi (t)&#x3D;\begin{bmatrix}\pi_{1}(t) \ \pi_{2}(t) \ \pi_{3}(t)\end{bmatrix}$ </p>
+<p>其中  $\pi_{i} (t)&#x3D;P(X_{t}&#x3D;i),i&#x3D;1,2,…$ 。</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ol>
+<li><p>定理：给定一个马尔科夫链 $X&#x3D;\left{ X_0,X_1,…,X_t,… \right}$ ， $t$ 时刻的状态分布：<br> $\pi&#x3D;(\pi_1,\pi_2,…)$ 是 $X$ 的平稳分布的条件是 $\pi&#x3D;(\pi_1,\pi_2,…)$ 是下列方程组的解：<br> $x_{i}&#x3D;\sum_{j}{p_{ij}x_j},i&#x3D;1,2,…$<br> $x_i\geq0,i&#x3D;1,2,…$<br> $\sum_{i}{x_{i}&#x3D;1}$</p>
+</li>
+<li></li>
+</ol>
+<h2 id="MCMC具体细节"><a href="#MCMC具体细节" class="headerlink" title="MCMC具体细节"></a>MCMC具体细节</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/253784711">https://zhuanlan.zhihu.com/p/253784711</a></p>
+<h1 id="Conditional-Random-Field-CRF"><a href="#Conditional-Random-Field-CRF" class="headerlink" title="Conditional Random Field(CRF)"></a>Conditional Random Field(CRF)</h1><ul>
+<li>HMM 生成模型</li>
+<li>MEMM Maximum Entropy Markov Model</li>
+</ul>
+<p><img src="/2024-05-29-Casual-Inference/image-4.png" alt="alt text"></p>
+<ul>
+<li>HMM:<br>$$ P(\mathbf{X}, \mathbf{Y} | \lambda) &#x3D; P(\mathbf{Y} | \lambda) P(\mathbf{X} | \mathbf{Y}, \lambda) $$</li>
+<li>MEMM:<br>$$ P(y_t | y_{t-1}, x_t) $$</li>
+<li>CRF:<br>$$ P(\mathbf{Y} | \mathbf{X}, \lambda) &#x3D; \frac{1}{Z(\mathbf{X})} \exp \left( \sum_{t&#x3D;1}^{T} \lambda_t f(y_t, y_{t-1}, \mathbf{X}, t) \right) $$</li>
+</ul>
+<h1 id="概率图模型"><a href="#概率图模型" class="headerlink" title="概率图模型"></a>概率图模型</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BW41117xo/?spm_id_from=333.999.0.0&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1BW41117xo/?spm_id_from=333.999.0.0&amp;vd_source=441679270dda23308fe16f3c5602b058</a></p>
+<h2 id="概率和图"><a href="#概率和图" class="headerlink" title="概率和图"></a>概率和图</h2><p>概率图</p>
+<ul>
+<li>表示 Representation<ul>
+<li>有向图 Beyesian Netowrk</li>
+<li>无向图</li>
+<li>高斯图（连续的随机变量）</li>
+</ul>
+</li>
+<li>推断 Inference<ul>
+<li>精确推断</li>
+<li>近似推断<ul>
+<li>确定性推断（变分）</li>
+<li>随机近似 MCMC</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>学习<ul>
+<li>参数学习<ul>
+<li>完备数据</li>
+<li>隐变量</li>
+</ul>
+</li>
+<li>结构学习</li>
+</ul>
+</li>
+</ul>
+<p>高维随机变量</p>
+<ul>
+<li>sum: $P(x_1) &#x3D; \int P(x_1, x_2)dx_2$</li>
+<li>product: $P(x_1|x_2) &#x3D; P(x_1|x_2)P(x_2)&#x3D;P(x_2|x_1)P(x_1)$</li>
+</ul>
+<p>链式法则</p>
+<ul>
+<li>$$P(X_1,X_2,…,X_n)&#x3D;P(X_1)P(X_2|X_1)P(X_3|X_2,X_1)···P(X_n|X_{n-1},X_{n-2},…,X_1)$$</li>
+</ul>
+<p>全概率公式</p>
+<ul>
+<li>$P(X_i)&#x3D;\sum_{j}{P(X_i,X_j)}&#x3D;\sum_{j}{P(X_i|X_j)P(X_j)}$</li>
+</ul>
+<p>贝叶斯公式</p>
+<ul>
+<li>$P(X_i|X_j)&#x3D;\frac{P(X_i,X_j)}{P(X_j)}&#x3D;\frac{P(X_i|X_j)P(X_j)}{P(X_j)}$</li>
+</ul>
+<p>困境：<br>维度高$P(X_1,X_2,…,X_n)$计算复杂</p>
+<ul>
+<li>1.假设$X_i$相互独立:<ul>
+<li>$P(X_1,X_2,…,X_n)&#x3D;\prod_{i}{P(X_i)}$</li>
+</ul>
+</li>
+<li>2.Markov Property(HMM齐次马尔可夫):<ul>
+<li>$x_j\perp x_i+1|x_i, j&lt;i$ </li>
+<li>$P(X_1, X_2,…,X_n)&#x3D;P(X_1)P(X_2|X_1)P(X_3|X_2,X_1)···P(X_n|X_{n-1},X_{n-2},…,X_1)$</li>
+</ul>
+</li>
+<li>3.假设$X_i$条件独立: <ul>
+<li>$x_a\perp x_b|x_c$</li>
+<li>$P(X_1,X_2,…,X_n)&#x3D;\prod_{i}{P(X_i|X_{i-1})}$</li>
+</ul>
+</li>
+</ul>
+<h3 id="概率补充知识"><a href="#概率补充知识" class="headerlink" title="概率补充知识"></a>概率补充知识</h3><p>指数族分布</p>
+<ul>
+<li>充分统计量$\phi(x)$</li>
+<li>共轭</li>
+<li>最大熵</li>
+<li>广义线性模型</li>
+<li>概率图模型</li>
+<li>变分推断</li>
+</ul>
+<p>充分统计量</p>
+<ul>
+<li>$P(x|\eta)&#x3D;h(x)\exp(\eta^T\phi(x)-A(\eta))$<ul>
+<li>$h(x)$: base measure</li>
+<li>$\eta$: parameter 参数向量</li>
+<li>$\phi(x)$: feature function</li>
+<li>$A(\eta)$： log partition function 配分函数</li>
+</ul>
+</li>
+<li>$P(x|\theta)&#x3D;\frac{1}{z}\hat P(x|\theta)$<ul>
+<li>$z&#x3D;\int \hat P(x|\theta)dx$ 归一化因子</li>
+</ul>
+</li>
+<li>$P(x|\eta)&#x3D;h(x)\exp(\eta^T\phi(x)-A(\eta))$<ul>
+<li>$&#x3D;\frac{1}{exp(A(\eta))}h(x)exp(\eta^T\phi(x))$</li>
+<li>$&#x3D;\frac{1}{z}\hat P(x|\eta)$<ul>
+<li>$\hat P(x|\eta)&#x3D;h(x)exp(\eta^T\phi(x))$</li>
+<li>$z&#x3D;exp(A(\eta))$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>共轭, 先后验分布同组方便计算</p>
+<ul>
+<li>$P(\theta|x)&#x3D;\frac{P(x|\theta)P(\theta)}{P(x)}$</li>
+<li>$P(\theta|x)$和$P(x|\theta)$属于同一个指数族</li>
+<li>$P(\theta|x)$的参数是$P(\theta|x)$的参数的函数</li>
+</ul>
+<p>先验</p>
+<ul>
+<li>共轭 - 计算方便</li>
+<li>最大熵 无信息先验</li>
+<li>Jerrif</li>
+</ul>
+<p>广义线性模型</p>
+<ul>
+<li>线性组合 $w^Tx$</li>
+<li>Link funciton -&gt;aactivation function</li>
+<li>指数分布 $y|x\sim$指数组分布（$Bernulli, Poisson, N(\mu, \Sigma)$）</li>
+</ul>
+<h4 id="Gaussian"><a href="#Gaussian" class="headerlink" title="Gaussian"></a>Gaussian</h4><ul>
+<li>$P(x|\mu,\Sigma)&#x3D;\frac{1}{(2\pi)^{n&#x2F;2}|\Sigma|^{1&#x2F;2}}\exp\left(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right)$</li>
+<li>$\eta&#x3D;<br>\left(!<br>  \begin{array}{c}<br>\eta_1 &#x3D;\frac{\mu}{\sigma^2}\<br>\eta_2&#x3D;-\frac{1}{\sigma^2}<br>  \end{array}<br>  !\right)$</li>
+<li>$\phi(x)&#x3D;\left(!<br>  \begin{array}{c}<br>x\<br>x^2<br>  \end{array}<br>  !\right)$</li>
+<li>$A(\eta)&#x3D;-\frac{\eta_1^2}{4\eta_2}+\frac{1}{2}\ln(-\frac{\pi}{\eta_2})$</li>
+</ul>
+<h4 id="-3"><a href="#-3" class="headerlink" title=""></a></h4><ul>
+<li>$P(x | \eta) &#x3D; h(x) \exp (\eta^T \phi(x) - A(\eta))$<ul>
+<li>$\eta$: 参数 (parameter)</li>
+<li>$\phi(x)$: 充分统计量 (sufficient statistics)</li>
+<li>$A(\eta)$: 对数配分函数 (log partition function)</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>$A’(\eta) &#x3D; \mathbb{E}_{P(x|\eta)}[\phi(x)]$</li>
+<li>$A’’(\eta) &#x3D; \text{Var}[\phi(x)]$</li>
+<li>$A(\eta)$ 是凸函数 (convex function)</li>
+</ol>
+<p>对这个函数求导</p>
+<ul>
+<li>$\exp(A(\eta)) &#x3D; \int h(x) \exp(\eta^T \phi(x)) , dx$</li>
+<li>$A’(\eta) &#x3D; \frac{\partial}{\partial \eta} \log \left( \int h(x) \exp(\eta^T \phi(x)) , dx \right)$</li>
+<li>$A’(\eta) &#x3D; \int \frac{h(x) \exp(\eta^T \phi(x)) \phi(x) , dx}{\exp(A(\eta))}$</li>
+<li>$A’(\eta) &#x3D; \int P(x | \eta) \phi(x) , dx &#x3D; \mathbb{E}_{P(x|\eta)}[\phi(x)]$</li>
+</ul>
+<h4 id="MLE"><a href="#MLE" class="headerlink" title="MLE"></a>MLE</h4><p>$D&#x3D;{x_1, \cdots, x_N}$</p>
+<p>$\eta_{MLE}&#x3D;\text{argmax  } log(P(D|\eta))$</p>
+<ul>
+<li>$&#x3D;\sum_{i&#x3D;1}^N\text{argmax  }log\cdot h(x_i)+(\eta^T \phi(x_i) - A(\eta))$</li>
+<li><ul>
+<li>$&#x3D;\sum_{i&#x3D;1}^N\text{argmax  }\eta^T \phi(x_i) - A(\eta)$</li>
+</ul>
+</li>
+</ul>
+<p>set $\frac{\partial \eta_{MLE}}{\partial \eta}&#x3D;0$</p>
+<ul>
+<li>$\sum \phi(x_i)-NA’(\eta)&#x3D;0$</li>
+</ul>
+<h4 id="Entorpy-最大熵"><a href="#Entorpy-最大熵" class="headerlink" title="Entorpy 最大熵"></a>Entorpy 最大熵</h4><p>信息熵 $-log\ p$<br>熵，（对可能性的衡量）</p>
+<ul>
+<li><p>$E_{p(x)}[-log\ p]&#x3D;\int -p(x)log\ p(x)dx&#x3D; \sum -p(x)log\ p(x)$</p>
+</li>
+<li><p>$\hat p_i&#x3D;\text{argmax } H(p)$ </p>
+</li>
+<li><p>拉格朗日$\mathcal{L}(p, \lambda)&#x3D;\sum p_ilog\ p_i$</p>
+<ul>
+<li>$\frac{\partial \mathcal{L}}{\partial p_i}&#x3D;log\ p_i+1-\lambda$</li>
+<li>$\hat p_i&#x3D;exp(\lambda-1)&#x3D;1&#x2F;k$</li>
+</ul>
+</li>
+</ul>
+<h4 id="经验分布"><a href="#经验分布" class="headerlink" title="经验分布"></a>经验分布</h4><p>$Data &#x3D; {x_1, \cdots, x_N}$</p>
+<ul>
+<li><strong>频率分布</strong>： $P(x_1, x_2, \ldots, x_n) \approx \hat{P}(x) &#x3D; \frac{\text{count}(x)}{N}$</li>
+<li><strong>经验期望</strong>： $\mathbb{E}<em>p[f(x)] &#x3D; \Delta \approx \frac{1}{N} \sum</em>{i&#x3D;1}^N f(x_i)$</li>
+</ul>
+<p>最大熵问题的求解<br>$$<br>\begin{aligned}<br>\min_{p(x)} &amp; \sum_x p(x) \log p(x) \<br>\text{subject to} &amp; \sum_x p(x) &#x3D; 1 \<br>&amp; \mathbb{E}<em>p[f(x)] &#x3D; \mathbb{E}</em>{\hat{p}}[f(x)] &#x3D; \Delta<br>\end{aligned}<br>$$</p>
+<p>拉格朗日乘数法求解<br>$$<br>\begin{aligned}<br>L(p, \lambda, \eta) &amp;&#x3D; \sum_x p(x) \log p(x) + \lambda (1 - \sum_x p(x)) + \eta (\Delta - \sum_x p(x) f(x)) \<br>\frac{\partial}{\partial p(x)} &amp;&#x3D; \log p(x) + 1 - \lambda_0 - \lambda f(x) &#x3D; 0 \<br>p(x) &amp;&#x3D; \exp(\lambda_1 f(x) + \lambda_0 - 1) \<br>&amp;&#x3D; \frac{\exp(\eta^T f(x))}{Z(\eta)}<br>\end{aligned}<br>$$</p>
+<h2 id="贝叶斯网络"><a href="#贝叶斯网络" class="headerlink" title="贝叶斯网络"></a>贝叶斯网络</h2><p>有向无环图<br>因子分解</p>
+<ul>
+<li>$P(X_1,X_2,…,X_n)&#x3D;\prod_{i}{P(X_i|Pa(X_i))}$</li>
+<li>$P(X_i|Pa(X_i))$是局部概率分布</li>
+<li>$Pa(X_i)$是$X_i$的父节点集合</li>
+</ul>
+<h3 id="三种模型"><a href="#三种模型" class="headerlink" title="三种模型"></a>三种模型</h3><h4 id="tail-to-tail"><a href="#tail-to-tail" class="headerlink" title="tail-to-tail"></a>tail-to-tail</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a--&gt; b</span><br><span class="line">  a--&gt; c</span><br></pre></td></tr></table></figure>
+<p>因子分解：</p>
+<ul>
+<li>$P(a, b, c)&#x3D;P(a)P(b|a)P(c|a)$</li>
+</ul>
+<p>链式法则：</p>
+<ul>
+<li>$P(a, b, c)&#x3D;P(a)P(b|a)P(c|a, b)$</li>
+</ul>
+<p>$\implies P(c|a)&#x3D;P(c|a, b)\implies c\perp b |a$<br>若$b$ 被观测则路径被阻塞： </p>
+<h4 id="head-to-tail"><a href="#head-to-tail" class="headerlink" title="head-to-tail"></a>head-to-tail</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a --&gt;b </span><br><span class="line">  b --&gt;c </span><br></pre></td></tr></table></figure>
+<p>$a\perp c |b$<br>若$b$ 被观测则路径被阻塞： </p>
+<h4 id="head-to-head"><a href="#head-to-head" class="headerlink" title="head-to-head"></a>head-to-head</h4>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  b--&gt; c</span><br><span class="line">  a--&gt; c</span><br></pre></td></tr></table></figure>
+<ul>
+<li>$P(a, b, c)&#x3D;P(a)P(b)P(c|a, b)$</li>
+<li>$P(a, b, c)&#x3D;P(a)P(b|a)P(c | a, b)$</li>
+</ul>
+<p>$\implies P(b)&#x3D;P(b|a)\implies a\perp b$<br>若$b$ 被观测则路径被连通：</p>
+<h3 id="D-seperation"><a href="#D-seperation" class="headerlink" title="D-seperation"></a>D-seperation</h3>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  a  --&gt; b1</span><br><span class="line">  a  --&gt; b2</span><br><span class="line">  a  --&gt; b*</span><br><span class="line">  b1 --&gt; c</span><br><span class="line">  b2 --&gt; c</span><br><span class="line">  c  --&gt; b*</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果$b1, b2\in B$被观测了<br>，那么$a$和$c$被阻断，</li>
+<li>但是$b*$没有被观测到,且$b*$的后续节点都不在$b$中<br>$a\perp c|b$</li>
+</ul>
+<p><img src="/2024-05-29-Casual-Inference/image-2.png" alt="alt text"><br>马尔可夫毯(Markov Blanket)</p>
+<ul>
+<li>$x_{pa(i)}$：$x_i$的父节点</li>
+<li>$x_{child(i)}$: childs of $x_i$</li>
+<li>$x_{pa(child(i))}$: parent of $x_{child(i)}$</li>
+<li>$x_{-i}&#x3D;x&#x2F;x_i$ 表示除了 $x_i$ 以外的所有变量。<ul>
+<li>和$x$有关:$\Delta$<ul>
+<li>$P(x_i|x_{Pa(i)})&#x3D;f(\bar \Delta)$</li>
+</ul>
+</li>
+<li>和$x$无关:$\bar \Delta$</li>
+</ul>
+</li>
+</ul>
+<p>马尔可夫毯的作用是在给定马尔可夫毯内所有节点的情况下，$x_i$ 与网络中其他节点条件独立。</p>
+<p>$$<br>P(x_i | x_{-i}) &#x3D; \frac{P(x_i, x_{-i})}{P(x_{-i})} &#x3D; \frac{P(x)}{\int_{x_i} P(x_{-i})} &#x3D; \frac{ \int_{x_i} P(x) , dx_i }{ \int_{x_i} P(x_j | x_{\text{pa}(j)}) , dx_i }<br>$$</p>
+<p>$$<br>P(x_{\text{child}(i)} | x_i, x_{\text{Parent}(\text{Child}(i))})<br>$$</p>
+<h3 id="贝叶斯网络-Beyesian-Network"><a href="#贝叶斯网络-Beyesian-Network" class="headerlink" title="贝叶斯网络 Beyesian Network"></a>贝叶斯网络 Beyesian Network</h3><p>NB<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  y--&gt; x1 </span><br><span class="line">  y--&gt; xp</span><br></pre></td></tr></table></figure></p>
+<p>GMM<br>  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR;</span><br><span class="line">  z--&gt; x</span><br><span class="line"></span><br></pre></td></tr></table></figure><br>Beyesian Network</p>
+<ul>
+<li>单一： Naive Bayes<ul>
+<li>p维： $P(x|y)&#x3D;\prod^p_{i&#x3D;1}P(x_i|y&#x3D;1)$</li>
+<li>$x_1\perp x_2|y$</li>
+</ul>
+</li>
+<li>混合：GMM<ul>
+<li>Z discrete, z&#x3D;1,2,3,4</li>
+</ul>
+</li>
+<li>时间<ul>
+<li>Markov Chain</li>
+<li>Gaussian Process(无限维分布)</li>
+</ul>
+</li>
+<li>连续： Gaussian Network</li>
+</ul>
+<p>动态模型</p>
+<ul>
+<li>HMM 离散</li>
+<li>LDS Kalman Filter 连续线性</li>
+<li>Particle filter 非线性非高斯</li>
+</ul>
+<h2 id="Markov-Network"><a href="#Markov-Network" class="headerlink" title="Markov Network"></a>Markov Network</h2><p>条件独立性</p>
+<ul>
+<li>全局 Global Markov Property<ul>
+<li>$X_A \perp X_C \mid X_B$</li>
+<li>如果集合 $X_A$ 和 $X_C$ 被集合 $X_B$ 分隔开，那么 $X_A$ 和 $X_C$ 是条件独立的</li>
+</ul>
+</li>
+<li>局部 Local Markov Property<ul>
+<li>$a \perp {Non-Neighbour} \mid {Neighbour}$</li>
+<li>{ }：集合</li>
+</ul>
+</li>
+<li>成对 Pairwise Markov Property<ul>
+<li>$x_i \perp x_j \mid x_{-ij}$</li>
+<li>如果节点 $x_i$ 和 $x_j$ 直接相连，那么在给定其他所有节点的情况下，$x_i$ 和 $x_j$ 是条件独立的</li>
+</ul>
+</li>
+</ul>
+<h3 id="Factorization"><a href="#Factorization" class="headerlink" title="Factorization"></a>Factorization</h3><p>团: Clique<br>最大团: Maximal Clique<br>$$<br>P(X) &#x3D; \frac{1}{Z} \prod_{i&#x3D;1}^K \psi(X_{C_i})<br>$$</p>
+<ul>
+<li>$c_i$ 最大团</li>
+<li>$x_{c_i}$: 最大团随机变量集合</li>
+<li>$\psi(x_{c_i})$: 势函数</li>
+<li>$Z$:<ul>
+<li>$Z &#x3D; \sum_{X} \prod_{i&#x3D;1}^K \psi(X_{C_i})$</li>
+</ul>
+</li>
+<li>$\psi(X_{C_i})$ 是定义在最大团 $C_i$ 上的因子函数</li>
+</ul>
+<p>何弃疗<br><img src="/2024-05-29-Casual-Inference/image-3.png" alt="alt text"></p>
+<h2 id="Inference"><a href="#Inference" class="headerlink" title="Inference"></a>Inference</h2><ul>
+<li><p>联合概率 Joint Probability</p>
+<ul>
+<li>$P(X) &#x3D; P(x_1, x_2, \ldots, x_p)$</li>
+</ul>
+</li>
+<li><p>边缘概率 Marginal Probability</p>
+<ul>
+<li>$P(x) &#x3D; \sum_{x_j} P(x_j)$</li>
+</ul>
+</li>
+<li><p>条件概率 Conditional Probability</p>
+<ul>
+<li>$P(x_i | x_j)$, 其中$x_j &#x3D; {x \backslash x_i}$</li>
+</ul>
+</li>
+<li><p>最大后验概率估计 MAP Inference</p>
+<ul>
+<li>$\hat{z} &#x3D; \arg \max_z P(z | x) \propto \arg \max_z P(z, x)$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><p>精确推断 Exact Inference</p>
+<ul>
+<li>Variable Elimination (VE)</li>
+<li>Belief Propagation (BP) → Sum-Product Algorithm (求和-乘积算法)</li>
+<li>Junction Tree Algorithm (树形算法)</li>
+</ul>
+</li>
+<li><p>近似推断 Approximate Inference</p>
+<ul>
+<li>Loop Belief Propagation (循环信念传播)</li>
+<li>Monte Carlo Inference: Importance Sampling, MCMC (蒙特卡罗推断：重要性采样，MCMC)</li>
+<li>Variational Inference (变分推断)</li>
+</ul>
+</li>
+</ul>
+<h3 id="Variable-Elimination"><a href="#Variable-Elimination" class="headerlink" title="Variable Elimination"></a>Variable Elimination</h3><p>$P(x) &#x3D; \prod_{i} \phi_i(x_i)$</p>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设我们有四个二值随机变量 $a, b, c, d\in {0,1}$。我们想计算边缘概率 $P(d)$。<br>$a\rightarrow b \rightarrow c \rightarrow d$</p>
+<ol>
+<li><p>展开联合分布：</p>
+<ul>
+<li>$P(d) &#x3D; \sum_{a, b, c} P(a, b, c, d)$</li>
+</ul>
+</li>
+<li><p>Chain rule</p>
+<ul>
+<li>$P(a, b, c, d) &#x3D; P(a) P(b | a) P(c | b) P(d | c)$</li>
+</ul>
+</li>
+<li><p>1-&gt;2</p>
+<ul>
+<li>$P(d) &#x3D; \sum_{a, b, c} P(a) P(b | a) P(c | b) P(d | c)$<ul>
+<li>$&#x3D; \sum_{b, c} P(d | c) \left( \sum_{a} P(a) P(b | a) \right) P(c | b)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>定义新的因子函数：</p>
+<ul>
+<li>$\phi_1(b, c) &#x3D; \sum_{a} P(a) P(b | a)$</li>
+</ul>
+</li>
+<li><p>最终得到：</p>
+<ul>
+<li>$P(d) &#x3D; \sum_{c} P(d | c) \left( \sum_{b} \phi_1(b, c) P(c | b) \right)$</li>
+</ul>
+</li>
+<li><p>得到另一个因子函数 $\phi_2(c, d)$：</p>
+<ul>
+<li>$P(d) &#x3D; \sum_{c} \phi_2(c, d)$</li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/05/29/2024-05-29-Casual-Inference/" data-id="cm3bkeaio00001kbzcehw2ki6" data-title="Casual Inference" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-05-08-Meetings-log" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/08/2024-05-08-Meetings-log/" class="article-date">
+  <time class="dt-published" datetime="2024-05-08T12:11:06.000Z" itemprop="datePublished">2024-05-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/08/2024-05-08-Meetings-log/">papers</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="1-Counterfactual-fairness"><a href="#1-Counterfactual-fairness" class="headerlink" title="1. Counterfactual fairness"></a>1. Counterfactual fairness</h1><p>Counterfactual fairness<br>link: <a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf</a></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Definitions:</p>
+<h4 id="defs"><a href="#defs" class="headerlink" title="defs"></a>defs</h4><p>$A$: Protected attributes, sensitive features<br>$X$: features of individuals, excluding A<br>$U$: latent features not observed, represented<br>$Y$: predictor    </p>
+<h4 id="Fairness-through-unawareness-FTU"><a href="#Fairness-through-unawareness-FTU" class="headerlink" title="Fairness through unawareness (FTU):"></a>Fairness through unawareness (FTU):</h4><p><em>An algorithm is fair so long as any protected attributes $A$ are not explicitly used in the decision-making process.</em><br>Shortcoming: $X$ might intersects $A$</p>
+<h4 id="Individual-Fairness-IF"><a href="#Individual-Fairness-IF" class="headerlink" title="Individual Fairness (IF)."></a>Individual Fairness (IF).</h4><p>For distance metric(should be carefully choosen), $d(\cdot , \cdot)$, if $d(i, j)$ is small, then $\hat Y(X^{(i)}, A^{(i)}) \approx \hat Y(X^{(j)}, A^{(j)})$</p>
+<h4 id="Demographic-Parity-DP-人口统计学意义上的平等"><a href="#Demographic-Parity-DP-人口统计学意义上的平等" class="headerlink" title="Demographic Parity (DP)(人口统计学意义上的平等)"></a>Demographic Parity (DP)(人口统计学意义上的平等)</h4><p>Predictor $\hat Y$ satisfies demographic partiy if $P(\hat Y|A&#x3D;0)&#x3D;P(\hat Y|A&#x3D;1)$ </p>
+<h4 id="Equality-of-Opportunity"><a href="#Equality-of-Opportunity" class="headerlink" title="Equality of Opportunity"></a>Equality of Opportunity</h4><p>$P(\hat Y|A&#x3D;0, Y&#x3D;1)&#x3D;P(\hat Y|A&#x3D;1, Y&#x3D;1)$ </p>
+<h3 id="Causal-Models-因果推断-Counterfacutal、"><a href="#Causal-Models-因果推断-Counterfacutal、" class="headerlink" title="Causal Models(因果推断), Counterfacutal、"></a>Causal Models(因果推断), Counterfacutal、</h3><p>Casual Model $(U, V, F)$,<br>$U$: latent background variables,<br>$V$: observed variables, <br>$F&#x3D;{f_1. f_2, \cdots, f_n}$, for each $V_i&#x3D;f_i(pa_i, U_{pa_i})\in V, pa_i \subseteq V \backslash {V_i}$ </p>
+<p><strong>Three Steps of Inference</strong>\</p>
+<ul>
+<li>Abduction：for a given prior on $U$, compute the posterior distribution of $U$ given the evidence $W &#x3D; w$</li>
+<li>Action：substitute the equations for $Z$ with the interventional values $z$, resulting in the modified set of equations $F_z$</li>
+<li>Prediction:</li>
+</ul>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><h3 id="Casual-Models-因果推断"><a href="#Casual-Models-因果推断" class="headerlink" title="Casual Models (因果推断)"></a>Casual Models (因果推断)</h3><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1217887302124773376">https://www.zhihu.com/column/c_1217887302124773376</a></p>
+<h4 id="Three-levels"><a href="#Three-levels" class="headerlink" title="Three levels:"></a>Three levels:</h4><ol>
+<li>Association: $A-B$ </li>
+<li>Intervention：$A&#x2F;A’ \rightarrow B?$</li>
+<li>Counterfactual $ want\ B’, how A\rightarrow A’$</li>
+</ol>
+<h4 id="Beyasian-Network"><a href="#Beyasian-Network" class="headerlink" title="Beyasian Network"></a>Beyasian Network</h4><p>In Directed acyclic Graph (DAG):<br><img src="/papers/image.png" alt="alt text"></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mantch/p/11179933.html">https://www.cnblogs.com/mantch/p/11179933.html</a><br>Component:</p>
+<ol>
+<li>head-to-head $a\rightarrow c\leftarrow b$ <br>$P(a,b,c) &#x3D; P(a)P(b)P(c|a,b)$,<br>unknown $c$, $a, b$ are blocked thus independent</li>
+<li>tail-to-tail $a\leftarrow c\rightarrow b$</li>
+</ol>
+<ul>
+<li>$c$ unknown, $P(a,b,c)&#x3D;P(c)P(a|c)P(b|c)$, $a, b$, not independent</li>
+<li>$c$ known, $P(a,b,c)&#x3D;P(c)P(a|c)P(b|c)$, $P(a,b|c)&#x3D;P(a,b,c)&#x2F;P(c)&#x3D;P(a|c)*P(b|c)$, $a, b $independent</li>
+</ul>
+<ol start="3">
+<li>head-to-tail (Markov Chain) $A\rightarrow C\rightarrow B$</li>
+</ol>
+<ul>
+<li>$c$ unknown, $a, b$, not independent</li>
+<li>$c$ known, $a, b$ independent</li>
+</ul>
+<p><strong>Factor Graph</strong></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><p>Confounder</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我从一天前开始看论文，被casual model的概念吸引了。我认为是很好的一个理解方式。从早上五点准备到十一点。<br>今天做了pre，效果很差。</p>
+<ol>
+<li>对概率的各种公式很不太了解。对贝叶斯和MCMC不会。</li>
+<li>没有去想过$U ,A, X$的关系。没有办法很好的解释论文中的逻辑关系。</li>
+</ol>
+<p>在开会的时候教授说重要东西：</p>
+<ol>
+<li>Counterfactual <br>这篇最重要的是： <strong>Definition 5:</strong> $P(\hat Y_{A\leftarrow a}(U)|X&#x3D;x, A&#x3D;a)&#x3D;P(\hat Y_{A\leftarrow a’}(U)|X&#x3D;x, A&#x3D;a)$ <br>很多‘概率’只是表示方法。（但是确实不很理解概率）<br>算法的思想在于：1. 引入因果图。2.寻找U（17年MCMC，现在可以GAN，或其他生成式学习方法）。</li>
+<li>$U \rightarrow X，A$<br>在计算中用$X, A \rightarrow U$ 有一些类似Adversarial learning. 可以研究怎么套用。</li>
+<li>GAD</li>
+<li>有点想做transfer learning 的那种</li>
+</ol>
+<h1 id="FairGAD"><a href="#FairGAD" class="headerlink" title="FairGAD"></a>FairGAD</h1><p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=3cE6NKYy8x">https://openreview.net/forum?id=3cE6NKYy8x</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.04937">https://arxiv.org/abs/2307.04937</a></p>
+<h2 id="Fair-GAD-problem"><a href="#Fair-GAD-problem" class="headerlink" title="Fair GAD problem"></a>Fair GAD problem</h2><p><strong>GAD</strong><br>$G&#x3D;(V, E, X)$, <br>node feature matrix $X\in \R^{n\times d}$, <br>Adjacency matrix $A\in {0,1}^{n\times n}$, <br>Anomaly labels $Y\in {0, 1}^n$, predicted $\hat Y$, <br><strong>Fair GAD</strong><br>sensitive attributes $S\in {0, 1}^n$, a binary feature $X$.<br>Performance matrix: accuracy and <em>AUCROC</em>: Area under the ROC Curve <br>Unfairness Mextrics, Statistic Parity(SP):$SP &#x3D; |P(\hat Y&#x3D;1|S&#x3D;0)−P(\hat Y &#x3D;1|S&#x3D;1)|$, <br>Equality of Odds <em>(EOO)</em>: $SP &#x3D; |P(\hat Y&#x3D;1|S&#x3D;0, Y&#x3D;1)−P(\hat Y &#x3D;1|S&#x3D;1, Y&#x3D;1)|$</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><ul>
+<li>Reddit:<br>graph structure： linking two user posted the name subreddit within 24h.<br>Node feature: Embedding from post histories.</li>
+<li>Twitter:<br>graph structure:: A follows B.<br>Node feature: demographic infromation using M3 system, multimodal, multilingual, multi attirbute demographix inderence framework.</li>
+</ul>
+<!-- ## GAD Methods
+### DOMINANT (Ding et al., 2019a)
+### CONAD (Xu et al., 2022)
+### COLA (Liu et al., 2021)
+### VGOD (Huang et al., 2023)
+
+## Non-Graph AD methods
+- DONE (Bandyopadhyay et al., 2020)
+- AdONE (Bandyopadhyay et al., 2020)
+- ECOD (Li et al., 2022)
+- VAE (Kingma & Welling, 2014)
+- ONE (Bandyopadhyay et al., 2019)
+- LOF (Breunig et al., 2000)
+- F (Liu et al., 2008)
+
+## Fainess Method:
+### FAIROD (Shekhar et al., 2021)
+### CORRELATION (Shekhar et al., 2021)
+### HIN (Zeng et al., 2021)
+### EDITS (Dong et al., 2022)
+### FAIRWALK (Rahman et al., 2019)
+
+## Distance 
+### Wasserstein Distance
+### Minkowski distance -->
+
+
+
+<h1 id="2024-05-23-Meeting-summary"><a href="#2024-05-23-Meeting-summary" class="headerlink" title="2024.05.23 Meeting summary"></a>2024.05.23 Meeting summary</h1><ol>
+<li>讨论了FairGAD。如果一个文章的贡献是数据集，那么需要详细的Benchmarking: 有一篇survey的性质，明白各种方法在数据集上表现怎么样，提出一个评判标准，只用EOO作为fair的判断太简短了。</li>
+<li>基于sentivity的Counterfactual fairness的评判标准，我们用什么样的评判标准和<br>2.1 最简单的构造方法 anomaly dataset：classification with y&#x3D;1,2,3,4,5。拿很多1，sample较少2345.<br>2.2 找一些graph上数据集，用GAD的方法，变成fairGAD的数据集。但是FairGAD，是GAD数据集inject fairness，可能不太好。<br>2.3</li>
+</ol>
+<h2 id="Task-of-this-week"><a href="#Task-of-this-week" class="headerlink" title="Task of this week"></a>Task of this week</h2><p>create synthetic data for fair GAD</p>
+<ol>
+<li>Note this paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2304.01391">https://arxiv.org/pdf/2304.01391</a> for a survey on graph counterfactual. To create a synthetic dataset, see their Section 3.5.1, where the data creation method is detailed in <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.03662">https://arxiv.org/abs/2201.03662</a>.</li>
+<li>See pygod <a target="_blank" rel="noopener" href="https://github.com/pygod-team/pygod">https://github.com/pygod-team/pygod</a> for outlier injection method to the graph dataset. Also, see Jing’s paper <a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v231/gu24a/gu24a.pdf">https://proceedings.mlr.press/v231/gu24a/gu24a.pdf</a> for improvement.</li>
+<li>Next Friday, you can try to talk about how to generate the synthetic data and how this falls into counterfactual category.</li>
+</ol>
+<p>所以就是要借鉴创建数据集的方法。还有学习一些counterfactual。 </p>
+<h2 id="2024-Counterfactual-Learning-on-Graphs-A-Survey"><a href="#2024-Counterfactual-Learning-on-Graphs-A-Survey" class="headerlink" title="2024 Counterfactual Learning on Graphs: A Survey"></a>2024 Counterfactual Learning on Graphs: A Survey</h2><p>3.5.1 How to create synthetic dataset </p>
+<h2 id="2022-Learning-Fair-Node-Representations-with-Graph-Counter-factual-Fairness"><a href="#2022-Learning-Fair-Node-Representations-with-Graph-Counter-factual-Fairness" class="headerlink" title="2022 Learning Fair Node Representations with Graph Counter factual Fairness"></a>2022 Learning Fair Node Representations with Graph Counter factual Fairness</h2><p>Two limitation on existing CF on graph:</p>
+<ol>
+<li>$S_i$ affect the predetection. Red</li>
+<li>$S_i$ affect $A, X_i$ Green</li>
+</ol>
+<p>GEAR: Graph Counterfactually Fair Node Representation</p>
+<ol>
+<li>subgraph generation<br>Node <strong>Importance Score</strong> by prune range of casualmodel to <strong>ego-centric subgraph</strong>( node and its neighbour)</li>
+<li>Counterfactual Data Argmentation:<br>Graph Auto encodder and fair contrains: <strong>self-pertubation</strong>(flip its $S_i$), <strong>neighbour pertubatiob</strong></li>
+<li>Node Representation Learning  :<br>Siamese network to minimize discrepancy</li>
+</ol>
+<p><strong>Def, Graph conterfactual fairness:</strong><br>An encoder $\Phi(\cdot)$ satisfies graph counterfactual fairness if for any node $i$:<br>$$<br>P((Z_i)<em>{S \leftarrow s’} | X &#x3D; \mathbf{X}, A &#x3D; \mathbf{A}) &#x3D; P((Z_i)</em>{S \leftarrow s’’} | X &#x3D; \mathbf{X}, A &#x3D; \mathbf{A}),<br>$$<br>for all $s’ \neq s’’$, where $s’, s’’ \in {0, 1}^n$ are arbitrary sensitive attribute values of all nodes, $Z_i &#x3D; (\Phi(\mathbf{X}, \mathbf{A}))_i$ denotes the node representations.</p>
+<p>$\Phi$, minimize the discrepancy between representation $\Phi(X_{S\leftarrow s’}, A_{S\leftarrow s’})$ and $\Phi(X_{S\leftarrow s’’}, A_{S\leftarrow s’’})$</p>
+<h3 id="GEAR"><a href="#GEAR" class="headerlink" title="GEAR"></a>GEAR</h3><h3 id="1-subgraph-generation"><a href="#1-subgraph-generation" class="headerlink" title="1) subgraph generation"></a>1) subgraph generation</h3><p>Personalized Pagerank algorithm:<br>Importance score $\mathbf R&#x3D;\alpha (\mathbf I-(1-\alpha \mathbf {\bar A}))$, $\mathbf I$, identity<br>$R_{i,j}$ How node $j$ is important for node $i$, $\alpha \in [0,1]$</p>
+<p>$\mathbf {\bar A}&#x3D;\mathbf A \mathbf D^{-1} $ column-normalized adjacency matric, $\mathbf D: \mathbf D_{i, i}&#x3D;\sum_j A{i, j}$</p>
+<p>$\mathcal{G}^{(i)}&#x3D;Sub(i, \mathcal{G}, k)$ :, subgraph generation</p>
+<ul>
+<li><p>$\mathcal{G}^{(i)} &#x3D; { \mathcal{V}^{(i)}, \mathcal{E}^{(i)}, \mathbf{X}^{(i)} } &#x3D; { \mathbf{A}^{(i)}, \mathbf{X}^{(i)} },<br>$ Vertive, Edge, Features with $S&#x3D;{s_i}_{i&#x3D;1}^n $ includes in $X$, and $X^{\neg s} &#x3D; { x_1^{\neg s}, …, x_n^{\neg s} } $, where $ x_i^{\neg s} &#x3D; x_i \setminus s_i$</p>
+</li>
+<li><p>$\mathcal{V}^{(i)} &#x3D; \text{TOP}(\mathbf{R}_{i,:}, k),$</p>
+</li>
+<li><p>$\mathbf{A}^{(i)} &#x3D; \mathbf{A}<em>{\mathcal{V}^{(i)}, \mathcal{V}^{(i)}}, \quad \mathbf{X}^{(i)} &#x3D; \mathbf{X}</em>{\mathcal{V}^{(i)}, :},<br>$,</p>
+</li>
+</ul>
+<h3 id="2）Counterfactual-Data-Augmentation"><a href="#2）Counterfactual-Data-Augmentation" class="headerlink" title="2）Counterfactual Data Augmentation"></a>2）Counterfactual Data Augmentation</h3><p><strong>GraphVAG</strong>: graph variational auto-encoder<br>latent embedding $H&#x3D;{h_1, h_2, \cdots, h_k}$  $H$ is sampled from $q(H|X, A)$,  $p(𝐻)$ is a standard Normal prior distribution<br>$\mathcal{L}&#x3D;$</p>
+<p>$\tilde{s}_i$: summary of neighbor info, aggregationof all nodes in subgarph $\mathcal{G}^{(i)}$<br>$\tilde{s}<em>i &#x3D; \frac{1}{|\mathcal{V}^{(i)}|} \sum</em>{j \in \mathcal{V}^{(i)}} s_j$</p>
+<p>Discriminator,$D(\cdot)$<br>$D(\mathbf{H}, b)$  predicts the probability of whether the summary of sensitive attribute values is in range $b$</p>
+<p>Fairness Constraint<br>$L_d &#x3D; \sum_{b \in B} \mathbb{E} [\log(D(\mathbf{H}, b))]$<br>$L_d$ is a regularizer to minimize the mutual information between the summary of sensitive attribute values and the<br>embeddings</p>
+<p><strong>Final Loss</strong> for Counterfactual Data Augmentation<br>$L_a &#x3D; L_r + \beta L_d$<br>$\beta$ is a hyperparameter for the weight of fairness constraint<br>Use alternating SGD for optimization: </p>
+<ol>
+<li>minimize $L_{a}$ by fixing the discriminator and updating parameters in other parts; </li>
+<li>minimize $−L_{a}$ with respect to the discriminator while other parts fixed.</li>
+</ol>
+<h4 id="Self-Perturbation"><a href="#Self-Perturbation" class="headerlink" title="Self-Perturbation"></a>Self-Perturbation</h4><p>$\overline{\mathcal{G}}^{(i)} &#x3D; { \mathcal{G}^{(i)}_{S_i \leftarrow 1-s_i} }$ (flipping sensitive feature)</p>
+<h4 id="Neighbor-Perturbation"><a href="#Neighbor-Perturbation" class="headerlink" title="Neighbor-Perturbation"></a>Neighbor-Perturbation</h4><p>$\underline{\mathcal{G}}^{(i)} &#x3D; \left{ \mathcal{G}^{(i)}<em>{S^{(i)}</em>{\setminus i} \leftarrow \text{SMP}(S^{(i)}<em>{\mathcal{V}^{(i)}</em>{\setminus i}})} \right}$</p>
+<p>subgraph $\mathcal{G}^{(i)}$ ego($i$)-center subgraph with noes $\mathcal{V}^{(i)}$, exclude node $i$: $\mathcal{V}^{(i)}<em>{\setminus i}$, randomly preterbe the sentsitice value of other nodes: $SMP(\mathcal{V}^{(i)}</em>{\setminus i})$</p>
+<p>Reconstruction Loss (GraphVAE Module)<br>$L_r &#x3D; \mathbb{E}_{q(\mathbf{H}|X, A)} \left[ -\log(p(X, A | \mathbf{H}, S)) \right] + \text{KL}[q(\mathbf{H} | X, A) | p(\mathbf{H})]$</p>
+<h3 id="3-Fair-Representation-learning"><a href="#3-Fair-Representation-learning" class="headerlink" title="3) Fair Representation learning"></a>3) Fair Representation learning</h3><p><strong>Fairness Loss</strong><br>$<br>L_f &#x3D; \frac{1}{|\mathcal{V}|} \sum_{i \in \mathcal{V}} \left( (1 - \lambda_s) d(z_i, \bar{z}_i) + \lambda_s d(z_i, \underline{z}_i) \right),<br>$<br>$\lambda_s$ hyperparam control neig-preturbation weight</p>
+<p><strong>Node Representations</strong></p>
+<ul>
+<li>$<br>z_i &#x3D; (\phi(\mathbf{X}^{(i)}, \mathbf{A}^{(i)}))_i,<br>$</li>
+<li>$<br>\bar{z}<em>i &#x3D; \text{AGG} \left( \left{ (\phi(\mathbf{X}^{(i)}</em>{S_i \leftarrow 1-s_i}, \mathbf{A}^{(i)}_{S_i \leftarrow 1-s_i}))_i \right} \right),<br>$</li>
+<li>$<br>\underline{z}<em>i &#x3D; \text{AGG} \left( \left{ (\phi(\mathbf{X}^{(i)}</em>{S_i \leftarrow \text{SMP}(S^{(i)}<em>{\mathcal{V}^{(i)}</em>{\setminus i}})}, \mathbf{A}^{(i)}<em>{S_i \leftarrow \text{SMP}(S^{(i)}</em>{\mathcal{V}^{(i)}_{\setminus i}})})_i \right} \right),<br>$</li>
+</ul>
+<p>Prediction Loss<br>$L_p &#x3D; \frac{1}{n} \sum_{i \in [n]} l(f(z_i), y_i),$ $l$: could be CE(Cross entropy), $f(\cdot)$ makes predictions for downstream tasks with the representations, i.e.$ \hat y_i&#x3D;f(z_i)$</p>
+<p>Overall Loss<br>$<br>L &#x3D; L_p + \lambda L_f + \mu | \theta |^2,<br>$</p>
+<h3 id="Dataset-creation"><a href="#Dataset-creation" class="headerlink" title="Dataset creation"></a>Dataset creation</h3><p>Sensitive Attributes<br>$S_i \sim \text{Bernoulli}(p),$ $p&#x3D;0.4$ percent $S_i&#x3D;1$</p>
+<p>Latent Embeddings<br>$Z_i \sim \mathcal{N}(0, \mathbf{I}),$ <br>$\mathbf{I}$ identity, dimension of $Z_i$: $d_s&#x3D;50$</p>
+<p>Node Features<br>$X_i &#x3D; \mathcal{S}(Z_i) + S_i \mathbf{v},$<br>sampling operation $S(\cdot)$ select 25 dims from $Z_i$, $\mathbf{v} \sim \mathcal{N}(0, \mathbf{I})$</p>
+<p>Graph Structure<br>$P(A_{i,j} &#x3D; 1) &#x3D; \sigma(\text{cos}(Z_i, Z_j) + a \mathbf{1}(S_i &#x3D; S_j)),$<br>$\sigma$ sigmoid function, $\mathbf{1}(S_i &#x3D; S_j)&#x3D;&#x3D;S_i &#x3D; S_j. \alpha&#x3D;0.01$</p>
+<p>Node Labels<br>$Y_i &#x3D; \mathcal{B}(w Z_i + w_s \frac{\sum_{j \in \mathcal{N}_i} S_j}{|\mathcal{N}_i|}),$<br>$\mathcal{B}$ Bernulli distribution,$\mathcal{N}_i$ set of neighbors of node i $w, w_i$ weight vector</p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>Using Synthetic dataset, Bail, Credit</p>
+<h2 id="24-Three-Revisits-to-Node-Level-Graph-Anomaly-Detection"><a href="#24-Three-Revisits-to-Node-Level-Graph-Anomaly-Detection" class="headerlink" title="24 Three Revisits to Node-Level Graph Anomaly Detection"></a>24 Three Revisits to Node-Level Graph Anomaly Detection</h2><p>Outliers, Message Passing and Hyperbolic Neural Networks</p>
+<h3 id="Previous-Outlier-injection-method"><a href="#Previous-Outlier-injection-method" class="headerlink" title="Previous Outlier injection method"></a>Previous Outlier injection method</h3><p>$\mathcal{G}&#x3D;(\mathcal{V}, \mathcal{E}, X, y)$: vertice set, edge set, attibute matrix, label of class</p>
+<ul>
+<li><p><strong>Contextual(cntxt.) outlier injection</strong><br>Normalize features $x_i’&#x3D;\frac{x_i}{||x_i||_1}$<br>Sample $o$ nodes from $\mathcal{V}$ as $\mathcal{V}_c$. without replacement<br>For node $i$ in $\mathcal{V}_c$, sample $q$ nodes from $\mathcal{V}_r&#x3D;\mathcal{V}- \mathcal{V}_c$, among them choose the farthest one $j &#x3D; \text{argmax}_k(||x_i’-x_k’||_2)$ to replace $x_i$ with $x_j$.</p>
+</li>
+<li><p><strong>Strctural(stct.) outlier injection</strong><br>create $t$ groups sized $s$ with anomalous nodes.<br>sample $o&#x3D;t\times s$ from $\mathcal{V}$ without replacement<br>Then randoms partition into $t$ groups.<br>Add edges to make them a clique(fully connected), then drop edges with $p$ probability</p>
+</li>
+</ul>
+<h4 id="Score-function"><a href="#Score-function" class="headerlink" title="Score function"></a>Score function</h4><p>The farthest node will have large $||\tilde{\mathbf x}_i||_2$ <br>A structural outlier node $i$ will have many neighbors leads to large $||\tilde{\mathbf a}_i||_1$ </p>
+<p>Score function: $score_{norm}(i)&#x3D;\alpha||\tilde{\mathbf x}_i||_2+(1-\alpha)||\tilde {\mathbf a}_i||_1$,  $\tilde{\mathbf x}_i$: $x_i$ after outlier injection, $\tilde{\mathbf a}<em>i$: $a_i$ after outlier injection, $A</em>{ii}&#x3D;1$<br>where cntxt OD, $\alpha&#x3D;1$, stct OD, $\alpha&#x3D;0$ :  $\alpha$ ratio of two methods </p>
+<p>test 1: ROC-AUC<br>For each dataset, use original dataset v.s. l2-nrom for each $x_i$<br>do anomaly injection. apply GAD Method to get  $score_{norm}$</p>
+<h3 id="Novel-Anomaly-injection-method"><a href="#Novel-Anomaly-injection-method" class="headerlink" title="Novel Anomaly injection method"></a>Novel Anomaly injection method</h3><h2 id="Sum-in-terms-of-Dataset"><a href="#Sum-in-terms-of-Dataset" class="headerlink" title="Sum in terms of Dataset"></a>Sum in terms of Dataset</h2><p>从数据集的角度来说：</p>
+<h3 id="FairGAD-1"><a href="#FairGAD-1" class="headerlink" title="FairGAD:"></a>FairGAD:</h3><p>Reddit:</p>
+<ul>
+<li>数据来源：Post on politic related subReddit</li>
+<li>Labelling Y: based on FACTOID(Sakketou et al., 2022), use the num of posted link(left or right)</li>
+<li>Graph construciton:</li>
+</ul>
+<p><br><br><br><br><br><br><br><br><br><br><br><br>\</p>
+<h1 id="2024-05-31-Meeting"><a href="#2024-05-31-Meeting" class="headerlink" title="2024.05.31 Meeting"></a>2024.05.31 Meeting</h1><p>Preparation: </p>
+<ol>
+<li>讨论对于Synthetic dataset 怎么创建的理解。</li>
+<li>对outlier dataset怎么创建的理解。</li>
+<li>fair + outlier (参考FairGAD那篇的创建)</li>
+</ol>
+<!-- 这一周花了三四天在信一的身上，一种僭越的快乐。
+体悟是， 
+1. 学东西的目的性还是不够明显。
+2. 边听课边看论文会岷县提高目的性和提高效率。
+3. 减少过度功利的需求，学一些有趣的东西，尽量避开人。
+4. 背单词。GRE要寄了。 -->
+
+
+<p><strong>Meeting</strong></p>
+<ol>
+<li><p>Plan for subgroups:<br>Mo, We 1-2 p.m.</p>
+</li>
+<li><p>intro to all projects<br>HNN: Convolution $\rightarrow$ HNN<br>CNN(T(x)) Paralell Translation equivalence</p>
+</li>
+</ol>
+<h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><p><img src="/2024-05-08-papers/image-1.png" alt="alt text"> from FairGAD(2024)<br>##<br>Pokec: </p>
+<ul>
+<li>source paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2009.01454">https://arxiv.org/pdf/2009.01454</a></li>
+<li>repo: FairGNN  <a target="_blank" rel="noopener" href="https://github.com/EnyanDai/FairGNN">https://github.com/EnyanDai/FairGNN</a><br>sampled from <a target="_blank" rel="noopener" href="https://snap.stanford.edu/data/soc-Pokec.html">https://snap.stanford.edu/data/soc-Pokec.html</a></li>
+</ul>
+<p>Bail, Credit, German:</p>
+<ul>
+<li>source paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2108.05233">https://arxiv.org/pdf/2108.05233</a> (Dong et al. 2022)<br>  <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1102.2166">https://arxiv.org/pdf/1102.2166</a> (2012)</li>
+<li>repo: EDITS <a target="_blank" rel="noopener" href="https://github.com/yushundong/EDITS">https://github.com/yushundong/EDITS</a></li>
+</ul>
+<p>(感觉论文部分引用反了)</p>
+<p>German</p>
+<ul>
+<li>source paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2102.13186">https://arxiv.org/pdf/2102.13186</a> (2021)</li>
+<li>repo: NIFTY <a target="_blank" rel="noopener" href="https://github.com/HongduanTian/NIFTY">https://github.com/HongduanTian/NIFTY</a></li>
+</ul>
+<p>UCSD34:</p>
+<ul>
+<li>repo: <a target="_blank" rel="noopener" href="https://networkrepository.com/socfb-UCSD34.php">https://networkrepository.com/socfb-UCSD34.php</a></li>
+</ul>
+<h1 id="2024-06-03-Meeting"><a href="#2024-06-03-Meeting" class="headerlink" title="2024.06.03 Meeting"></a>2024.06.03 Meeting</h1><ol>
+<li>Gujing学姐的论文是 unsupervised learning，按照她在pygod里面的方法，把二分类的任务用fiarness metrix，用counterfacutal里的评判标准。EOO, SP, CF(只在Synthetic里有)</li>
+</ol>
+<p>所以要写的是： </p>
+<ol>
+<li>Fairness metrix 的计算，多种</li>
+<li>使用各种方法跑一下数据集。得到fair和accuracy，参考别的论文。</li>
+</ol>
+<p>长期任务：</p>
+<ol>
+<li><p>WSDM 22’ 的做counterfactual Data argumentation 和GAD的方法无关。，总的来说是在不同GAD 方法上consistently improve fairness. WSDM 是在数据集的encoding和encoding上用的fairness。<br>Detection 也是用en&#x2F;decoding做的？有的用GNN也就可以prediction了。可以试着画一个图。 </p>
+</li>
+<li><p>224W可以看17-19， 21和前面encoding部分在学一下。</p>
+</li>
+<li><p>因果推断的Counterfactual部分的公式</p>
+</li>
+</ol>
+<h2 id="Execute"><a href="#Execute" class="headerlink" title="Execute"></a>Execute</h2><p>6.3: 解决</p>
+<ol>
+<li>Synthetic dataset have about $\frac{|V|^2}{2}$ edges when v&#x3D;2000(paper), edge should be about 4000?<br>solved by Finding source code of paper in GEAR repo</li>
+<li>Threading problem with python not shoot<br>solved by commenting the 22th line in loader.py # from ogb.nodeproppred import PygNodePropPredDataset</li>
+</ol>
+<p>6.4</p>
+<ol>
+<li>可以使用一些方法，<br>WSDM 22 GEAR 的论文里用GCN, GraphSAGE, GIN, C-ENC, FairGNN, NIFTY-GCN, NIFTY-SAGE, and GEAR<br>Gu 24 HNN 的论文用pygod的GAD的库<br>但是都没有找到相关代码</li>
+</ol>
+<p>Gear&#x2F;src</p>
+<ul>
+<li>utils.py: <ol>
+<li>load_dataset, sub function</li>
+<li>accuracy</li>
+</ol>
+</li>
+<li>Preprocessing.py:<ol>
+<li>load_data() deal with params</li>
+<li>generate cf subgraph(无关)</li>
+<li>generate_synthetic_data</li>
+</ol>
+</li>
+<li>models.py:<ol>
+<li>GCN, GIN, JK, SAGE, Encoder_DGI, GraphInMax, Encoder, Classifier,<br>  GraphCF,</li>
+</ol>
+</li>
+<li>main.py<ol>
+<li>parser.argment()</li>
+<li>evaluate: acc, fairness</li>
+<li>compute loss, evaluate sf</li>
+<li>train test</li>
+</ol>
+</li>
+</ul>
+<p>HNN_GAD<br>根据我的观察，这篇里面只写了自己的方法的代码。</p>
+<p>6.5 Meeting<br>决定用ray tune来调参<a target="_blank" rel="noopener" href="https://pytorch.org/tutorials/beginner/hyperparameter_tuning_tutorial.html">https://pytorch.org/tutorials/beginner/hyperparameter_tuning_tutorial.html</a></p>
+<p>6.7<br>正在写scratch_main.py<br>疑问：<br>    1. 这个train, val, test 是怎么分的,子图还是？<br>    ???<br>        evaluate和test有什么区别<br>    2. evaluate里的counterfactual metrix是怎么算的？<br>    3. Injection的参数<br>    4. github怎么上传<br>    5. </p>
+<p>6.11<br>    Paul强调SRS是为了丰富简历的，要干很多跟申研相关的事情。<br>    看看教授现在在干什么，fellowship是啥，，？？？？practicing interview。<br>    升多少学校？？？没听懂<br>    5-8<br>    16？？？</p>
+<h1 id="2024-06-12-Meeting"><a href="#2024-06-12-Meeting" class="headerlink" title="2024.06.12 Meeting"></a>2024.06.12 Meeting</h1><ol>
+<li>CF + gu学姐的三个方法</li>
+<li>gpu的问题还没有解决</li>
+<li>inject的好像不是特别影响fairness</li>
+</ol>
+<p>数据集的构造方面在sensitivity group和是不是outlier之间加上casuality。FairGAD用了debiaser的方法使fairness高了一点<br>run Jing’s method for GAD: shengen在做<br>Check with Yifei for GPU：check了，现在一些model在大的数据集上还要分batch。<br>Check CF scores：装了两天环境，<br>Complete remaining experiments：没有<br>brainstorm so that outlier injection contains sensitivity：认为<br>CF using DA</p>
+<p>Motivation： outlier detection，<br>Fairnes有效的数据集：<br>Outlier的注入：</p>
+<h2 id="6-12-问题"><a href="#6-12-问题" class="headerlink" title="6.12 问题"></a>6.12 问题</h2><h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>一个下午主要都在解决gpu的问题，</p>
+<h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><p>首先目前最大的谜团是Pygod中AdONE(gpu&#x3D;0)这里的光谱为啥只能是0<br>我去找了源代码，应该可以是int cuda的id，所以理论上应该是0-7 都可以的，但是只有0可行，<br>主要代码<br>pygod&#x2F;pygod&#x2F;detector&#x2F;base <br>pygod&#x2F;utils&#x2F;utility.py 的<code>validate_device(gpu_id)</code>函数<code>gpu_id</code>就是<code>DOMINANT(gpu=0)</code>里的<code>gpu</code></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><p>还有一个很蠢得已经被解决的问题是<br>为什么.sh文件会报。 之前一直不明白为什么命令行就没问题，但是.sh 就不可以，后来发信啊是模型之间的区别<br>    torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.35 GiB. GPU 0 has a total capacty of 23.65 GiB of which 3.01 GiB is free. Including non-PyTorch memory, this process has 20.63 GiB memory in use. Of the allocated memory 16.79 GiB is allocated by PyTorch, and 3.35 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF<br>这种错，<br>修改的方式是</p>
+<ol>
+<li><p>在ray tune 里把网络得大小修改小一点，并且分batch，通过在train最后释放内存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defv train():</span><br><span class="line">    ... ...</span><br><span class="line">    torch.cuda.empty_cache() </span><br><span class="line">    return</span><br></pre></td></tr></table></figure></li>
+<li><p>在ray tune 分batch。在main得第一句加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#x27;PYTORCH_CUDA_ALLOC_CONF&#x27;] = &#x27;max_split_size_mb:128&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本身因为dataset和model的大小不同，所以有的模型被跑出来的可行性就是要小一点<br>比如从synthetic &lt; german &lt; bail &lt; credit &lt; pokec<br>前三个是可以跑所有模型的，<br>但是credit不可以跑gaan, 会站600GiB的内存，guide也非常慢， credit+guide根本没上gpu？？？<br>玄学</p>
+</li>
+</ol>
+<h3 id="6-14-CF"><a href="#6-14-CF" class="headerlink" title="6.14 CF"></a>6.14 CF</h3><p>cf_eoo, cf_dp, df, eoo, dp 在论文中分别代表什么<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2201.03662">https://arxiv.org/pdf/2201.03662</a></p>
+<p>sens rate </p>
+<p>论文算cf的方法是:<br>对比原图和经过修改sens feature（类似于perturbe的手法），通过$hat y$之间的来算cf</p>
+<p>重点是如何得到 modified data， 也就是 evaluate 中的 data_cf</p>
+<p>随机取 sens_rate * N 个节点，使$S_i$为1，剩下为0.</p>
+<h3 id="GEAR配环境踩坑"><a href="#GEAR配环境踩坑" class="headerlink" title="GEAR配环境踩坑"></a>GEAR配环境踩坑</h3><p>pyg很烦人<br>我是先装了torch1.6.0 + cu10.2<br>然后发现pyg&#x3D;1.3.0 是最老版本的，就google到了pyg的的source code ： <a target="_blank" rel="noopener" href="https://github.com/pyg-team/pytorch_geometric/releases/tag/1.3.0">https://github.com/pyg-team/pytorch_geometric/releases/tag/1.3.0</a><br>然后就应该python setup.py install,但是<strong>网很慢</strong>， 所以要多等一会<br>然后看到readme之后手动装了个torch-sparse一类的whl： <a target="_blank" rel="noopener" href="https://data.pyg.org/whl/">https://data.pyg.org/whl/</a><br>后来很傻的才发现python setup.py install，等了3分钟之后报错，无pytest-runner， 于是进setup.py看了一下之后手动pip install pytest-runner pytest pytest-cov mock,<br>然后python setup.py install一下子就好了，于是又手动 pip install pandas matplotlib Cpython cytoolz aif360</p>
+<p>装到aif360 报错Failed building wheel for llvmlite，应该是没有llvm，于是手动本地装<br>装了9.0.0的版本</p>
+<pre><code>如果 `llvmlite` 的预构建二进制文件和 `conda` 方法都无法解决问题，普通用户可以在用户目录中安装 LLVM，而不需要 `sudo` 权限。
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载并解压 LLVM</span></span><br><span class="line">wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-11.1.0.src.tar.xz</span><br><span class="line">tar -xf llvm-11.1.0.src.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建构建目录</span></span><br><span class="line"><span class="built_in">mkdir</span> llvm-11.1.0.build</span><br><span class="line"><span class="built_in">cd</span> llvm-11.1.0.build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置编译（安装在用户目录）</span></span><br><span class="line">cmake -G <span class="string">&quot;Unix Makefiles&quot;</span> -DCMAKE_INSTALL_PREFIX=<span class="variable">$HOME</span>/llvm ../llvm-11.1.0.src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译和安装</span></span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+然后设置环境变量以使用本地安装的 LLVM：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/llvm/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$HOME</span>/llvm/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install llvmlite --no-binary llvmlite</span><br></pre></td></tr></table></figure>
+
+之后再安装 `aif360`：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install aif360</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>但是还是会报wheel build 失败的错误。<br>于是就直接绕过aif360,因为只用了两个函数，所以直接复制函数和必要的util过来了，绕过安装aif360的问题了。<br>实际上aif360对python 3.8之后才比较兼容，所以以后用新一点的环境。</p>
+<p>然后遇到了AttributeError: Can’t get attribute ‘DataEdgeAttr’<br>import torch_geometric.transforms as T<br>from ogb.nodeproppred import PygNodePropPredDataset<br>shouju学姐提醒可以csdn，（这次提供的解决方案确实和gpt不一样）<a target="_blank" rel="noopener" href="https://blog.csdn.net/oqqENvY12/article/details/129786928">https://blog.csdn.net/oqqENvY12/article/details/129786928</a> 也有一部分版本过老的问题<br>但是通过观察，是路径问题，把一个相对main.py line 541的相对路径改成绝对路径就成功了，<br>我觉得<strong>13.23的服务器在路径上确实有些玄乎</strong></p>
+<ul>
+<li>运行结束之后没有办法自动关闭</li>
+<li>german 数据集无法正常生成</li>
+</ul>
+<h3 id="Gu学姐的三个model"><a href="#Gu学姐的三个model" class="headerlink" title="Gu学姐的三个model"></a>Gu学姐的三个model</h3><p>万能的CSDN<br>Collecting package metadata (current_repodata.json): - WARNING conda.models.version:get_matcher(546): Using .* with relational operator is superfluous and deprecated and will be removed in a future version of conda. Your spec was 1.7.1.<em>, but conda is ignoring the .</em> and treating it as 1.7.1<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ermmtt/article/details/132628639">https://blog.csdn.net/ermmtt/article/details/132628639</a></p>
+<h3 id="Batch问题"><a href="#Batch问题" class="headerlink" title="Batch问题"></a>Batch问题</h3><h3 id="Python-插件"><a href="#Python-插件" class="headerlink" title="Python 插件"></a>Python 插件</h3><p>这个是最傻的，下载了 vsix 之后发现 vscode 版本对不上， 然后更新了一下 vscode 就好了。。。</p>
+<h1 id="2024-06-24-Meeting"><a href="#2024-06-24-Meeting" class="headerlink" title="2024.06.24 Meeting"></a>2024.06.24 Meeting</h1><h2 id="2024-06-19"><a href="#2024-06-19" class="headerlink" title="2024.06.19"></a>2024.06.19</h2><p>(刚刚才了解 Encoder 和 Decoder 也算是 GNN，然后看了一些东西<br>(OI佬写的GEAR代码，看不懂，</p>
+<h1 id="2024-07-14"><a href="#2024-07-14" class="headerlink" title="2024.07.14"></a>2024.07.14</h1><!-- 竟然过了一个月了。 -->
+
+<h2 id="2024-06-10开会"><a href="#2024-06-10开会" class="headerlink" title="2024.06.10开会"></a>2024.06.10开会</h2><ol>
+<li>做benchmark. + Jing学姐的三个HNN已经改成了Class但是AUC还是太低了。。。</li>
+<li>手写encoder和decoder。结构未知，但是主要是修改Loss Function???基于CF的，可以在dominant上修改</li>
+<li>解释为什么CF是低的，看decoder出来的sens’，是还原了sens还是都是1&#x2F;2.这两者都是可以解释的</li>
+<li>在学一下CF之类的理论。</li>
+<li>GNNNNNNNNNN</li>
+</ol>
+<h1 id="2024-08-15"><a href="#2024-08-15" class="headerlink" title="2024.08.15"></a>2024.08.15</h1><!-- 竟然又过了一个月了。 -->
+<!-- 抽象，完全不知道自己在干啥。。。 -->
+
+<ol>
+<li>DOIMINANT 19, DONE 21, gadnr 24, ada-gad 234. (CFGN denied)</li>
+<li>benchmark和一些sens reconstruct 的值对比（之前貌似只作了guide 21的）</li>
+<li>论文也看不出来在写啥</li>
+<li></li>
+</ol>
+<p>08.18 交srs报告<br>08.25 GRE 考试，寄<br>找sol教授询问music tech方向的问题<br>论文论文论文</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/05/08/2024-05-08-Meetings-log/" data-id="cm3bkdrvu0001rkbzde2fdx8q" data-title="papers" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-2024-03-08-LHY-ML" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/03/08/2024-03-08-LHY-ML/" class="article-date">
+  <time class="dt-published" datetime="2024-03-08T02:36:24.000Z" itemprop="datePublished">2024-03-08</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/03/08/2024-03-08-LHY-ML/">LHY ML</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/2022-spring.php">https://speech.ee.ntu.edu.tw/~hylee/ml/2022-spring.php</a></p>
+<h1 id="2-18"><a href="#2-18" class="headerlink" title="2&#x2F;18"></a>2&#x2F;18</h1><h2 id="Video-2"><a href="#Video-2" class="headerlink" title="Video 2"></a>Video 2</h2><p>Piecewise Linear</p>
+<p>$y &#x3D; c * Sigmoid(b+wx_1)$, w, b, c,</p>
+<p>$\theta$: A vector of all unknown variable<br>Gradient $ g &#x3D;\nabla L(\theta^{0}) $<br>$\eta$: learning rate<br>Batch, update, Epoch</p>
+<p>Activation function:<br>Sigmoid function<br>Rectifies Linear Model (ReLU) max(0, )</p>
+<h2 id="Pytorch-1-2"><a href="#Pytorch-1-2" class="headerlink" title="Pytorch 1&#x2F;2"></a>Pytorch 1&#x2F;2</h2><p>Mainly introduce some pratical advise for coding. </p>
+<h2 id="Background-propagation"><a href="#Background-propagation" class="headerlink" title="- Background propagation"></a>- Background propagation</h2><p>Back Propagation: a efficient way to calculate Gradient Descent:\<br>froward pass, back ward</p>
+<p>没太懂</p>
+<h2 id="Predicting-Pokemon-CP"><a href="#Predicting-Pokemon-CP" class="headerlink" title="Predicting Pokémon CP"></a>Predicting Pokémon CP</h2><p>Regession: diff in origin $x_{cp}$, and speices<br>Gradient descent<br>Overfitting Regulization</p>
+<h2 id="Pokemon-classification"><a href="#Pokemon-classification" class="headerlink" title="Pokemon classification"></a>Pokemon classification</h2><h3 id="Maiximum-Likelihood"><a href="#Maiximum-Likelihood" class="headerlink" title="Maiximum Likelihood"></a>Maiximum Likelihood</h3><p>2-D Gaussian districnution:<br>$f_{\mu^1,\Sigma^1}(x) &#x3D; \frac{1}{(2\pi)^{D&#x2F;2}|\Sigma^1|^{1&#x2F;2}} \exp\left(-\frac{1}{2}(x - \mu^1)^T(\Sigma^1)^{-1}(x - \mu^1)\right)$</p>
+<p>$\mu$ mean $\sum$ covariance<br>$\mu^1 &#x3D; \begin{bmatrix}<br>75.0 \<br>71.3 \<br>\end{bmatrix}<br>\quad<br>\Sigma^1 &#x3D; \begin{bmatrix}<br>874 &amp; 327 \<br>327 &amp; 929 \<br>\end{bmatrix}$</p>
+<p>$P(C_1|x) &#x3D; \frac{P(x|C_1)P(C_1)}{P(x|C_1)P(C_1) + P(x|C_2)P(C_2)}<br>$</p>
+<p>Simplify the function, subititude gaussian into probability<br>$P(C_1|x)&#x3D;\sigma(z) &#x3D; \sigma(wx+b)$<br>$w&#x3D;(\mu^1-\mu^2)^T\sum^{-1}, b&#x3D;…(scalar)$<br>So the Boundary for shared $\sum$ is linear.</p>
+<h2 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h2><p>(数学推导比较多）</p>
+<h3 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h3><p>Cross Entropy for a Bernoulli distribution<br>$H(p,q)&#x3D;−[plog(q)+(1−p)log(1−q)]$<br>which is better than Square Error. </p>
+<p>Discriminative: Logistic Regression： Direct find $w$ and $b$, which generally have a better performance<br>Generative: Gaussian descript: Have Assumption(Naive Bayes, or …) of model and find $\mu^1$ ,$\mu^2$, $\sum$ </p>
+<h3 id="Multiclass-Classification"><a href="#Multiclass-Classification" class="headerlink" title="Multiclass Classification"></a>Multiclass Classification</h3><p>跳过了，想做hw再听，觉得现在对$f_{w, b}(x)$的理解还不深</p>
+<h1 id="2-25"><a href="#2-25" class="headerlink" title="2&#x2F;25"></a>2&#x2F;25</h1><h2 id="Video-1"><a href="#Video-1" class="headerlink" title="Video 1"></a>Video 1</h2><p>Loss on training data large: Model Bias(need a more complex model) or Optimization<br>Loss on testing data large: Overfitting or mismatch -&gt; more data </p>
+<h2 id="Video-2-1"><a href="#Video-2-1" class="headerlink" title="Video 2"></a>Video 2</h2><p>How to Optimization:<br>$<br>L(\theta) \approx L(\theta’) + (\theta - \theta’)^T \vec{g} + \frac{1}{2} (\theta - \theta’)^T H (\theta - \theta’)<br>$ <br>Gradient $\vec{g}$:<br>$\vec{g} &#x3D; \nabla L(\theta’)\ \ $<br>$g_i &#x3D; \frac{\partial L(\theta’)}{\partial \theta_i}\ \ $<br>$\vec{g} &#x3D;<br>\begin{bmatrix}<br>\frac{\partial L}{\partial \theta_1} \<br>\frac{\partial L}{\partial \theta_2} \<br>\vdots \<br>\frac{\partial L}{\partial \theta_n}<br>\end{bmatrix}$<br>Hessian $H$ is a mtraix $H_{ij} &#x3D; \frac{\partial^2 L(\theta’)}{\partial \theta_i \partial \theta_j}$<br>For all $v$:</p>
+<ol>
+<li>$v^T Hv&gt;0$: $H$ is positive deifinit  $L(\theta)&gt;L(\theta’)$: Local minima</li>
+<li>$v^T Hv&lt;0$: $H$ is negative definit  $L(\theta)&lt;L(\theta’)$: Local maxima</li>
+<li>Some egien are $+$, some are $-$ :Saddle point<br>Emperial learning:</li>
+</ol>
+<h2 id="Video-3"><a href="#Video-3" class="headerlink" title="Video 3"></a>Video 3</h2><p>Batch: large batch N not necessarily need longer time for gradient computing (parallel computing)</p>
+<h2 id="Video-4"><a href="#Video-4" class="headerlink" title="Video 4"></a>Video 4</h2><p>Adaptive $\eta$（learning rate）:<br>Error surface<br>Critical points(local minima, saddle point):</p>
+<ol>
+<li>Adagrad </li>
+<li>RMSProp</li>
+<li>Adam: RMSProp + Momentum</li>
+</ol>
+<p>Learning Rate Scheduling:<br>Learning rate Decay<br>Warm up (Risidual Network, TransformerClassification)</p>
+<h2 id="Video-5"><a href="#Video-5" class="headerlink" title="Video 5"></a>Video 5</h2><p>Regression:<br>Right answer: $\hat{y} \leftrightarrow y$ <br>Classification: class: one-hot vecotr: $\hat{y} \leftrightarrow y’ &#x3D; softmax(y)$<br>Soft-max(Normalize): $n\geq 3$: $y_i’&#x3D;\frac{exp(y_i)}{\sum_j exp(y_i)}$<br>$n&#x3D;2$ $y’&#x3D;sigmoid(y)$</p>
+<p>Distance $e$: <br>Mean Sqaure Error(MSE): $e&#x3D;\sum( \hat{y_i}-y_i’)^2$<br>Cross-entropy: $e&#x3D;-\sum \hat{y_i}\  lny_i’$ <br>Minimize Corr_entropy $\leftrightarrow$ Maximize likelihood</p>
+<h2 id="Basic-Theory"><a href="#Basic-Theory" class="headerlink" title="Basic Theory"></a>Basic Theory</h2><p>We want $L(h_{\text{train}}, D_{\text{all}}) - L(h_{\text{all}}, D_{\text{all}}) \leq \delta$<br>$\forall h \in \mathcal{H}, |L(h, D_{\text{train}}) - L(h, D_{\text{all}})| \leq \frac{\delta}{2}$</p>
+<h2 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h2><h2 id="Beyond-Adam-1"><a href="#Beyond-Adam-1" class="headerlink" title="Beyond Adam 1"></a>Beyond Adam 1</h2><h2 id="Beyond-Adam-2"><a href="#Beyond-Adam-2" class="headerlink" title="Beyond Adam 2"></a>Beyond Adam 2</h2><h1 id="3-04-CNN"><a href="#3-04-CNN" class="headerlink" title="3&#x2F;04 CNN"></a>3&#x2F;04 CNN</h1><h2 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h2><p>Image as input</p>
+<h3 id="V1"><a href="#V1" class="headerlink" title="V1"></a>V1</h3><p>Tensor: a Metrix &gt;&#x3D; 3 dimensional</p>
+<ol>
+<li>Ob(servation) 1:<br>Receptive Filed: Kernel Size(3x3), Stride(1 or 2, padding0, hope receptive filed are intercept)</li>
+<li>Ob 2<br>Shared param: filter<br>1+2 -&gt; Convolution Layer -&gt; CNN (designed for image)</li>
+</ol>
+<h3 id="V2"><a href="#V2" class="headerlink" title="V2"></a>V2</h3><p>Each filter detects a small pattern (3 * 3 * channel_num, which is a tensor)<br>Feature Map<br>3. Ob 3<br>Max Pooling: Operator<br>Convolutional Layer + Pooling  </p>
+<h2 id="Spatial-Transformer-Layer"><a href="#Spatial-Transformer-Layer" class="headerlink" title="Spatial Transformer Layer"></a>Spatial Transformer Layer</h2><p>CNN is not invariant to scaling and rotation </p>
+<p>Interpolation.</p>
+<h1 id="3-11-Self-attention"><a href="#3-11-Self-attention" class="headerlink" title="3&#x2F;11 Self-attention"></a>3&#x2F;11 Self-attention</h1><h2 id="Video-1-1"><a href="#Video-1-1" class="headerlink" title="Video 1"></a>Video 1</h2><p>Sequence Labling<br>Self-Attention: dot product addictive </p>
+<h2 id="Video-2-2"><a href="#Video-2-2" class="headerlink" title="Video 2"></a>Video 2</h2><p>Self-attention<br>Multihead self-attention<br>truncated self-attention<br>CNN is an simplied self-attention (limited to receptive field)<br>RNN GNN (Graph Neural Network)</p>
+<h2 id="GNN-1"><a href="#GNN-1" class="headerlink" title="GNN 1"></a>GNN 1</h2><p>Convolution(spatial-based&#x2F;Spectral-based)</p>
+<h3 id="Spetial-based"><a href="#Spetial-based" class="headerlink" title="Spetial based"></a>Spetial based</h3><p>Terminology:<br>Aggregate: use neighbour feature to update the next hidden state<br>Readout: use all nodes feature to represent the whole graph<br>NN4G<br>DCNN<br>GAT(Graph Attention Network),<br>Graph Isomorphism Network</p>
+<h2 id="GNN-2"><a href="#GNN-2" class="headerlink" title="GNN 2"></a>GNN 2</h2><p>Deep Graph Library</p>
+<h3 id="Graph-Signal-Processing"><a href="#Graph-Signal-Processing" class="headerlink" title="Graph Signal Processing"></a>Graph Signal Processing</h3><p>Graph Laplacian:<br>Degree Matrix $D$, Adjacency Matrix: $A$, $L$ is an operation on graph <br>$L &#x3D; D - A &#x3D; U \Lambda U^T$<br>Discrete time Fourier basis $\lambda$ wave length<br>$(Lf)(v_i) &#x3D; \sum_{v_j \in V} w_{i,j}(f(v_i) - f(v_j))$<br>$\begin{aligned}<br>f^T L f &amp;&#x3D; \sum_{v_i \in V} f(v_i) \sum_{v_j \in V} w_{i,j}(f(v_i) - f(v_j))\<br>&amp;&#x3D; \frac{1}{2} \sum_{v_i \in V} \sum_{v_j \in V} w_{i,j}(f(v_i) - f(v_j))^2<br>\end{aligned}<br>$</p>
+<p>Graph Fourier Transform of signal $\hat x$: $\hat x &#x3D; U ^T x, \hat x _i &#x3D; u_i \cdot x$<br>Inverse Graph Fourier Transform of signal $\hat x$: $x &#x3D; U ^T \hat x$</p>
+<p>Filtering: Convulution in time domain is multiplication in freq domain</p>
+<p>ChebNet<br>听不懂在干什么</p>
+<h3 id="Spectral-based"><a href="#Spectral-based" class="headerlink" title="Spectral-based"></a>Spectral-based</h3><h1 id="3-18"><a href="#3-18" class="headerlink" title="3&#x2F;18"></a>3&#x2F;18</h1><h2 id="Video-1-Batch-Normalization"><a href="#Video-1-Batch-Normalization" class="headerlink" title="Video 1 Batch Normalization"></a>Video 1 Batch Normalization</h2><p>Batch Normalization<br>Internal Covariate Shift</p>
+<h2 id="Video-2-Seq2seq"><a href="#Video-2-Seq2seq" class="headerlink" title="Video 2 Seq2seq"></a>Video 2 Seq2seq</h2><p>Transformer<br>Seq2seq:<br>Chatbox,<br>NLP,<br>Q&amp;A,<br>(sentiment analysis),<br>Syntatic Prasing,<br>Multi-label Classification c.f. Multi-calss Classification<br>Object detection,<br>Encoder Decoder,</p>
+<h2 id="Video-3-Decoder"><a href="#Video-3-Decoder" class="headerlink" title="Video 3 Decoder"></a>Video 3 Decoder</h2><p>Autoregressive<br>Masked Self-attention</p>
+<h2 id="NAT-Non-autoregressive-translation"><a href="#NAT-Non-autoregressive-translation" class="headerlink" title="NAT Non autoregressive translation"></a>NAT Non autoregressive translation</h2><p>像一个NAT发展的论文综述<br>Naive approach,<br>autoregressive,<br>GAN, </p>
+<p>Improvement</p>
+<ol>
+<li>Fertility</li>
+<li>Sequence-level knowledge distillation</li>
+<li>Noisy Parallel Decoding NPD</li>
+</ol>
+<p>Vanilla NAT, Iterative Refinement, Insertion-based, Insertion+Deletion, CTC-based, Masked-predict, Kermit, CTC, LAS, Imputer(CTC+Mask-Predict)</p>
+<h2 id="Pointer-Network"><a href="#Pointer-Network" class="headerlink" title="Pointer Network"></a>Pointer Network</h2><h1 id="3-25"><a href="#3-25" class="headerlink" title="3&#x2F;25"></a>3&#x2F;25</h1><h2 id="Video-1-GAN"><a href="#Video-1-GAN" class="headerlink" title="Video 1 GAN"></a>Video 1 GAN</h2><p>Discriminator</p>
+<h2 id="Video-2-GAN"><a href="#Video-2-GAN" class="headerlink" title="Video 2 GAN"></a>Video 2 GAN</h2><p>JS Divergence<br>$G^*&#x3D;arg min(G) max(D) v(G, D)$<br><img src="/LHY-ML/image-1.png" alt="alt text"><br>$JS(P \parallel Q) &#x3D; \frac{1}{2} KL(P \parallel M) + \frac{1}{2} KL(Q \parallel M)$<br>$KL(P \parallel Q) &#x3D; \sum_{x} P(x) \log\left(\frac{P(x)}{Q(x)}\right)$</p>
+<p>WGAN\<br>Wasserstein distance: improve JS divegence: $JS(P_G, P_{data})\rightarrow W(P_G, P_{data})$<br>$\max_{D \in 1-\text{Lipschitz}} \left{ \mathbb{E}<em>{x \sim P</em>{\text{data}}} [D(x)] - \mathbb{E}<em>{x \sim P</em>{G}} [D(x)] \right}$<br>the $D(x)$should be smmoth enough</p>
+<h2 id="Video-3-BERT-anecdote"><a href="#Video-3-BERT-anecdote" class="headerlink" title="Video 3 BERT anecdote"></a>Video 3 BERT anecdote</h2><p>CBOW(2 transforms): word embedding<br>contextualized word embedding<br>Muti BERT: Zero-shot Reading Comprehension, alignment</p>
+<h2 id="Video-4-Cycle-GAN"><a href="#Video-4-Cycle-GAN" class="headerlink" title="Video 4 Cycle GAN"></a>Video 4 Cycle GAN</h2><p>Cycle&#x2F;Dual&#x2F;Disco GAN: $G_{x\rightarrow y}$, $G_{y\rightarrow x}$</p>
+<h2 id="The-theory-of-GAN-1"><a href="#The-theory-of-GAN-1" class="headerlink" title="The theory of GAN (1)"></a>The theory of GAN (1)</h2><p>$\max_{D} V(G, D)$ maximize the discriminator D in GAN  </p>
+<p>$V(G, D) &#x3D; \mathbb{E}<em>{x \sim P</em>{\text{data}}} [\log D(x)] + \mathbb{E}<em>{x \sim P</em>{G}} [\log(1 - D(x))]$<br>$V(G, D) &#x3D; \int_{x} P_{\text{data}}(x)\log D(x) , dx + \int_{x} P_{G}(x)\log(1 - D(x)) , dx$</p>
+<p>$V(G, D) &#x3D; P_{\text{data}}(x)\log D(x) + P_{G}(x)\log(1 - D(x))$ </p>
+<p>$D^*(x) &#x3D; \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_{G}(x)}$</p>
+<h1 id="4-01"><a href="#4-01" class="headerlink" title="4&#x2F;01"></a>4&#x2F;01</h1><h2 id="Video-1-2"><a href="#Video-1-2" class="headerlink" title="Video 1"></a>Video 1</h2><p>Self_supervised Learning</p>
+<h2 id="Video-2-BERT-intro"><a href="#Video-2-BERT-intro" class="headerlink" title="Video 2 BERT intro"></a>Video 2 BERT intro</h2><p>Masking Input: Mask<br>Next Sentence Pridiction: [CLS]sentence 1.[SEP] sentence 2.<br>Pre-trained Fine-tune for Downstream Tasks:<br>GLUE: General Language Understanding Evaluation<br>in seq, out class : sentiment analysis<br>in seq((n)), out seq(n): POG tagging<br>in 2 seqs, out class: NLI Natural language inference<br>in seqs, out seqs:QA Extract-based Question Answer\</p>
+<p>MASS\BART T5, C4(open sourced resource)</p>
+<h2 id="Video-3-BERT-anecdote-1"><a href="#Video-3-BERT-anecdote-1" class="headerlink" title="Video 3 BERT anecdote"></a>Video 3 BERT anecdote</h2><p>Same with above</p>
+<h2 id="VIdeo-4-GPT-outlook"><a href="#VIdeo-4-GPT-outlook" class="headerlink" title="VIdeo 4 GPT outlook"></a>VIdeo 4 GPT outlook</h2><p>Linear Transform -&gt; Softmax -&gt; distribution<br>Few-shot learning, one-shot, zero-shot learning<br>SimCLR, BYOL,<br>Speech GLUE - SUPERB</p>
+<h1 id="4-15"><a href="#4-15" class="headerlink" title="4&#x2F;15"></a>4&#x2F;15</h1><p>????</p>
+<h1 id="4-22"><a href="#4-22" class="headerlink" title="4&#x2F;22"></a>4&#x2F;22</h1><p>Auto encoder</p>
+<h2 id="Video-1-basic-idea"><a href="#Video-1-basic-idea" class="headerlink" title="Video 1 basic idea"></a>Video 1 basic idea</h2><p>same idea with Cycle GAN, embedding, representation, code<br>Dimension reduction: not deep learning based PCA, t-SNE<br>De-noising Auto-encoder</p>
+<p>Video 2-8 are all anomaly detection</p>
+<h2 id="Video-2-3"><a href="#Video-2-3" class="headerlink" title="Video 2"></a>Video 2</h2><p>Feature disentangelment: know the content of embedding: Voice Conversion<br>Discrete Representation: VQVAE</p>
+<h2 id="Video-3-1"><a href="#Video-3-1" class="headerlink" title="Video 3"></a>Video 3</h2><p>Anomal ydetection: other methods outlier, novelty, exception<br>one class classifier: Approach: Auto-encoder</p>
+<h2 id="Video-4-1"><a href="#Video-4-1" class="headerlink" title="Video 4"></a>Video 4</h2><p>A confidence score c, a threshold $\lambda$, smaller than, anomaly.</p>
+<h2 id="Video-5-1"><a href="#Video-5-1" class="headerlink" title="Video 5"></a>Video 5</h2><p>Generating anomaly data</p>
+<h2 id="Video-6"><a href="#Video-6" class="headerlink" title="Video 6"></a>Video 6</h2><p>Without Labels<br><a target="_blank" rel="noopener" href="https://github.com/ahaque/twitch-troll-detection">https://github.com/ahaque/twitch-troll-detection</a> </p>
+<h2 id="Video-7"><a href="#Video-7" class="headerlink" title="Video 7"></a>Video 7</h2><p>Gaussian Distribution<br>Assume the data points are samples from a probability density function $f_{\theta}(x)$<br>$\theta$ determine the shape of $f_{\theta}(x)$<br>$L(\theta)&#x3D;f_{\theta}(x^1)f_{\theta}(x^2)…f_{\theta}(x^N)$<br>$\theta^* &#x3D; arg max_\theta:L(\theta), \theta&#x3D;(\mu, \Sigma)$<br>$f_{\mu,\Sigma}(x) &#x3D; \frac{1}{(2\pi)^{D&#x2F;2}}\frac{1}{|\Sigma|^{1&#x2F;2}}exp(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu))$</p>
+<h2 id="Video-8"><a href="#Video-8" class="headerlink" title="Video 8"></a>Video 8</h2><p>Auto-encoder</p>
+<h1 id="4-29"><a href="#4-29" class="headerlink" title="4&#x2F;29"></a>4&#x2F;29</h1><h2 id="Video-1-Explainable-ML-Local"><a href="#Video-1-Explainable-ML-Local" class="headerlink" title="Video 1 Explainable ML Local"></a>Video 1 Explainable ML Local</h2><p>Loss of an example: Graident: Saliency Map<br>Limitation: Noisy Gradient, SmoothGrad<br>MFCC<br>Attention is Explanable<br>Probing: CNN BLSTM</p>
+<h2 id="Video-2-Explainable-ML-Global"><a href="#Video-2-Explainable-ML-Global" class="headerlink" title="Video 2 Explainable ML Global"></a>Video 2 Explainable ML Global</h2><h1 id="5-06"><a href="#5-06" class="headerlink" title="5&#x2F;06"></a>5&#x2F;06</h1><h2 id="VIdeo-1"><a href="#VIdeo-1" class="headerlink" title="VIdeo 1"></a>VIdeo 1</h2><p>Attack<br>$x^* &#x3D; arg_{d(x^0, x)&lt;\epsilon}, min L(x)$</p>
+<h3 id="Non-targeted"><a href="#Non-targeted" class="headerlink" title="Non-targeted"></a>Non-targeted</h3><p>$ e(,)$ cross entropy<br>$L(x) &#x3D; -e(y, \hat y)$</p>
+<h3 id="Targeted"><a href="#Targeted" class="headerlink" title="Targeted"></a>Targeted</h3><p>$L(x) &#x3D; -e(y, \hat y)+e(y, y_{target})$<br>$\hat y$: real case<br>$y_{target}$: what you wish to be perceied</p>
+<h3 id="Non-perceivable"><a href="#Non-perceivable" class="headerlink" title="Non-perceivable"></a>Non-perceivable</h3><p>$d(x^0, x)&lt;\epsilon$,<br>L2-norm, L-infinity</p>
+<h2 id="Video-2-4"><a href="#Video-2-4" class="headerlink" title="Video 2"></a>Video 2</h2><p>Black box attack: Proxy Network<br>Ensemble Network, one-pixel, universal adversarial attack<br>Beyond Images, speech processing, Natural<br>Adversarial reprogramming<br>Filter</p>
+<h1 id="7-03"><a href="#7-03" class="headerlink" title="7&#x2F;03"></a>7&#x2F;03</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1734y1c7Hb?p=2&spm_id_from=pageDriver&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1734y1c7Hb?p=2&amp;spm_id_from=pageDriver&amp;vd_source=441679270dda23308fe16f3c5602b058</a></p>
+<h2 id="Video-1-Diffusion-Model"><a href="#Video-1-Diffusion-Model" class="headerlink" title="Video 1 Diffusion Model"></a>Video 1 Diffusion Model</h2><p>Denoise module: picture + noise -&gt; predict noise,  then -noise -&gt; picturre<br>Train the noise predictor</p>
+<p>Diffuse process: </p>
+<pre><code>for step in range(1000):
+    generate noise[i]
+    pic[i] = pic[i-1] + noise[i]
+    
+train: 
+    given pic[i-1], pic[i]
+    learn noise[i]
+</code></pre>
+<p><img src="/2024-03-08-LHY-ML/image-2.png" alt="alt text"></p>
+<h2 id="Video-2-5"><a href="#Video-2-5" class="headerlink" title="Video 2"></a>Video 2</h2><p>Text to picture<br>DALL-E Decoder: Autoregressive&#x2F;Diffusion Model<br>Imagen(google):</p>
+<p>Framework:<br>Encoder: GPT&#x2F;BERT<br>Encoder -&gt; Generation model(Latent Representation) -&gt; Decoder</p>
+<h2 id="Video-3-原理"><a href="#Video-3-原理" class="headerlink" title="Video 3 原理"></a>Video 3 原理</h2><p>解释Training， Sampling</p>
+<p>$x_0:$ a picture,</p>
+<p>$x_t:$ pic + noise $t$</p>
+<h2 id="Video-4-2"><a href="#Video-4-2" class="headerlink" title="Video 4"></a>Video 4</h2><p>Maximum likelihood Estimation:<br>$P_{data}(x)$ True Distribution of Data<br>$P_{\theta}(x)$ Probability distribution of data $x$ given parameters $\theta$<br>${x^1, x^2,\cdots x^m}$ Observed data samples?</p>
+<p>Network: $z \rightarrow \theta \rightarrow P_{\theta}(x) \rightarrow P_{data}(x)$<br>, maximize $P_{\theta}(x^1)P_{\theta}(x^2) \cdots P_{\theta}(x^m)$</p>
+<p>$\theta^* &#x3D; arg max_\theta: log P_{\theta}(x^1)P_{\theta}(x^2) \cdots P_{\theta}(x^m)$</p>
+<p>$\theta^* &#x3D; arg max_\theta:  P_{data}(x) E_{x\sim P_{data}} log P_{\theta}(x) dx$</p>
+<p>$\theta^* &#x3D; arg max_\theta: \int_{x}P_{data}(x) log P_{\theta}(x)dx - \int_{x}P_{data}(x) log P_{data}(x)dx$</p>
+<p>$\theta^* &#x3D; arg max_\theta: \int_{x}P_{data}(x) log \frac{P_{\theta}(x)}{P_{data}(x)}dx$</p>
+<p>$\theta^* &#x3D; arg max_\theta: -KL(P_{data}||P_{\theta})$</p>
+<h3 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h3><p>Compute $P_{\theta}(x)$<br>Network: $G(z)&#x3D;x$<br>$P_{\theta}(x) &#x3D; \int P_{\theta}(x|z)P_{\theta}(z) dz$</p>
+<p>$P_{\theta}(z|x) &#x3D; \frac{P_{\theta}(x|z)P_{\theta}(z)}{P_{\theta}(x)}$</p>
+<p>DDMP</p>
+<h2 id="Video-5-2"><a href="#Video-5-2" class="headerlink" title="Video 5"></a>Video 5</h2><p>VAE: Variational Auto-encoder<br>$P_{\theta}(x) &#x3D; \int P_{\theta}(x|z)P_{\theta}(z) dz$<br>$P_{\theta}(z|x) &#x3D; \frac{P_{\theta}(x|z)P_{\theta}(z)}{P_{\theta}(x)}$</p>
+<h1 id="VAE-1"><a href="#VAE-1" class="headerlink" title="VAE"></a>VAE</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yD4y1i7Jm/?p=44&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1yD4y1i7Jm/?p=44&amp;vd_source=441679270dda23308fe16f3c5602b058</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wxkang/p/17128108.html">https://www.cnblogs.com/wxkang/p/17128108.html</a><br>比较主流的生成模型：HMM, NB, GMM(Gaussian Mixture Model)</p>
+<p>KL divergence: $KL(P||Q) &#x3D; \int P(x)log \frac{P(x)}{Q(x)}$, $KL(P||Q)\neq KL(Q||P)$</p>
+<p>AE: 与PCA, SVD目的相同，矩阵降维技术。</p>
+<p>latent variable $z$, assume it follows the prior distribution of $P(z)\sim N(0,1)$</p>
+<p>$P(x|z): \sim N(\mu(z), \sigma(z))$: </p>
+<p>$P(x)&#x3D;\int P(z)P(x|z)dz$</p>
+<p>To Max Likelihood of observed $x$: $L &#x3D; \sum_x logP(x)$</p>
+<p>ELBO Evidence Lower Bound</p>
+<h1 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h1><p>看不懂：仿佛在谈收敛快慢和平衡状态$\pi$的问题<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143016455">https://zhuanlan.zhihu.com/p/143016455</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/6625739.html">https://www.cnblogs.com/pinard/p/6625739.html</a></p>
+<h2 id="Monte-Carlo-Integration"><a href="#Monte-Carlo-Integration" class="headerlink" title="Monte Carlo Integration"></a>Monte Carlo Integration</h2><p>If $X$ is uniformlt distributed on $[a,b]$:<br>$\int_a^b f(x)dx &#x3D; \int_a^b f(x) \frac{1}{b-a}dx &#x3D; E_{x\sim U(a,b)}[f(x)] &#x3D; \frac{1}{N}\sum_{i&#x3D;1}^N f(x_i)$</p>
+<p>if we know the distribution of $X$ on $[a, b]&#x3D;p(x)$:<br>$\int_a^b f(x)dx &#x3D; \int_a^b \frac{f(x)}{p(x)}p(x)dx &#x3D; E_{x\sim p(x)}[f(x)] &#x3D; \frac{1}{N}\sum_{i&#x3D;1}^N \frac{f(x_i)}{p(x_i)}$</p>
+<h2 id="Acceptance-Rejection-Sampling"><a href="#Acceptance-Rejection-Sampling" class="headerlink" title="Acceptance-Rejection Sampling"></a>Acceptance-Rejection Sampling</h2><p><a target="_blank" rel="noopener" href="https://blog.quantitations.com/inference/2012/11/24/rejection-sampling-proof">https://blog.quantitations.com/inference/2012/11/24/rejection-sampling-proof</a></p>
+<p>方便采样的常用概率分布函数(proposal distribution) $q(x)$以及一个常量k使得$p(x)$总在$kq(x)$的下方</p>
+<h2 id="MCMC-1"><a href="#MCMC-1" class="headerlink" title="MCMC"></a>MCMC</h2>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://tlhey.github.io/2024/03/08/2024-03-08-LHY-ML/" data-id="cm3bkdrvr0000rkbzdn3agzp1" data-title="LHY ML" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         
@@ -126,7 +1563,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/11/">November 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/09/">September 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/08/">August 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/03/">March 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/02/">February 2024</a></li></ul>
     </div>
   </div>
 
@@ -140,6 +1577,22 @@
         
           <li>
             <a href="/2024/11/10/hello/">hello</a>
+          </li>
+        
+          <li>
+            <a href="/2024/11/05/2024-11-05-Digital-Image/">2024-11-05-Digital-Image</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/26/2024-10-26-Magic/">2024-10-26-Magic</a>
+          </li>
+        
+          <li>
+            <a href="/2024/10/25/2024-10-25-Duke-courses-selection/">2024-10-25 Duke courses selection</a>
+          </li>
+        
+          <li>
+            <a href="/2024/09/08/2024-09-08-Lofi/">2024-09-08 Lofi</a>
           </li>
         
       </ul>
