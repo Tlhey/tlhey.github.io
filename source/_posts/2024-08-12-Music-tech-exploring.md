@@ -152,8 +152,6 @@ $\begin{aligned} D_{K L}(p \| q) &= -\sum_{i=1}^{n} p(x_{i}) \cdot \log \frac{q(
 loss详解
 https://www.zhihu.com/column/c_1334301979816820736
 
-
-
 除了我都会，，图神经网络
 https://www.zhihu.com/column/c_1322582255018184704
 
@@ -162,7 +160,13 @@ https://www.zhihu.com/column/c_1322582255018184704
 总的来说觉得x和z是对称的，但x可采样，打破对称性。
 但是不是的，，
 
-## 
+## 讲得很好
+DDPM视频：https://www.bilibili.com/video/BV1p24y1K7Pf?spm_id_from=333.788.videopod.sections&vd_source=441679270dda23308fe16f3c5602b058
+文章：https://www.bilibili.com/read/cv23338176/?jump_opus=1
+知乎版本： https://zhuanlan.zhihu.com/p/624851115
+
+
+ode和可视化： https://developer.nvidia.com/blog/generative-ai-research-spotlight-demystifying-diffusion-based-models/
 
 # Diffusion model 
 介绍了consisitency model, VAE, Diffusion model , stable diffusion, LoRA, Latent Consistency Model 之间的关系，
@@ -177,8 +181,8 @@ https://lilianweng.github.io/posts/2021-07-11-diffusion-models/
 
 # Consisitency Diffusion
 https://wrong.wang/blog/20231111-consistency-is-all-you-need/
-
-
+https://zhuanlan.zhihu.com/p/692998238
+https://zhuanlan.zhihu.com/p/706862530
 # DIFF-A-RIFF: Musical Acoompanimetn via latent diffusion models
 1. Consistency Autoencoder
 2. Elucidated Diffusion Models (EDMs)
@@ -190,7 +194,7 @@ Related:
     - GANs/VAEs are faster but limiting fidelity
     - Denoising Difussion Implicit Models:
 2. Latent models
-    -  q
+    -  
 3. Control Mechanism
    - Music ControlNet
    - 
@@ -198,6 +202,28 @@ Related:
 
 
 
+# Flow matching
+
+
+
+# Score matching 
+score
+$\nabla_x log p_\sigma(x)$
+
+https://www.zhangzhenhu.com/aigc/Guidance.html
+
+
+
+
+
+
+
+
+
+
+
+
+看到奇怪的人： https://www.zhihu.com/people/labsig
 
 
 
@@ -218,7 +244,13 @@ Related:
 
 
 
-
+zou教授发的三篇论文
+https://arxiv.org/pdf/2406.08384
+ 
+https://arxiv.org/pdf/2405.18503
+ 
+https://openreview.net/pdf?id=mUVydzrkgz
+ 
 
 
 
