@@ -96,29 +96,6 @@ https://inria.hal.science/hal-03652042v1/document
 ## 19 aaai keysounded
 https://arxiv.org/pdf/1806.11170
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # problems encountered
 0.首先做的是关于给定t和diffculty ，生成对应的对应的（是预测下个tick 是否放置key还是预测下一个note的出现时间）
 
@@ -129,14 +106,9 @@ https://arxiv.org/pdf/1806.11170
 2. time series
 3. how to pose x. 
 
+最后实现，就是， 并没有参考任何技术，直接LSTM就上了。
 
-
-
-
-
-
-
-
+ 
 
 
 
