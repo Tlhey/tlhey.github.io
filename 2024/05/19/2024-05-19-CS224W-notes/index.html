@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>CS224W_notes | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1 Introduction，Machine learning for graphs大纲大纲  Traditional methods: Graphlets, Graph Kernels Methods for node embeddings: DeepWalk, Node2Vec Graph Neural Networks: GCN, GraphSAGE, GAT, Theory of GNNs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CS224W_notes">
+<meta property="og:url" content="http://example.com/2024/05/19/2024-05-19-CS224W-notes/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1 Introduction，Machine learning for graphs大纲大纲  Traditional methods: Graphlets, Graph Kernels Methods for node embeddings: DeepWalk, Node2Vec Graph Neural Networks: GCN, GraphSAGE, GAT, Theory of GNNs">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/bc12.jpeg">
+<meta property="article:published_time" content="2024-05-19T05:01:34.000Z">
+<meta property="article:modified_time" content="2024-12-15T04:16:27.975Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bc12.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CS224W_notes",
+  "url": "http://example.com/2024/05/19/2024-05-19-CS224W-notes/",
+  "image": "http://example.com/img/bc12.jpeg",
+  "datePublished": "2024-05-19T05:01:34.000Z",
+  "dateModified": "2024-12-15T04:16:27.975Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/05/19/2024-05-19-CS224W-notes/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'CS224W_notes',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/Background2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bc12.jpeg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Navi.jpg" alt="Logo"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">CS224W_notes</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">CS224W_notes</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-19T05:01:34.000Z" title="Created 2024-05-19 13:01:34">2024-05-19</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-15T04:16:27.975Z" title="Updated 2024-12-15 12:16:27">2024-12-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="1-Introduction，Machine-learning-for-graphs"><a href="#1-Introduction，Machine-learning-for-graphs" class="headerlink" title="1 Introduction，Machine learning for graphs"></a>1 Introduction，Machine learning for graphs</h1><h2 id="大纲"><a href="#大纲" class="headerlink" title="大纲"></a>大纲</h2><p>大纲</p>
+<ol>
+<li>Traditional methods: Graphlets, Graph Kernels</li>
+<li>Methods for node embeddings: DeepWalk, Node2Vec</li>
+<li>Graph Neural Networks: GCN, GraphSAGE, GAT, Theory of GNNs</li>
+<li>Knowledge graphs and reasoning: TransE, BetaE</li>
+<li>Deep generative models for graphs</li>
+<li>Applications to Biomedicine, Science, Industry</li>
+</ol>
+<h2 id="Defs"><a href="#Defs" class="headerlink" title="Defs"></a>Defs</h2><ol start="0">
+<li>$G&#x3D;(V, E, F)$ or $G(V, E)$</li>
+<li>Directed&#x2F; undirected</li>
+<li>Degree<br>Directed $\bar{k} &#x3D; \langle k \rangle &#x3D; \frac{1}{N} \sum_{i&#x3D;1}^{N} k_i &#x3D; \frac{2E}{N}$<br>Undirected in-degree + out-degree &#x3D; (total) degree, $\bar{k}&#x3D; \frac{E}{N}$ </li>
+<li>Bipartite Graph</li>
+<li>Folded&#x2F;Projected Bipartite graph</li>
+<li>Representing graphs: Adjacency matrix Density of matrix $\frac{E}{N^2}$<ol>
+<li>adjacency matrix</li>
+<li>Edge List</li>
+<li>Adjacency List</li>
+</ol>
+</li>
+<li>Attribute of edges</li>
+<li>Weighted&#x2F;Unweighted</li>
+<li>Self-edges</li>
+<li>Connectivity: (Un)Directed, Strong Connected Components (in Undirected)</li>
+</ol>
+<h1 id="2-Traditional-methods-for-ML-on-graph"><a href="#2-Traditional-methods-for-ML-on-graph" class="headerlink" title="2 Traditional methods for ML on graph"></a>2 Traditional methods for ML on graph</h1><p>Structural Feature&#x2F; Node features<br>Train on Random Forest, SVM, Neural Network; Apply on new graph. </p>
+<h2 id="Node"><a href="#Node" class="headerlink" title="Node"></a>Node</h2><h3 id="1-Node-Centrality"><a href="#1-Node-Centrality" class="headerlink" title="(1) Node Centrality"></a>(1) Node Centrality</h3><p>233</p>
+<ol>
+<li>Eigenvector centrality: $c_v&#x3D;\frac{1}{\lambda}\sum_{u\in N(v)}$</li>
+<li>Betweenness centrality<br>Here is the improved version of the formulas in the format you provided, while keeping the same style and explanation:</li>
+</ol>
+<hr>
+<ol>
+<li><p><strong>Betweenness Centrality</strong><br>Betweenness centrality ( c_v ) measures the extent to which a node ( v ) lies on the shortest paths between other nodes.  </p>
+<p>$$<br>c_v &#x3D; \sum_{s \neq v \neq t} \frac{\sigma_{st}(v)}{\sigma_{st}}<br>$$</p>
+<ul>
+<li>( \sigma_{st} ): The number of shortest paths between nodes ( s ) and ( t ).  </li>
+<li>( \sigma_{st}(v) ): The number of shortest paths between ( s ) and ( t ) that pass through ( v ).</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol start="2">
+<li><p><strong>Closeness Centrality</strong><br>Closeness centrality ( c_v ) quantifies how close a node ( v ) is to all other nodes in the network.  </p>
+<p>$$<br>c_v &#x3D; \frac{1}{\sum_{u \neq v} d(u, v)}<br>$$</p>
+<ul>
+<li>( d(u, v) ): The shortest path length between node ( u ) and node ( v ).</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-Clustering-Coefficient"><a href="#2-Clustering-Coefficient" class="headerlink" title="(2) Clustering Coefficient"></a>(2) Clustering Coefficient</h3><p>[<br>e_v &#x3D; \frac{\text{Number of edges between neighbors of } v}{\binom{k_v}{2}}, \quad \binom{k_v}{2} &#x3D; \frac{k_v (k_v - 1)}{2}<br>] </p>
+<h3 id="3-Graphlet-Rooted-connected-non-isomorphic-subgraphs"><a href="#3-Graphlet-Rooted-connected-non-isomorphic-subgraphs" class="headerlink" title="(3) Graphlet: Rooted connected non-isomorphic subgraphs"></a>(3) Graphlet: Rooted connected non-isomorphic subgraphs</h3><p>Graphlet degree vector<br>Clustering coefficient.<br>Feature-based&#x2F; structure-based features.</p>
+<h2 id="Link"><a href="#Link" class="headerlink" title="Link"></a>Link</h2><h3 id="1-Link-prediction"><a href="#1-Link-prediction" class="headerlink" title="(1) Link prediction"></a>(1) Link prediction</h3><ol>
+<li>Links missing at random: Remove a random set of links and then aim to predict them</li>
+<li>Links over time: Given $G[t_0, t_0’]$ a graph on edges up to time $t_0’$, output a ranked list $L$ of links (not in $G[t_0, t_0’]$) that are predicted to appear in $G[t_1, t_1’]$</li>
+</ol>
+<h3 id="2-Local-Neighborhood-Overlap"><a href="#2-Local-Neighborhood-Overlap" class="headerlink" title="(2) Local Neighborhood Overlap"></a>(2) Local Neighborhood Overlap</h3><ul>
+<li>Common neighbors: $|N(v_1) \cap N(v_2)|$</li>
+<li>Jaccard’s coefficient: $\frac{|N(v_1) \cap N(v_2)|}{|N(v_1) \cup N(v_2)|}$,<br>Normalize common neighbor, assuming having the same number of neighbors</li>
+<li>Adamic-Adar index: $\sum_{u \in N(v_1) \cap N(v_2)} \frac{1}{\log k_u}$,<br>Penalize those who have many neighbors</li>
+</ul>
+<h3 id="3-Global-Neighborhood-Overlap"><a href="#3-Global-Neighborhood-Overlap" class="headerlink" title="(3) Global Neighborhood Overlap"></a>(3) Global Neighborhood Overlap</h3><ul>
+<li>Katz index: $S_{uv}&#x3D; \sum_{l&#x3D;1}^{\infty} \beta^l A^l_{uv}$,<br>$A^l_{uv}$: number of paths of length $l$ between $u$ and $v$,<br>$\beta$: discount factor, the contribution of long paths  </li>
+<li>Katz index matrix: $S&#x3D; \sum_{i&#x3D;1}^\infty \beta^iA^i &#x3D; (I-\beta A)^{-1}-I$</li>
+</ul>
+<h2 id="Graph"><a href="#Graph" class="headerlink" title="Graph"></a>Graph</h2><h3 id="Kernel-method"><a href="#Kernel-method" class="headerlink" title="Kernel method:"></a>Kernel method:</h3><ol>
+<li><p><strong>Kernel function</strong>:<br>$K(G, G’)$ measures the similarity between two graphs $G$ and $G’$.<br>Maps the graphs into a higher-dimensional space where linear methods can be applied to perform complex, non-linear tasks in the original space.</p>
+</li>
+<li><p><strong>Kernel Matrix</strong>: $\mathbf{K} &#x3D; \left( K(G, G’) \right)_{G, G’}$ is a symmetric matrix.<br>It is positive semidefinite, meaning all its eigenvalues are non-negative.</p>
+</li>
+<li><p><strong>Feature Representation</strong>:<br>Feature mapping $\phi(\cdot)$ kernel function is expressed as dot product in feature space: $K(G, G’) &#x3D; \phi(G)^\top \phi(G’)$.</p>
+</li>
+</ol>
+<p>cite: <a target="_blank" rel="noopener" href="https://blog.csdn.net/PolarisRisingWar/article/details/115598815">CSDN Blog</a></p>
+<h3 id="Design-graph-feature-vector-phi-G"><a href="#Design-graph-feature-vector-phi-G" class="headerlink" title="Design graph feature vector $\phi(G)$"></a>Design graph feature vector $\phi(G)$</h3><p><strong>Bag-of-Words: BoW</strong><br>Key idea: use the word counts as features (#nodes as features, #degree, #graphlet, #color)</p>
+<h3 id="Graphlet-features"><a href="#Graphlet-features" class="headerlink" title="Graphlet features"></a>Graphlet features</h3><p>Key idea: Count the number of different graphlets in a graph.<br>$G_k&#x3D;(g_1, g_2, \cdots, g_{n_k})$</p>
+<p>Graphlet count vector $(f_G)&#x3D;#(g_i \subseteq G), ; i \leq n_k$</p>
+<p>$h_G&#x3D; \frac{f_G}{\text{Sum}(F_G)}$,<br>$K(G, G’)&#x3D;H_G^\top H_G’$</p>
+<p>NP-hard $O(nd^{k-1})$, expensive to calculate </p>
+<h3 id="Weisfeiler-Lehman-Kernel"><a href="#Weisfeiler-Lehman-Kernel" class="headerlink" title="Weisfeiler-Lehman Kernel"></a>Weisfeiler-Lehman Kernel</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/PolarisRisingWar/article/details/117336622">Weisfeiler-Lehman Kernel Blog</a></p>
+<h1 id="3-Node-Embedding"><a href="#3-Node-Embedding" class="headerlink" title="3 Node Embedding"></a>3 Node Embedding</h1><h2 id="3-1-Intro"><a href="#3-1-Intro" class="headerlink" title="3.1 Intro"></a>3.1 Intro</h2><p>Key: How to define node similarity  </p>
+<!-- Avoid direct Feature Engineering, and also reflect structural features -->
+<h3 id="Encoder"><a href="#Encoder" class="headerlink" title="Encoder"></a>Encoder</h3><p>Feature representation ↔ feature embedding  </p>
+<!-- If two nodes are similar in structure, they should be similar in embedding space -->
+<!-- Use dot product to measure similarity -->
+<p>Similarity $(u, v) \approx z_u^T z_v$,<br>$ENC(u) &#x3D; z_u$, $ENC(v) &#x3D; z_v$, <!--ENC: Encoder--><br>$z_u, z_v$ are $d$-dimensional in embedding space, $d$ usually 64-1000<br>$ENC(v)$ node in the input graph</p>
+<p>$ENC(v) &#x3D; z_v &#x3D; Z \cdot v$<br>Encoder is a lookup, embedding matrix $Z \in \mathbb{R}^{d \times |V|}$, $v \in I^{|V|}$</p>
+<h4 id="ENC"><a href="#ENC" class="headerlink" title="ENC"></a>ENC</h4><p>Shallow encoder: $d \times |V|$<br>Some ways for ENC: DeepWalk, Node2Vec</p>
+<h2 id="3-2-Random-walk-for-Node-Embedding"><a href="#3-2-Random-walk-for-Node-Embedding" class="headerlink" title="3.2 Random walk for Node Embedding"></a>3.2 Random walk for Node Embedding</h2><h3 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h3><ul>
+<li>Vector $z_u$: embedding vector of node $u$ (what we aim to find)</li>
+<li>$P(v|z_u)$: probability of visiting node $v$ on random walk starting from $u$. Used to measure similarity. </li>
+<li>Softmax: $\sigma(z)_i &#x3D; \frac{e^{z_i}}{\sum e^{z_j}}$</li>
+<li>Sigmoid: $S(x) &#x3D; \frac{1}{1 + e^{-x}}$</li>
+</ul>
+<h3 id="Random-walk-embedding"><a href="#Random-walk-embedding" class="headerlink" title="Random walk embedding"></a>Random walk embedding</h3><p>Using random strategy $R$: $P_R(u|v)$<br>Given<br>$G&#x3D;(V, E)$<br>Goal: Learn a mapping $f: u \rightarrow \mathbb{R}^d$<br>$$<br>\mathcal{L} &#x3D; \sum_{u \in V} \sum_{v \in N_R(u)} -\log\left(\frac{\exp(z_u^\top z_v)}{\sum_{n \in V} \exp(z_u^\top z_n)}\right)<br>$$<br><strong>Negative sampling</strong><br>$$<br>\log\left(\frac{\exp(z_u^\top z_v)}{\sum_{n \in V} \exp(z_u^\top z_n)}\right) \approx \log\left(\sigma(z_u^\top z_v)\right) - \sum_{i&#x3D;1}^{k} \log\left(\sigma(z_u^\top z_{n_i})\right), \quad n_i \sim P_V<br>$$ –&gt;</p>
+<h3 id="Random-walk-strategy"><a href="#Random-walk-strategy" class="headerlink" title="Random walk strategy"></a>Random walk strategy</h3><h4 id="DeepWalk"><a href="#DeepWalk" class="headerlink" title="DeepWalk"></a>DeepWalk</h4><p><a target="_blank" rel="noopener" href="https://www.vldb.org/pvldb/vol10/p13-wu.pdf">DeepWalk Paper</a></p>
+<h4 id="Node2Vec"><a href="#Node2Vec" class="headerlink" title="Node2Vec"></a>Node2Vec</h4><p>Node2Vec</p>
+<p><strong>Hyperparameters:</strong></p>
+<ul>
+<li>$p$: Return parameter</li>
+<li>$q$: In-out parameter</li>
+</ul>
+<h2 id="3-3-Embedding-Entire-Graph"><a href="#3-3-Embedding-Entire-Graph" class="headerlink" title="3.3 Embedding Entire Graph"></a>3.3 Embedding Entire Graph</h2><h3 id="Approach-1"><a href="#Approach-1" class="headerlink" title="Approach 1"></a>Approach 1</h3><p>Sum&#x2F;mean $z_G &#x3D; \sum_{v \in G} z_v$<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1509.09292">Embedding Entire Graph</a></p>
+<h3 id="Approach-2"><a href="#Approach-2" class="headerlink" title="Approach 2"></a>Approach 2</h3><p>Virtual node<br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1511.05493">Virtual Node Paper</a></p>
+<h3 id="Approach-3"><a href="#Approach-3" class="headerlink" title="Approach 3"></a>Approach 3</h3><p>Anonymous walk:</p>
+<h4 id="Sampling-Anonymous-walks"><a href="#Sampling-Anonymous-walks" class="headerlink" title="Sampling Anonymous walks"></a>Sampling Anonymous walks</h4><p>Distribution have error less than $\epsilon$ with probability, less than $\delta$<br>$m &#x3D; f(\epsilon, \sigma, \delta)$</p>
+<h4 id="Walk-Embedding"><a href="#Walk-Embedding" class="headerlink" title="Walk Embedding"></a>Walk Embedding</h4><p>$\Delta$</p>
+<h1 id="4-Node-Embedding-using-Random-walk-PageRank"><a href="#4-Node-Embedding-using-Random-walk-PageRank" class="headerlink" title="4 Node Embedding using Random walk - PageRank"></a>4 Node Embedding using Random walk - PageRank</h1><h2 id="4-1-Intro"><a href="#4-1-Intro" class="headerlink" title="4.1 Intro"></a>4.1 Intro</h2><p>PageRank: $r_v &#x3D; \sum_{u \in N_R(v)} r_u \frac{A_{u,v}}{d_u}$<br>$d_u$: degree of node $u$<br>$A_{u,v}$: adjacency matrix<br>$r_v$: rank of node $v$<br>$N_R(v)$: neighbors of node $v$</p>
+<h2 id="4-2-PageRank-for-Graph"><a href="#4-2-PageRank-for-Graph" class="headerlink" title="4.2 PageRank for Graph"></a>4.2 PageRank for Graph</h2><p>$r_v &#x3D; \sum_{u \in N_R(v)} r_u \frac{A_{u,v}}{d_u}$<br>$d_u$: degree of node $u$<br>$A_{u,v}$: adjacency matrix<br>$r_v$: rank of node $v$<br>$N_R(v)$: neighbors of node $v$</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>$r_v &#x3D; \sum_{u \in N_R(v)} r_u \frac{A_{u,v}}{d_u}$</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a></h2><ul>
+<li>Personalized PageRank (Topic specific PageRank)<br>Rank proximity of nodes to the teleport nodes $S$,<br>Proximity on graphs: </li>
+<li>PageRank with restarts:</li>
+</ul>
+<h3 id="Matrix-Factorization"><a href="#Matrix-Factorization" class="headerlink" title="Matrix Factorization"></a>Matrix Factorization</h3><p>Frobenius norm: $\min_z ||A - Z^\top Z||$<br><img src="2024-05-19-CS224W-notes/image.png" alt="Alt text" width="400" ></p>
+<h1 id="5-Message-passing-Node-Classification"><a href="#5-Message-passing-Node-Classification" class="headerlink" title="5 Message passing &amp; Node Classification"></a>5 Message passing &amp; Node Classification</h1><p>Classical methods</p>
+<p><strong>Correlation:</strong> nearby nodes have the same color<br>$A_{n \times n}$: Adjacency matrix<br>$Y &#x3D; {0, 1}^n$</p>
+<h2 id="Collective-Classification"><a href="#Collective-Classification" class="headerlink" title="Collective Classification:"></a>Collective Classification:</h2><ol>
+<li>Local classifier </li>
+<li>Relational Classifier </li>
+<li>Collective Inference<br>$1^{st}$ order Markov assumption: $P(Y_v) &#x3D; P(Y_v | N_v)$</li>
+</ol>
+<ul>
+<li>Relational classification</li>
+<li>Iterative classification </li>
+<li>Belief propagation</li>
+</ul>
+<h1 id="6-GNN-Model"><a href="#6-GNN-Model" class="headerlink" title="6 GNN Model"></a>6 GNN Model</h1><h1 id="7-GNN-Design-Space"><a href="#7-GNN-Design-Space" class="headerlink" title="7 GNN Design Space"></a>7 GNN Design Space</h1><h1 id="8-Training-GNN"><a href="#8-Training-GNN" class="headerlink" title="8 Training GNN"></a>8 Training GNN</h1><h2 id="8-1-Data-augmentation"><a href="#8-1-Data-augmentation" class="headerlink" title="8.1 Data augmentation"></a>8.1 Data augmentation</h2><h3 id="Feature-based"><a href="#Feature-based" class="headerlink" title="Feature based"></a>Feature based</h3><h3 id="Structure-based"><a href="#Structure-based" class="headerlink" title="Structure based"></a>Structure based</h3><h2 id="8-2"><a href="#8-2" class="headerlink" title="8.2"></a>8.2</h2><h2 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h2><p><img src="/2024-05-19-CS224W-notes/image-1.png" alt="alt text"></p>
+<p><strong>Node Prediction</strong>  </p>
+<ul>
+<li>Transductive setting</li>
+<li>Inductive setting</li>
+</ul>
+<p><strong>Training</strong><br>Validation (tuning hyperparameters)<br>Test set</p>
+<p><strong>Graph Prediction</strong>  </p>
+<ul>
+<li>Link Prediction –&gt;</li>
+</ul>
+<h1 id="9-Theory-of-GNN"><a href="#9-Theory-of-GNN" class="headerlink" title="9 Theory of GNN"></a>9 Theory of GNN</h1><p>GCN, GAT, GraphSAGE, design space </p>
+<h2 id="9-1"><a href="#9-1" class="headerlink" title="9.1"></a>9.1</h2><h2 id="9-2"><a href="#9-2" class="headerlink" title="9.2"></a>9.2</h2><p>GCN Mean pooling fails<br>GraphSAGE mean-pool </p>
+<p>Injective Multiset function: $\Phi(\cdot)$: a non-linear function:<br>$\Phi(\sum_{x \in S} f(x))$:<br>Multi-layer Perceptron<br><strong>Theorem:</strong> Universal approximation theorem<br>A neural network can model any injective multiset function:<br>$MLP_{\Phi}(\sum_{x \in S} MLP_{f}(x))$</p>
+<p><strong>Graph Isomorphism Network (GIN) Xue 2019</strong> </p>
+<p><strong>WL Graph Kernel</strong><br>Hash<br>$$<br>\left( c^{(k)}(v), { c^{(k)}(u) }_{u \in N(v)} \right)<br>$$</p>
+<p>$$<br>\text{MLP}<em>{\Phi} \left( (1 + \epsilon) \cdot \text{MLP}</em>{f}(c^{(k)}(v)) + \sum_{u \in N(v)} \text{MLP}_{f}(c^{(k)}(u)) \right)<br>$$</p>
+<p>where $\epsilon$ is a learnable scalar</p>
+<p>$$<br>c^{(k+1)}(v) &#x3D; \text{HASH} \left( c^{(k)}(v), { c^{(k)}(u) }_{u \in N(v)} \right)<br>$$</p>
+<p>$$<br>\text{GINConv} \left( c^{(k)}(v), { c^{(k)}(u) }<em>{u \in N(v)} \right) &#x3D; \text{MLP}</em>{\Phi} \left( (1 + \epsilon) \cdot c^{(k)}(v) + \sum_{u \in N(v)} c^{(k)}(u) \right)<br>$$</p>
+<h1 id="10-Heterogeneous-Graphs-and-Knowledge-Graph-Embeddings"><a href="#10-Heterogeneous-Graphs-and-Knowledge-Graph-Embeddings" class="headerlink" title="10 Heterogeneous Graphs and Knowledge Graph Embeddings"></a>10 Heterogeneous Graphs and Knowledge Graph Embeddings</h1><h2 id="10-1"><a href="#10-1" class="headerlink" title="10.1"></a>10.1</h2><h3 id="Heterogeneous-Graphs"><a href="#Heterogeneous-Graphs" class="headerlink" title="Heterogeneous Graphs"></a>Heterogeneous Graphs</h3><p>$G&#x3D;(V, E, R, T)$</p>
+<h2 id="RGCN"><a href="#RGCN" class="headerlink" title="RGCN"></a>RGCN</h2><h1 id="VGAE"><a href="#VGAE" class="headerlink" title="VGAE"></a>VGAE</h1><p>讲的比较好的GAE和VGAE</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.atyun.com/17976.html">AtYun Article</a></li>
+<li><a target="_blank" rel="noopener" href="https://spaces.ac.cn/archives/5253#%E7%BB%88%E7%82%B9%E7%AB%99">Spaces Article</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_16763983/article/details/120403055?spm=1001.2101.3001.6650.7&utm_medium=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-120403055-blog-119531815.235%5Ev43%5Epc_blog_bottom_relevance_base8&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~BlogCommendFromBaidu~Rate-7-120403055-blog-119531815.235%5Ev43%5Epc_blog_bottom_relevance_base8&utm_relevant_index=13">CSDN Blog</a></li>
+</ol>
+<h3 id="CNN-code"><a href="#CNN-code" class="headerlink" title="CNN code"></a>CNN code</h3><ol>
+<li>CNN 网络结构与部分 PyTorch: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wpx123/p/17616156.html">CNBlogs 1</a>, <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wpx123/p/17621303.html">CNBlogs 2</a></li>
+</ol>
+<h4 id="Optimizer："><a href="#Optimizer：" class="headerlink" title="Optimizer："></a>Optimizer：</h4><p>SGD, GD, Adam 都是 Optimizer 的种类</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/346205754">PyTorch 源代码解读</a>, 以及各种参数 lr, gamma 的影响</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/xian0710830114/article/details/126551268">简单讲解了 SGD， Adam 的原理</a></li>
+</ol>
+<h3 id="一个比较有用的-Casual-Inference-综述的博客："><a href="#一个比较有用的-Casual-Inference-综述的博客：" class="headerlink" title="一个比较有用的 Casual Inference 综述的博客："></a>一个比较有用的 Casual Inference 综述的博客：</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/caoyusang/p/13518354.html">Casual Inference 综述</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/05/19/2024-05-19-CS224W-notes/">http://example.com/2024/05/19/2024-05-19-CS224W-notes/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/bc12.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Introduction%EF%BC%8CMachine-learning-for-graphs"><span class="toc-number">1.</span> <span class="toc-text">1 Introduction，Machine learning for graphs</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%A7%E7%BA%B2"><span class="toc-number">1.1.</span> <span class="toc-text">大纲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Defs"><span class="toc-number">1.2.</span> <span class="toc-text">Defs</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-Traditional-methods-for-ML-on-graph"><span class="toc-number">2.</span> <span class="toc-text">2 Traditional methods for ML on graph</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Node"><span class="toc-number">2.1.</span> <span class="toc-text">Node</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Node-Centrality"><span class="toc-number">2.1.1.</span> <span class="toc-text">(1) Node Centrality</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Clustering-Coefficient"><span class="toc-number">2.1.2.</span> <span class="toc-text">(2) Clustering Coefficient</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Graphlet-Rooted-connected-non-isomorphic-subgraphs"><span class="toc-number">2.1.3.</span> <span class="toc-text">(3) Graphlet: Rooted connected non-isomorphic subgraphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Link"><span class="toc-number">2.2.</span> <span class="toc-text">Link</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Link-prediction"><span class="toc-number">2.2.1.</span> <span class="toc-text">(1) Link prediction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Local-Neighborhood-Overlap"><span class="toc-number">2.2.2.</span> <span class="toc-text">(2) Local Neighborhood Overlap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Global-Neighborhood-Overlap"><span class="toc-number">2.2.3.</span> <span class="toc-text">(3) Global Neighborhood Overlap</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Graph"><span class="toc-number">2.3.</span> <span class="toc-text">Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kernel-method"><span class="toc-number">2.3.1.</span> <span class="toc-text">Kernel method:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Design-graph-feature-vector-phi-G"><span class="toc-number">2.3.2.</span> <span class="toc-text">Design graph feature vector $\phi(G)$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Graphlet-features"><span class="toc-number">2.3.3.</span> <span class="toc-text">Graphlet features</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Weisfeiler-Lehman-Kernel"><span class="toc-number">2.3.4.</span> <span class="toc-text">Weisfeiler-Lehman Kernel</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-Node-Embedding"><span class="toc-number">3.</span> <span class="toc-text">3 Node Embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-Intro"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 Intro</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Encoder"><span class="toc-number">3.1.1.</span> <span class="toc-text">Encoder</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ENC"><span class="toc-number">3.1.1.1.</span> <span class="toc-text">ENC</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Random-walk-for-Node-Embedding"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Random walk for Node Embedding</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Notation"><span class="toc-number">3.2.1.</span> <span class="toc-text">Notation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-walk-embedding"><span class="toc-number">3.2.2.</span> <span class="toc-text">Random walk embedding</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Random-walk-strategy"><span class="toc-number">3.2.3.</span> <span class="toc-text">Random walk strategy</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#DeepWalk"><span class="toc-number">3.2.3.1.</span> <span class="toc-text">DeepWalk</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Node2Vec"><span class="toc-number">3.2.3.2.</span> <span class="toc-text">Node2Vec</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-Embedding-Entire-Graph"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 Embedding Entire Graph</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-1"><span class="toc-number">3.3.1.</span> <span class="toc-text">Approach 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-2"><span class="toc-number">3.3.2.</span> <span class="toc-text">Approach 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approach-3"><span class="toc-number">3.3.3.</span> <span class="toc-text">Approach 3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Sampling-Anonymous-walks"><span class="toc-number">3.3.3.1.</span> <span class="toc-text">Sampling Anonymous walks</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Walk-Embedding"><span class="toc-number">3.3.3.2.</span> <span class="toc-text">Walk Embedding</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-Node-Embedding-using-Random-walk-PageRank"><span class="toc-number">4.</span> <span class="toc-text">4 Node Embedding using Random walk - PageRank</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Intro"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 Intro</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-PageRank-for-Graph"><span class="toc-number">4.2.</span> <span class="toc-text">4.2 PageRank for Graph</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">4.3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#-1"><span class="toc-number">4.4.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Matrix-Factorization"><span class="toc-number">4.4.1.</span> <span class="toc-text">Matrix Factorization</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Message-passing-Node-Classification"><span class="toc-number">5.</span> <span class="toc-text">5 Message passing &amp; Node Classification</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collective-Classification"><span class="toc-number">5.1.</span> <span class="toc-text">Collective Classification:</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-GNN-Model"><span class="toc-number">6.</span> <span class="toc-text">6 GNN Model</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-GNN-Design-Space"><span class="toc-number">7.</span> <span class="toc-text">7 GNN Design Space</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-Training-GNN"><span class="toc-number">8.</span> <span class="toc-text">8 Training GNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-Data-augmentation"><span class="toc-number">8.1.</span> <span class="toc-text">8.1 Data augmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature-based"><span class="toc-number">8.1.1.</span> <span class="toc-text">Feature based</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Structure-based"><span class="toc-number">8.1.2.</span> <span class="toc-text">Structure based</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2"><span class="toc-number">8.2.</span> <span class="toc-text">8.2</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3"><span class="toc-number">8.3.</span> <span class="toc-text">8.3</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-Theory-of-GNN"><span class="toc-number">9.</span> <span class="toc-text">9 Theory of GNN</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1"><span class="toc-number">9.1.</span> <span class="toc-text">9.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2"><span class="toc-number">9.2.</span> <span class="toc-text">9.2</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-Heterogeneous-Graphs-and-Knowledge-Graph-Embeddings"><span class="toc-number">10.</span> <span class="toc-text">10 Heterogeneous Graphs and Knowledge Graph Embeddings</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1"><span class="toc-number">10.1.</span> <span class="toc-text">10.1</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Heterogeneous-Graphs"><span class="toc-number">10.1.1.</span> <span class="toc-text">Heterogeneous Graphs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RGCN"><span class="toc-number">10.2.</span> <span class="toc-text">RGCN</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VGAE"><span class="toc-number">11.</span> <span class="toc-text">VGAE</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#CNN-code"><span class="toc-number">11.0.1.</span> <span class="toc-text">CNN code</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Optimizer%EF%BC%9A"><span class="toc-number">11.0.1.1.</span> <span class="toc-text">Optimizer：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E6%AF%94%E8%BE%83%E6%9C%89%E7%94%A8%E7%9A%84-Casual-Inference-%E7%BB%BC%E8%BF%B0%E7%9A%84%E5%8D%9A%E5%AE%A2%EF%BC%9A"><span class="toc-number">11.0.2.</span> <span class="toc-text">一个比较有用的 Casual Inference 综述的博客：</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me"><img src="/img/bc3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-25-About-me"/></a><div class="content"><a class="title" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me">2024-11-25-About-me</a><time datetime="2024-11-25T14:36:31.000Z" title="Created 2024-11-25 22:36:31">2024-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes"><img src="/img/bc15.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-16 DIP Notes"/></a><div class="content"><a class="title" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes">2024-11-16 DIP Notes</a><time datetime="2024-11-16T03:12:55.000Z" title="Created 2024-11-16 11:12:55">2024-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/10/hello/" title="hello"><img src="/img/bc16.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hello"/></a><div class="content"><a class="title" href="/2024/11/10/hello/" title="hello">hello</a><time datetime="2024-11-10T12:01:44.000Z" title="Created 2024-11-10 20:01:44">2024-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic"><img src="/img/bc9.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-26-Magic"/></a><div class="content"><a class="title" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic">2024-10-26-Magic</a><time datetime="2024-10-25T18:46:12.000Z" title="Created 2024-10-26 02:46:12">2024-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection"><img src="/img/bc21.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-25 Duke courses selection"/></a><div class="content"><a class="title" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection">2024-10-25 Duke courses selection</a><time datetime="2024-10-25T10:06:08.000Z" title="Created 2024-10-25 18:06:08">2024-10-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/bc12.jpeg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

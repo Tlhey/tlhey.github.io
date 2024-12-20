@@ -1,0 +1,498 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>papers | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="1. Counterfactual fairnessCounterfactual fairnesslink: https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper_files&#x2F;paper&#x2F;2017&#x2F;file&#x2F;a486cd07e4ac3d270571622f4f316ec5-Paper.pdf Definitions: defs$A$: Protected attributes,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="papers">
+<meta property="og:url" content="http://example.com/2024/05/08/2024-05-08-Meetings-log/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. Counterfactual fairnessCounterfactual fairnesslink: https:&#x2F;&#x2F;proceedings.neurips.cc&#x2F;paper_files&#x2F;paper&#x2F;2017&#x2F;file&#x2F;a486cd07e4ac3d270571622f4f316ec5-Paper.pdf Definitions: defs$A$: Protected attributes,">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/bc6.jpeg">
+<meta property="article:published_time" content="2024-05-08T12:11:06.000Z">
+<meta property="article:modified_time" content="2024-12-15T03:59:04.424Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bc6.jpeg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "papers",
+  "url": "http://example.com/2024/05/08/2024-05-08-Meetings-log/",
+  "image": "http://example.com/img/bc6.jpeg",
+  "datePublished": "2024-05-08T12:11:06.000Z",
+  "dateModified": "2024-12-15T03:59:04.424Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/05/08/2024-05-08-Meetings-log/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'papers',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/Background2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bc6.jpeg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Navi.jpg" alt="Logo"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">papers</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">papers</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-05-08T12:11:06.000Z" title="Created 2024-05-08 20:11:06">2024-05-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-15T03:59:04.424Z" title="Updated 2024-12-15 11:59:04">2024-12-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="1-Counterfactual-fairness"><a href="#1-Counterfactual-fairness" class="headerlink" title="1. Counterfactual fairness"></a>1. Counterfactual fairness</h1><p>Counterfactual fairness<br>link: <a target="_blank" rel="noopener" href="https://proceedings.neurips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf">https://proceedings.neurips.cc/paper_files/paper/2017/file/a486cd07e4ac3d270571622f4f316ec5-Paper.pdf</a></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>Definitions:</p>
+<h4 id="defs"><a href="#defs" class="headerlink" title="defs"></a>defs</h4><p>$A$: Protected attributes, sensitive features<br>$X$: features of individuals, excluding A<br>$U$: latent features not observed, represented<br>$Y$: predictor    </p>
+<h4 id="Fairness-through-unawareness-FTU"><a href="#Fairness-through-unawareness-FTU" class="headerlink" title="Fairness through unawareness (FTU):"></a>Fairness through unawareness (FTU):</h4><p><em>An algorithm is fair so long as any protected attributes $A$ are not explicitly used in the decision-making process.</em><br>Shortcoming: $X$ might intersects $A$</p>
+<h4 id="Individual-Fairness-IF"><a href="#Individual-Fairness-IF" class="headerlink" title="Individual Fairness (IF)."></a>Individual Fairness (IF).</h4><p>For distance metric(should be carefully choosen), $d(\cdot , \cdot)$, if $d(i, j)$ is small, then $\hat Y(X^{(i)}, A^{(i)}) \approx \hat Y(X^{(j)}, A^{(j)})$</p>
+<h4 id="Demographic-Parity-DP-人口统计学意义上的平等"><a href="#Demographic-Parity-DP-人口统计学意义上的平等" class="headerlink" title="Demographic Parity (DP)(人口统计学意义上的平等)"></a>Demographic Parity (DP)(人口统计学意义上的平等)</h4><p>Predictor $\hat Y$ satisfies demographic partiy if $P(\hat Y|A&#x3D;0)&#x3D;P(\hat Y|A&#x3D;1)$ </p>
+<h4 id="Equality-of-Opportunity"><a href="#Equality-of-Opportunity" class="headerlink" title="Equality of Opportunity"></a>Equality of Opportunity</h4><p>$P(\hat Y|A&#x3D;0, Y&#x3D;1)&#x3D;P(\hat Y|A&#x3D;1, Y&#x3D;1)$ </p>
+<h3 id="Causal-Models-因果推断-Counterfacutal、"><a href="#Causal-Models-因果推断-Counterfacutal、" class="headerlink" title="Causal Models(因果推断), Counterfacutal、"></a>Causal Models(因果推断), Counterfacutal、</h3><p>Casual Model $(U, V, F)$,<br>$U$: latent background variables,<br>$V$: observed variables, <br>$F&#x3D;{f_1. f_2, \cdots, f_n}$, for each $V_i&#x3D;f_i(pa_i, U_{pa_i})\in V, pa_i \subseteq V \backslash {V_i}$ </p>
+<p><strong>Three Steps of Inference</strong>\</p>
+<ul>
+<li>Abduction：for a given prior on $U$, compute the posterior distribution of $U$ given the evidence $W &#x3D; w$</li>
+<li>Action：substitute the equations for $Z$ with the interventional values $z$, resulting in the modified set of equations $F_z$</li>
+<li>Prediction:</li>
+</ul>
+<h2 id="题外话"><a href="#题外话" class="headerlink" title="题外话"></a>题外话</h2><h3 id="Casual-Models-因果推断"><a href="#Casual-Models-因果推断" class="headerlink" title="Casual Models (因果推断)"></a>Casual Models (因果推断)</h3><p><a target="_blank" rel="noopener" href="https://www.zhihu.com/column/c_1217887302124773376">https://www.zhihu.com/column/c_1217887302124773376</a></p>
+<h4 id="Three-levels"><a href="#Three-levels" class="headerlink" title="Three levels:"></a>Three levels:</h4><ol>
+<li>Association: $A-B$ </li>
+<li>Intervention：$A&#x2F;A’ \rightarrow B?$</li>
+<li>Counterfactual $ want\ B’, how A\rightarrow A’$</li>
+</ol>
+<h4 id="Beyasian-Network"><a href="#Beyasian-Network" class="headerlink" title="Beyasian Network"></a>Beyasian Network</h4><p>In Directed acyclic Graph (DAG):<br><img src="/papers/image.png" alt="alt text"></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mantch/p/11179933.html">https://www.cnblogs.com/mantch/p/11179933.html</a><br>Component:</p>
+<ol>
+<li>head-to-head $a\rightarrow c\leftarrow b$ <br>$P(a,b,c) &#x3D; P(a)P(b)P(c|a,b)$,<br>unknown $c$, $a, b$ are blocked thus independent</li>
+<li>tail-to-tail $a\leftarrow c\rightarrow b$</li>
+</ol>
+<ul>
+<li>$c$ unknown, $P(a,b,c)&#x3D;P(c)P(a|c)P(b|c)$, $a, b$, not independent</li>
+<li>$c$ known, $P(a,b,c)&#x3D;P(c)P(a|c)P(b|c)$, $P(a,b|c)&#x3D;P(a,b,c)&#x2F;P(c)&#x3D;P(a|c)*P(b|c)$, $a, b $independent</li>
+</ul>
+<ol start="3">
+<li>head-to-tail (Markov Chain) $A\rightarrow C\rightarrow B$</li>
+</ol>
+<ul>
+<li>$c$ unknown, $a, b$, not independent</li>
+<li>$c$ known, $a, b$ independent</li>
+</ul>
+<p><strong>Factor Graph</strong></p>
+<h4 id="-1"><a href="#-1" class="headerlink" title=""></a></h4><p>Confounder</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>我从一天前开始看论文，被casual model的概念吸引了。我认为是很好的一个理解方式。从早上五点准备到十一点。<br>今天做了pre，效果很差。</p>
+<ol>
+<li>对概率的各种公式很不太了解。对贝叶斯和MCMC不会。</li>
+<li>没有去想过$U ,A, X$的关系。没有办法很好的解释论文中的逻辑关系。</li>
+</ol>
+<p>在开会的时候教授说重要东西：</p>
+<ol>
+<li>Counterfactual <br>这篇最重要的是： <strong>Definition 5:</strong> $P(\hat Y_{A\leftarrow a}(U)|X&#x3D;x, A&#x3D;a)&#x3D;P(\hat Y_{A\leftarrow a’}(U)|X&#x3D;x, A&#x3D;a)$ <br>很多‘概率’只是表示方法。（但是确实不很理解概率）<br>算法的思想在于：1. 引入因果图。2.寻找U（17年MCMC，现在可以GAN，或其他生成式学习方法）。</li>
+<li>$U \rightarrow X，A$<br>在计算中用$X, A \rightarrow U$ 有一些类似Adversarial learning. 可以研究怎么套用。</li>
+<li>GAD</li>
+<li>有点想做transfer learning 的那种</li>
+</ol>
+<h1 id="FairGAD"><a href="#FairGAD" class="headerlink" title="FairGAD"></a>FairGAD</h1><p><a target="_blank" rel="noopener" href="https://openreview.net/forum?id=3cE6NKYy8x">https://openreview.net/forum?id=3cE6NKYy8x</a></p>
+<p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2307.04937">https://arxiv.org/abs/2307.04937</a></p>
+<h2 id="Fair-GAD-problem"><a href="#Fair-GAD-problem" class="headerlink" title="Fair GAD problem"></a>Fair GAD problem</h2><p><strong>GAD</strong><br>$G&#x3D;(V, E, X)$, <br>node feature matrix $X\in \R^{n\times d}$, <br>Adjacency matrix $A\in {0,1}^{n\times n}$, <br>Anomaly labels $Y\in {0, 1}^n$, predicted $\hat Y$, <br><strong>Fair GAD</strong><br>sensitive attributes $S\in {0, 1}^n$, a binary feature $X$.<br>Performance matrix: accuracy and <em>AUCROC</em>: Area under the ROC Curve <br>Unfairness Mextrics, Statistic Parity(SP):$SP &#x3D; |P(\hat Y&#x3D;1|S&#x3D;0)−P(\hat Y &#x3D;1|S&#x3D;1)|$, <br>Equality of Odds <em>(EOO)</em>: $SP &#x3D; |P(\hat Y&#x3D;1|S&#x3D;0, Y&#x3D;1)−P(\hat Y &#x3D;1|S&#x3D;1, Y&#x3D;1)|$</p>
+<h2 id="Data"><a href="#Data" class="headerlink" title="Data"></a>Data</h2><ul>
+<li>Reddit:<br>graph structure： linking two user posted the name subreddit within 24h.<br>Node feature: Embedding from post histories.</li>
+<li>Twitter:<br>graph structure:: A follows B.<br>Node feature: demographic infromation using M3 system, multimodal, multilingual, multi attirbute demographix inderence framework.</li>
+</ul>
+<!-- ## GAD Methods
+### DOMINANT (Ding et al., 2019a)
+### CONAD (Xu et al., 2022)
+### COLA (Liu et al., 2021)
+### VGOD (Huang et al., 2023)
+
+## Non-Graph AD methods
+- DONE (Bandyopadhyay et al., 2020)
+- AdONE (Bandyopadhyay et al., 2020)
+- ECOD (Li et al., 2022)
+- VAE (Kingma & Welling, 2014)
+- ONE (Bandyopadhyay et al., 2019)
+- LOF (Breunig et al., 2000)
+- F (Liu et al., 2008)
+
+## Fainess Method:
+### FAIROD (Shekhar et al., 2021)
+### CORRELATION (Shekhar et al., 2021)
+### HIN (Zeng et al., 2021)
+### EDITS (Dong et al., 2022)
+### FAIRWALK (Rahman et al., 2019)
+
+## Distance 
+### Wasserstein Distance
+### Minkowski distance -->
+
+
+
+<h1 id="2024-05-23-Meeting-summary"><a href="#2024-05-23-Meeting-summary" class="headerlink" title="2024.05.23 Meeting summary"></a>2024.05.23 Meeting summary</h1><ol>
+<li>讨论了FairGAD。如果一个文章的贡献是数据集，那么需要详细的Benchmarking: 有一篇survey的性质，明白各种方法在数据集上表现怎么样，提出一个评判标准，只用EOO作为fair的判断太简短了。</li>
+<li>基于sentivity的Counterfactual fairness的评判标准，我们用什么样的评判标准和<br>2.1 最简单的构造方法 anomaly dataset：classification with y&#x3D;1,2,3,4,5。拿很多1，sample较少2345.<br>2.2 找一些graph上数据集，用GAD的方法，变成fairGAD的数据集。但是FairGAD，是GAD数据集inject fairness，可能不太好。<br>2.3</li>
+</ol>
+<h2 id="Task-of-this-week"><a href="#Task-of-this-week" class="headerlink" title="Task of this week"></a>Task of this week</h2><p>create synthetic data for fair GAD</p>
+<ol>
+<li>Note this paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2304.01391">https://arxiv.org/pdf/2304.01391</a> for a survey on graph counterfactual. To create a synthetic dataset, see their Section 3.5.1, where the data creation method is detailed in <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2201.03662">https://arxiv.org/abs/2201.03662</a>.</li>
+<li>See pygod <a target="_blank" rel="noopener" href="https://github.com/pygod-team/pygod">https://github.com/pygod-team/pygod</a> for outlier injection method to the graph dataset. Also, see Jing’s paper <a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v231/gu24a/gu24a.pdf">https://proceedings.mlr.press/v231/gu24a/gu24a.pdf</a> for improvement.</li>
+<li>Next Friday, you can try to talk about how to generate the synthetic data and how this falls into counterfactual category.</li>
+</ol>
+<p>所以就是要借鉴创建数据集的方法。还有学习一些counterfactual。 </p>
+<h2 id="2024-Counterfactual-Learning-on-Graphs-A-Survey"><a href="#2024-Counterfactual-Learning-on-Graphs-A-Survey" class="headerlink" title="2024 Counterfactual Learning on Graphs: A Survey"></a>2024 Counterfactual Learning on Graphs: A Survey</h2><p>3.5.1 How to create synthetic dataset </p>
+<h2 id="2022-Learning-Fair-Node-Representations-with-Graph-Counter-factual-Fairness"><a href="#2022-Learning-Fair-Node-Representations-with-Graph-Counter-factual-Fairness" class="headerlink" title="2022 Learning Fair Node Representations with Graph Counter factual Fairness"></a>2022 Learning Fair Node Representations with Graph Counter factual Fairness</h2><p>Two limitation on existing CF on graph:</p>
+<ol>
+<li>$S_i$ affect the predetection. Red</li>
+<li>$S_i$ affect $A, X_i$ Green</li>
+</ol>
+<p>GEAR: Graph Counterfactually Fair Node Representation</p>
+<ol>
+<li>subgraph generation<br>Node <strong>Importance Score</strong> by prune range of casualmodel to <strong>ego-centric subgraph</strong>( node and its neighbour)</li>
+<li>Counterfactual Data Argmentation:<br>Graph Auto encodder and fair contrains: <strong>self-pertubation</strong>(flip its $S_i$), <strong>neighbour pertubatiob</strong></li>
+<li>Node Representation Learning  :<br>Siamese network to minimize discrepancy</li>
+</ol>
+<p><strong>Def, Graph conterfactual fairness:</strong><br>An encoder $\Phi(\cdot)$ satisfies graph counterfactual fairness if for any node $i$:<br>$$<br>P((Z_i)<em>{S \leftarrow s’} | X &#x3D; \mathbf{X}, A &#x3D; \mathbf{A}) &#x3D; P((Z_i)</em>{S \leftarrow s’’} | X &#x3D; \mathbf{X}, A &#x3D; \mathbf{A}),<br>$$<br>for all $s’ \neq s’’$, where $s’, s’’ \in {0, 1}^n$ are arbitrary sensitive attribute values of all nodes, $Z_i &#x3D; (\Phi(\mathbf{X}, \mathbf{A}))_i$ denotes the node representations.</p>
+<p>$\Phi$, minimize the discrepancy between representation $\Phi(X_{S\leftarrow s’}, A_{S\leftarrow s’})$ and $\Phi(X_{S\leftarrow s’’}, A_{S\leftarrow s’’})$</p>
+<h3 id="GEAR"><a href="#GEAR" class="headerlink" title="GEAR"></a>GEAR</h3><h3 id="1-subgraph-generation"><a href="#1-subgraph-generation" class="headerlink" title="1) subgraph generation"></a>1) subgraph generation</h3><p>Personalized Pagerank algorithm:<br>Importance score $\mathbf R&#x3D;\alpha (\mathbf I-(1-\alpha \mathbf {\bar A}))$, $\mathbf I$, identity<br>$R_{i,j}$ How node $j$ is important for node $i$, $\alpha \in [0,1]$</p>
+<p>$\mathbf {\bar A}&#x3D;\mathbf A \mathbf D^{-1} $ column-normalized adjacency matric, $\mathbf D: \mathbf D_{i, i}&#x3D;\sum_j A{i, j}$</p>
+<p>$\mathcal{G}^{(i)}&#x3D;Sub(i, \mathcal{G}, k)$ :, subgraph generation</p>
+<ul>
+<li><p>$\mathcal{G}^{(i)} &#x3D; { \mathcal{V}^{(i)}, \mathcal{E}^{(i)}, \mathbf{X}^{(i)} } &#x3D; { \mathbf{A}^{(i)}, \mathbf{X}^{(i)} },<br>$ Vertive, Edge, Features with $S&#x3D;{s_i}_{i&#x3D;1}^n $ includes in $X$, and $X^{\neg s} &#x3D; { x_1^{\neg s}, …, x_n^{\neg s} } $, where $ x_i^{\neg s} &#x3D; x_i \setminus s_i$</p>
+</li>
+<li><p>$\mathcal{V}^{(i)} &#x3D; \text{TOP}(\mathbf{R}_{i,:}, k),$</p>
+</li>
+<li><p>$\mathbf{A}^{(i)} &#x3D; \mathbf{A}<em>{\mathcal{V}^{(i)}, \mathcal{V}^{(i)}}, \quad \mathbf{X}^{(i)} &#x3D; \mathbf{X}</em>{\mathcal{V}^{(i)}, :},<br>$,</p>
+</li>
+</ul>
+<h3 id="2）Counterfactual-Data-Augmentation"><a href="#2）Counterfactual-Data-Augmentation" class="headerlink" title="2）Counterfactual Data Augmentation"></a>2）Counterfactual Data Augmentation</h3><p><strong>GraphVAG</strong>: graph variational auto-encoder<br>latent embedding $H&#x3D;{h_1, h_2, \cdots, h_k}$  $H$ is sampled from $q(H|X, A)$,  $p(𝐻)$ is a standard Normal prior distribution<br>$\mathcal{L}&#x3D;$</p>
+<p>$\tilde{s}_i$: summary of neighbor info, aggregationof all nodes in subgarph $\mathcal{G}^{(i)}$<br>$\tilde{s}<em>i &#x3D; \frac{1}{|\mathcal{V}^{(i)}|} \sum</em>{j \in \mathcal{V}^{(i)}} s_j$</p>
+<p>Discriminator,$D(\cdot)$<br>$D(\mathbf{H}, b)$  predicts the probability of whether the summary of sensitive attribute values is in range $b$</p>
+<p>Fairness Constraint<br>$L_d &#x3D; \sum_{b \in B} \mathbb{E} [\log(D(\mathbf{H}, b))]$<br>$L_d$ is a regularizer to minimize the mutual information between the summary of sensitive attribute values and the<br>embeddings</p>
+<p><strong>Final Loss</strong> for Counterfactual Data Augmentation<br>$L_a &#x3D; L_r + \beta L_d$<br>$\beta$ is a hyperparameter for the weight of fairness constraint<br>Use alternating SGD for optimization: </p>
+<ol>
+<li>minimize $L_{a}$ by fixing the discriminator and updating parameters in other parts; </li>
+<li>minimize $−L_{a}$ with respect to the discriminator while other parts fixed.</li>
+</ol>
+<h4 id="Self-Perturbation"><a href="#Self-Perturbation" class="headerlink" title="Self-Perturbation"></a>Self-Perturbation</h4><p>$\overline{\mathcal{G}}^{(i)} &#x3D; { \mathcal{G}^{(i)}_{S_i \leftarrow 1-s_i} }$ (flipping sensitive feature)</p>
+<h4 id="Neighbor-Perturbation"><a href="#Neighbor-Perturbation" class="headerlink" title="Neighbor-Perturbation"></a>Neighbor-Perturbation</h4><p>$\underline{\mathcal{G}}^{(i)} &#x3D; \left{ \mathcal{G}^{(i)}<em>{S^{(i)}</em>{\setminus i} \leftarrow \text{SMP}(S^{(i)}<em>{\mathcal{V}^{(i)}</em>{\setminus i}})} \right}$</p>
+<p>subgraph $\mathcal{G}^{(i)}$ ego($i$)-center subgraph with noes $\mathcal{V}^{(i)}$, exclude node $i$: $\mathcal{V}^{(i)}<em>{\setminus i}$, randomly preterbe the sentsitice value of other nodes: $SMP(\mathcal{V}^{(i)}</em>{\setminus i})$</p>
+<p>Reconstruction Loss (GraphVAE Module)<br>$L_r &#x3D; \mathbb{E}_{q(\mathbf{H}|X, A)} \left[ -\log(p(X, A | \mathbf{H}, S)) \right] + \text{KL}[q(\mathbf{H} | X, A) | p(\mathbf{H})]$</p>
+<h3 id="3-Fair-Representation-learning"><a href="#3-Fair-Representation-learning" class="headerlink" title="3) Fair Representation learning"></a>3) Fair Representation learning</h3><p><strong>Fairness Loss</strong><br>$<br>L_f &#x3D; \frac{1}{|\mathcal{V}|} \sum_{i \in \mathcal{V}} \left( (1 - \lambda_s) d(z_i, \bar{z}_i) + \lambda_s d(z_i, \underline{z}_i) \right),<br>$<br>$\lambda_s$ hyperparam control neig-preturbation weight</p>
+<p><strong>Node Representations</strong></p>
+<ul>
+<li>$<br>z_i &#x3D; (\phi(\mathbf{X}^{(i)}, \mathbf{A}^{(i)}))_i,<br>$</li>
+<li>$<br>\bar{z}<em>i &#x3D; \text{AGG} \left( \left{ (\phi(\mathbf{X}^{(i)}</em>{S_i \leftarrow 1-s_i}, \mathbf{A}^{(i)}_{S_i \leftarrow 1-s_i}))_i \right} \right),<br>$</li>
+<li>$<br>\underline{z}<em>i &#x3D; \text{AGG} \left( \left{ (\phi(\mathbf{X}^{(i)}</em>{S_i \leftarrow \text{SMP}(S^{(i)}<em>{\mathcal{V}^{(i)}</em>{\setminus i}})}, \mathbf{A}^{(i)}<em>{S_i \leftarrow \text{SMP}(S^{(i)}</em>{\mathcal{V}^{(i)}_{\setminus i}})})_i \right} \right),<br>$</li>
+</ul>
+<p>Prediction Loss<br>$L_p &#x3D; \frac{1}{n} \sum_{i \in [n]} l(f(z_i), y_i),$ $l$: could be CE(Cross entropy), $f(\cdot)$ makes predictions for downstream tasks with the representations, i.e.$ \hat y_i&#x3D;f(z_i)$</p>
+<p>Overall Loss<br>$<br>L &#x3D; L_p + \lambda L_f + \mu | \theta |^2,<br>$</p>
+<h3 id="Dataset-creation"><a href="#Dataset-creation" class="headerlink" title="Dataset creation"></a>Dataset creation</h3><p>Sensitive Attributes<br>$S_i \sim \text{Bernoulli}(p),$ $p&#x3D;0.4$ percent $S_i&#x3D;1$</p>
+<p>Latent Embeddings<br>$Z_i \sim \mathcal{N}(0, \mathbf{I}),$ <br>$\mathbf{I}$ identity, dimension of $Z_i$: $d_s&#x3D;50$</p>
+<p>Node Features<br>$X_i &#x3D; \mathcal{S}(Z_i) + S_i \mathbf{v},$<br>sampling operation $S(\cdot)$ select 25 dims from $Z_i$, $\mathbf{v} \sim \mathcal{N}(0, \mathbf{I})$</p>
+<p>Graph Structure<br>$P(A_{i,j} &#x3D; 1) &#x3D; \sigma(\text{cos}(Z_i, Z_j) + a \mathbf{1}(S_i &#x3D; S_j)),$<br>$\sigma$ sigmoid function, $\mathbf{1}(S_i &#x3D; S_j)&#x3D;&#x3D;S_i &#x3D; S_j. \alpha&#x3D;0.01$</p>
+<p>Node Labels<br>$Y_i &#x3D; \mathcal{B}(w Z_i + w_s \frac{\sum_{j \in \mathcal{N}_i} S_j}{|\mathcal{N}_i|}),$<br>$\mathcal{B}$ Bernulli distribution,$\mathcal{N}_i$ set of neighbors of node i $w, w_i$ weight vector</p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p>Using Synthetic dataset, Bail, Credit</p>
+<h2 id="24-Three-Revisits-to-Node-Level-Graph-Anomaly-Detection"><a href="#24-Three-Revisits-to-Node-Level-Graph-Anomaly-Detection" class="headerlink" title="24 Three Revisits to Node-Level Graph Anomaly Detection"></a>24 Three Revisits to Node-Level Graph Anomaly Detection</h2><p>Outliers, Message Passing and Hyperbolic Neural Networks</p>
+<h3 id="Previous-Outlier-injection-method"><a href="#Previous-Outlier-injection-method" class="headerlink" title="Previous Outlier injection method"></a>Previous Outlier injection method</h3><p>$\mathcal{G}&#x3D;(\mathcal{V}, \mathcal{E}, X, y)$: vertice set, edge set, attibute matrix, label of class</p>
+<ul>
+<li><p><strong>Contextual(cntxt.) outlier injection</strong><br>Normalize features $x_i’&#x3D;\frac{x_i}{||x_i||_1}$<br>Sample $o$ nodes from $\mathcal{V}$ as $\mathcal{V}_c$. without replacement<br>For node $i$ in $\mathcal{V}_c$, sample $q$ nodes from $\mathcal{V}_r&#x3D;\mathcal{V}- \mathcal{V}_c$, among them choose the farthest one $j &#x3D; \text{argmax}_k(||x_i’-x_k’||_2)$ to replace $x_i$ with $x_j$.</p>
+</li>
+<li><p><strong>Strctural(stct.) outlier injection</strong><br>create $t$ groups sized $s$ with anomalous nodes.<br>sample $o&#x3D;t\times s$ from $\mathcal{V}$ without replacement<br>Then randoms partition into $t$ groups.<br>Add edges to make them a clique(fully connected), then drop edges with $p$ probability</p>
+</li>
+</ul>
+<h4 id="Score-function"><a href="#Score-function" class="headerlink" title="Score function"></a>Score function</h4><p>The farthest node will have large $||\tilde{\mathbf x}_i||_2$ <br>A structural outlier node $i$ will have many neighbors leads to large $||\tilde{\mathbf a}_i||_1$ </p>
+<p>Score function: $score_{norm}(i)&#x3D;\alpha||\tilde{\mathbf x}_i||_2+(1-\alpha)||\tilde {\mathbf a}_i||_1$,  $\tilde{\mathbf x}_i$: $x_i$ after outlier injection, $\tilde{\mathbf a}<em>i$: $a_i$ after outlier injection, $A</em>{ii}&#x3D;1$<br>where cntxt OD, $\alpha&#x3D;1$, stct OD, $\alpha&#x3D;0$ :  $\alpha$ ratio of two methods </p>
+<p>test 1: ROC-AUC<br>For each dataset, use original dataset v.s. l2-nrom for each $x_i$<br>do anomaly injection. apply GAD Method to get  $score_{norm}$</p>
+<h3 id="Novel-Anomaly-injection-method"><a href="#Novel-Anomaly-injection-method" class="headerlink" title="Novel Anomaly injection method"></a>Novel Anomaly injection method</h3><h2 id="Sum-in-terms-of-Dataset"><a href="#Sum-in-terms-of-Dataset" class="headerlink" title="Sum in terms of Dataset"></a>Sum in terms of Dataset</h2><p>从数据集的角度来说：</p>
+<h3 id="FairGAD-1"><a href="#FairGAD-1" class="headerlink" title="FairGAD:"></a>FairGAD:</h3><p>Reddit:</p>
+<ul>
+<li>数据来源：Post on politic related subReddit</li>
+<li>Labelling Y: based on FACTOID(Sakketou et al., 2022), use the num of posted link(left or right)</li>
+<li>Graph construciton:</li>
+</ul>
+<p><br><br><br><br><br><br><br><br><br><br><br><br>\</p>
+<h1 id="2024-05-31-Meeting"><a href="#2024-05-31-Meeting" class="headerlink" title="2024.05.31 Meeting"></a>2024.05.31 Meeting</h1><p>Preparation: </p>
+<ol>
+<li>讨论对于Synthetic dataset 怎么创建的理解。</li>
+<li>对outlier dataset怎么创建的理解。</li>
+<li>fair + outlier (参考FairGAD那篇的创建)</li>
+</ol>
+<!-- 这一周花了三四天在信一的身上，一种僭越的快乐。
+体悟是， 
+1. 学东西的目的性还是不够明显。
+2. 边听课边看论文会岷县提高目的性和提高效率。
+3. 减少过度功利的需求，学一些有趣的东西，尽量避开人。
+4. 背单词。GRE要寄了。 -->
+
+
+<p><strong>Meeting</strong></p>
+<ol>
+<li><p>Plan for subgroups:<br>Mo, We 1-2 p.m.</p>
+</li>
+<li><p>intro to all projects<br>HNN: Convolution $\rightarrow$ HNN<br>CNN(T(x)) Paralell Translation equivalence</p>
+</li>
+</ol>
+<h2 id="Dataset"><a href="#Dataset" class="headerlink" title="Dataset"></a>Dataset</h2><p><img src="/2024-05-08-papers/image-1.png" alt="alt text"> from FairGAD(2024)<br>##<br>Pokec: </p>
+<ul>
+<li>source paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2009.01454">https://arxiv.org/pdf/2009.01454</a></li>
+<li>repo: FairGNN  <a target="_blank" rel="noopener" href="https://github.com/EnyanDai/FairGNN">https://github.com/EnyanDai/FairGNN</a><br>sampled from <a target="_blank" rel="noopener" href="https://snap.stanford.edu/data/soc-Pokec.html">https://snap.stanford.edu/data/soc-Pokec.html</a></li>
+</ul>
+<p>Bail, Credit, German:</p>
+<ul>
+<li>source paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2108.05233">https://arxiv.org/pdf/2108.05233</a> (Dong et al. 2022)<br>  <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1102.2166">https://arxiv.org/pdf/1102.2166</a> (2012)</li>
+<li>repo: EDITS <a target="_blank" rel="noopener" href="https://github.com/yushundong/EDITS">https://github.com/yushundong/EDITS</a></li>
+</ul>
+<p>(感觉论文部分引用反了)</p>
+<p>German</p>
+<ul>
+<li>source paper: <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2102.13186">https://arxiv.org/pdf/2102.13186</a> (2021)</li>
+<li>repo: NIFTY <a target="_blank" rel="noopener" href="https://github.com/HongduanTian/NIFTY">https://github.com/HongduanTian/NIFTY</a></li>
+</ul>
+<p>UCSD34:</p>
+<ul>
+<li>repo: <a target="_blank" rel="noopener" href="https://networkrepository.com/socfb-UCSD34.php">https://networkrepository.com/socfb-UCSD34.php</a></li>
+</ul>
+<h1 id="2024-06-03-Meeting"><a href="#2024-06-03-Meeting" class="headerlink" title="2024.06.03 Meeting"></a>2024.06.03 Meeting</h1><ol>
+<li>Gujing学姐的论文是 unsupervised learning，按照她在pygod里面的方法，把二分类的任务用fiarness metrix，用counterfacutal里的评判标准。EOO, SP, CF(只在Synthetic里有)</li>
+</ol>
+<p>所以要写的是： </p>
+<ol>
+<li>Fairness metrix 的计算，多种</li>
+<li>使用各种方法跑一下数据集。得到fair和accuracy，参考别的论文。</li>
+</ol>
+<p>长期任务：</p>
+<ol>
+<li><p>WSDM 22’ 的做counterfactual Data argumentation 和GAD的方法无关。，总的来说是在不同GAD 方法上consistently improve fairness. WSDM 是在数据集的encoding和encoding上用的fairness。<br>Detection 也是用en&#x2F;decoding做的？有的用GNN也就可以prediction了。可以试着画一个图。 </p>
+</li>
+<li><p>224W可以看17-19， 21和前面encoding部分在学一下。</p>
+</li>
+<li><p>因果推断的Counterfactual部分的公式</p>
+</li>
+</ol>
+<h2 id="Execute"><a href="#Execute" class="headerlink" title="Execute"></a>Execute</h2><p>6.3: 解决</p>
+<ol>
+<li>Synthetic dataset have about $\frac{|V|^2}{2}$ edges when v&#x3D;2000(paper), edge should be about 4000?<br>solved by Finding source code of paper in GEAR repo</li>
+<li>Threading problem with python not shoot<br>solved by commenting the 22th line in loader.py # from ogb.nodeproppred import PygNodePropPredDataset</li>
+</ol>
+<p>6.4</p>
+<ol>
+<li>可以使用一些方法，<br>WSDM 22 GEAR 的论文里用GCN, GraphSAGE, GIN, C-ENC, FairGNN, NIFTY-GCN, NIFTY-SAGE, and GEAR<br>Gu 24 HNN 的论文用pygod的GAD的库<br>但是都没有找到相关代码</li>
+</ol>
+<p>Gear&#x2F;src</p>
+<ul>
+<li>utils.py: <ol>
+<li>load_dataset, sub function</li>
+<li>accuracy</li>
+</ol>
+</li>
+<li>Preprocessing.py:<ol>
+<li>load_data() deal with params</li>
+<li>generate cf subgraph(无关)</li>
+<li>generate_synthetic_data</li>
+</ol>
+</li>
+<li>models.py:<ol>
+<li>GCN, GIN, JK, SAGE, Encoder_DGI, GraphInMax, Encoder, Classifier,<br>  GraphCF,</li>
+</ol>
+</li>
+<li>main.py<ol>
+<li>parser.argment()</li>
+<li>evaluate: acc, fairness</li>
+<li>compute loss, evaluate sf</li>
+<li>train test</li>
+</ol>
+</li>
+</ul>
+<p>HNN_GAD<br>根据我的观察，这篇里面只写了自己的方法的代码。</p>
+<p>6.5 Meeting<br>决定用ray tune来调参<a target="_blank" rel="noopener" href="https://pytorch.org/tutorials/beginner/hyperparameter_tuning_tutorial.html">https://pytorch.org/tutorials/beginner/hyperparameter_tuning_tutorial.html</a></p>
+<p>6.7<br>正在写scratch_main.py<br>疑问：<br>    1. 这个train, val, test 是怎么分的,子图还是？<br>    ???<br>        evaluate和test有什么区别<br>    2. evaluate里的counterfactual metrix是怎么算的？<br>    3. Injection的参数<br>    4. github怎么上传<br>    5. </p>
+<p>6.11<br>    Paul强调SRS是为了丰富简历的，要干很多跟申研相关的事情。<br>    看看教授现在在干什么，fellowship是啥，，？？？？practicing interview。<br>    升多少学校？？？没听懂<br>    5-8<br>    16？？？</p>
+<h1 id="2024-06-12-Meeting"><a href="#2024-06-12-Meeting" class="headerlink" title="2024.06.12 Meeting"></a>2024.06.12 Meeting</h1><ol>
+<li>CF + gu学姐的三个方法</li>
+<li>gpu的问题还没有解决</li>
+<li>inject的好像不是特别影响fairness</li>
+</ol>
+<p>数据集的构造方面在sensitivity group和是不是outlier之间加上casuality。FairGAD用了debiaser的方法使fairness高了一点<br>run Jing’s method for GAD: shengen在做<br>Check with Yifei for GPU：check了，现在一些model在大的数据集上还要分batch。<br>Check CF scores：装了两天环境，<br>Complete remaining experiments：没有<br>brainstorm so that outlier injection contains sensitivity：认为<br>CF using DA</p>
+<p>Motivation： outlier detection，<br>Fairnes有效的数据集：<br>Outlier的注入：</p>
+<h2 id="6-12-问题"><a href="#6-12-问题" class="headerlink" title="6.12 问题"></a>6.12 问题</h2><h3 id="GPU"><a href="#GPU" class="headerlink" title="GPU"></a>GPU</h3><p>一个下午主要都在解决gpu的问题，</p>
+<h4 id="1"><a href="#1" class="headerlink" title="1"></a>1</h4><p>首先目前最大的谜团是Pygod中AdONE(gpu&#x3D;0)这里的光谱为啥只能是0<br>我去找了源代码，应该可以是int cuda的id，所以理论上应该是0-7 都可以的，但是只有0可行，<br>主要代码<br>pygod&#x2F;pygod&#x2F;detector&#x2F;base <br>pygod&#x2F;utils&#x2F;utility.py 的<code>validate_device(gpu_id)</code>函数<code>gpu_id</code>就是<code>DOMINANT(gpu=0)</code>里的<code>gpu</code></p>
+<h4 id="2"><a href="#2" class="headerlink" title="2"></a>2</h4><p>还有一个很蠢得已经被解决的问题是<br>为什么.sh文件会报。 之前一直不明白为什么命令行就没问题，但是.sh 就不可以，后来发信啊是模型之间的区别<br>    torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 3.35 GiB. GPU 0 has a total capacty of 23.65 GiB of which 3.01 GiB is free. Including non-PyTorch memory, this process has 20.63 GiB memory in use. Of the allocated memory 16.79 GiB is allocated by PyTorch, and 3.35 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF<br>这种错，<br>修改的方式是</p>
+<ol>
+<li><p>在ray tune 里把网络得大小修改小一点，并且分batch，通过在train最后释放内存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">defv train():</span><br><span class="line">    ... ...</span><br><span class="line">    torch.cuda.empty_cache() </span><br><span class="line">    return</span><br></pre></td></tr></table></figure></li>
+<li><p>在ray tune 分batch。在main得第一句加上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[&#x27;PYTORCH_CUDA_ALLOC_CONF&#x27;] = &#x27;max_split_size_mb:128&#x27;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>本身因为dataset和model的大小不同，所以有的模型被跑出来的可行性就是要小一点<br>比如从synthetic &lt; german &lt; bail &lt; credit &lt; pokec<br>前三个是可以跑所有模型的，<br>但是credit不可以跑gaan, 会站600GiB的内存，guide也非常慢， credit+guide根本没上gpu？？？<br>玄学</p>
+</li>
+</ol>
+<h3 id="6-14-CF"><a href="#6-14-CF" class="headerlink" title="6.14 CF"></a>6.14 CF</h3><p>cf_eoo, cf_dp, df, eoo, dp 在论文中分别代表什么<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2201.03662">https://arxiv.org/pdf/2201.03662</a></p>
+<p>sens rate </p>
+<p>论文算cf的方法是:<br>对比原图和经过修改sens feature（类似于perturbe的手法），通过$hat y$之间的来算cf</p>
+<p>重点是如何得到 modified data， 也就是 evaluate 中的 data_cf</p>
+<p>随机取 sens_rate * N 个节点，使$S_i$为1，剩下为0.</p>
+<h3 id="GEAR配环境踩坑"><a href="#GEAR配环境踩坑" class="headerlink" title="GEAR配环境踩坑"></a>GEAR配环境踩坑</h3><p>pyg很烦人<br>我是先装了torch1.6.0 + cu10.2<br>然后发现pyg&#x3D;1.3.0 是最老版本的，就google到了pyg的的source code ： <a target="_blank" rel="noopener" href="https://github.com/pyg-team/pytorch_geometric/releases/tag/1.3.0">https://github.com/pyg-team/pytorch_geometric/releases/tag/1.3.0</a><br>然后就应该python setup.py install,但是<strong>网很慢</strong>， 所以要多等一会<br>然后看到readme之后手动装了个torch-sparse一类的whl： <a target="_blank" rel="noopener" href="https://data.pyg.org/whl/">https://data.pyg.org/whl/</a><br>后来很傻的才发现python setup.py install，等了3分钟之后报错，无pytest-runner， 于是进setup.py看了一下之后手动pip install pytest-runner pytest pytest-cov mock,<br>然后python setup.py install一下子就好了，于是又手动 pip install pandas matplotlib Cpython cytoolz aif360</p>
+<p>装到aif360 报错Failed building wheel for llvmlite，应该是没有llvm，于是手动本地装<br>装了9.0.0的版本</p>
+<pre><code>如果 `llvmlite` 的预构建二进制文件和 `conda` 方法都无法解决问题，普通用户可以在用户目录中安装 LLVM，而不需要 `sudo` 权限。
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下载并解压 LLVM</span></span><br><span class="line">wget https://github.com/llvm/llvm-project/releases/download/llvmorg-11.1.0/llvm-11.1.0.src.tar.xz</span><br><span class="line">tar -xf llvm-11.1.0.src.tar.xz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建构建目录</span></span><br><span class="line"><span class="built_in">mkdir</span> llvm-11.1.0.build</span><br><span class="line"><span class="built_in">cd</span> llvm-11.1.0.build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置编译（安装在用户目录）</span></span><br><span class="line">cmake -G <span class="string">&quot;Unix Makefiles&quot;</span> -DCMAKE_INSTALL_PREFIX=<span class="variable">$HOME</span>/llvm ../llvm-11.1.0.src</span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译和安装</span></span><br><span class="line">make -j$(<span class="built_in">nproc</span>)</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+然后设置环境变量以使用本地安装的 LLVM：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$HOME</span>/llvm/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> LD_LIBRARY_PATH=<span class="variable">$HOME</span>/llvm/lib:<span class="variable">$LD_LIBRARY_PATH</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install llvmlite --no-binary llvmlite</span><br></pre></td></tr></table></figure>
+
+之后再安装 `aif360`：
+
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install aif360</span><br></pre></td></tr></table></figure>
+</code></pre>
+<p>但是还是会报wheel build 失败的错误。<br>于是就直接绕过aif360,因为只用了两个函数，所以直接复制函数和必要的util过来了，绕过安装aif360的问题了。<br>实际上aif360对python 3.8之后才比较兼容，所以以后用新一点的环境。</p>
+<p>然后遇到了AttributeError: Can’t get attribute ‘DataEdgeAttr’<br>import torch_geometric.transforms as T<br>from ogb.nodeproppred import PygNodePropPredDataset<br>shouju学姐提醒可以csdn，（这次提供的解决方案确实和gpt不一样）<a target="_blank" rel="noopener" href="https://blog.csdn.net/oqqENvY12/article/details/129786928">https://blog.csdn.net/oqqENvY12/article/details/129786928</a> 也有一部分版本过老的问题<br>但是通过观察，是路径问题，把一个相对main.py line 541的相对路径改成绝对路径就成功了，<br>我觉得<strong>13.23的服务器在路径上确实有些玄乎</strong></p>
+<ul>
+<li>运行结束之后没有办法自动关闭</li>
+<li>german 数据集无法正常生成</li>
+</ul>
+<h3 id="Gu学姐的三个model"><a href="#Gu学姐的三个model" class="headerlink" title="Gu学姐的三个model"></a>Gu学姐的三个model</h3><p>万能的CSDN<br>Collecting package metadata (current_repodata.json): - WARNING conda.models.version:get_matcher(546): Using .* with relational operator is superfluous and deprecated and will be removed in a future version of conda. Your spec was 1.7.1.<em>, but conda is ignoring the .</em> and treating it as 1.7.1<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ermmtt/article/details/132628639">https://blog.csdn.net/ermmtt/article/details/132628639</a></p>
+<h3 id="Batch问题"><a href="#Batch问题" class="headerlink" title="Batch问题"></a>Batch问题</h3><h3 id="Python-插件"><a href="#Python-插件" class="headerlink" title="Python 插件"></a>Python 插件</h3><p>这个是最傻的，下载了 vsix 之后发现 vscode 版本对不上， 然后更新了一下 vscode 就好了。。。</p>
+<h1 id="2024-06-24-Meeting"><a href="#2024-06-24-Meeting" class="headerlink" title="2024.06.24 Meeting"></a>2024.06.24 Meeting</h1><h2 id="2024-06-19"><a href="#2024-06-19" class="headerlink" title="2024.06.19"></a>2024.06.19</h2><p>(刚刚才了解 Encoder 和 Decoder 也算是 GNN，然后看了一些东西<br>(OI佬写的GEAR代码，看不懂，</p>
+<h1 id="2024-07-14"><a href="#2024-07-14" class="headerlink" title="2024.07.14"></a>2024.07.14</h1><!-- 竟然过了一个月了。 -->
+
+<h2 id="2024-06-10开会"><a href="#2024-06-10开会" class="headerlink" title="2024.06.10开会"></a>2024.06.10开会</h2><ol>
+<li>做benchmark. + Jing学姐的三个HNN已经改成了Class但是AUC还是太低了。。。</li>
+<li>手写encoder和decoder。结构未知，但是主要是修改Loss Function???基于CF的，可以在dominant上修改</li>
+<li>解释为什么CF是低的，看decoder出来的sens’，是还原了sens还是都是1&#x2F;2.这两者都是可以解释的</li>
+<li>在学一下CF之类的理论。</li>
+<li>GNNNNNNNNNN</li>
+</ol>
+<h1 id="2024-08-15"><a href="#2024-08-15" class="headerlink" title="2024.08.15"></a>2024.08.15</h1><!-- 竟然又过了一个月了。 -->
+<!-- 抽象，完全不知道自己在干啥。。。 -->
+
+<ol>
+<li>DOIMINANT 19, DONE 21, gadnr 24, ada-gad 234. (CFGN denied)</li>
+<li>benchmark和一些sens reconstruct 的值对比（之前貌似只作了guide 21的）</li>
+<li>论文也看不出来在写啥</li>
+<li></li>
+</ol>
+<p>08.18 交srs报告<br>08.25 GRE 考试，寄<br>找sol教授询问music tech方向的问题<br>论文论文论文</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/05/08/2024-05-08-Meetings-log/">http://example.com/2024/05/08/2024-05-08-Meetings-log/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/bc6.jpeg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Counterfactual-fairness"><span class="toc-number">1.</span> <span class="toc-text">1. Counterfactual fairness</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.0.1.</span> <span class="toc-text"></span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#defs"><span class="toc-number">1.0.1.1.</span> <span class="toc-text">defs</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Fairness-through-unawareness-FTU"><span class="toc-number">1.0.1.2.</span> <span class="toc-text">Fairness through unawareness (FTU):</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Individual-Fairness-IF"><span class="toc-number">1.0.1.3.</span> <span class="toc-text">Individual Fairness (IF).</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Demographic-Parity-DP-%E4%BA%BA%E5%8F%A3%E7%BB%9F%E8%AE%A1%E5%AD%A6%E6%84%8F%E4%B9%89%E4%B8%8A%E7%9A%84%E5%B9%B3%E7%AD%89"><span class="toc-number">1.0.1.4.</span> <span class="toc-text">Demographic Parity (DP)(人口统计学意义上的平等)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Equality-of-Opportunity"><span class="toc-number">1.0.1.5.</span> <span class="toc-text">Equality of Opportunity</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Causal-Models-%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD-Counterfacutal%E3%80%81"><span class="toc-number">1.0.2.</span> <span class="toc-text">Causal Models(因果推断), Counterfacutal、</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E5%A4%96%E8%AF%9D"><span class="toc-number">1.1.</span> <span class="toc-text">题外话</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Casual-Models-%E5%9B%A0%E6%9E%9C%E6%8E%A8%E6%96%AD"><span class="toc-number">1.1.1.</span> <span class="toc-text">Casual Models (因果推断)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Three-levels"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">Three levels:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Beyasian-Network"><span class="toc-number">1.1.1.2.</span> <span class="toc-text">Beyasian Network</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#-1"><span class="toc-number">1.1.1.3.</span> <span class="toc-text"></span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.</span> <span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#FairGAD"><span class="toc-number">2.</span> <span class="toc-text">FairGAD</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Fair-GAD-problem"><span class="toc-number">2.1.</span> <span class="toc-text">Fair GAD problem</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data"><span class="toc-number">2.2.</span> <span class="toc-text">Data</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-05-23-Meeting-summary"><span class="toc-number">3.</span> <span class="toc-text">2024.05.23 Meeting summary</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Task-of-this-week"><span class="toc-number">3.1.</span> <span class="toc-text">Task of this week</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2024-Counterfactual-Learning-on-Graphs-A-Survey"><span class="toc-number">3.2.</span> <span class="toc-text">2024 Counterfactual Learning on Graphs: A Survey</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2022-Learning-Fair-Node-Representations-with-Graph-Counter-factual-Fairness"><span class="toc-number">3.3.</span> <span class="toc-text">2022 Learning Fair Node Representations with Graph Counter factual Fairness</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GEAR"><span class="toc-number">3.3.1.</span> <span class="toc-text">GEAR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-subgraph-generation"><span class="toc-number">3.3.2.</span> <span class="toc-text">1) subgraph generation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89Counterfactual-Data-Augmentation"><span class="toc-number">3.3.3.</span> <span class="toc-text">2）Counterfactual Data Augmentation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Self-Perturbation"><span class="toc-number">3.3.3.1.</span> <span class="toc-text">Self-Perturbation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neighbor-Perturbation"><span class="toc-number">3.3.3.2.</span> <span class="toc-text">Neighbor-Perturbation</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Fair-Representation-learning"><span class="toc-number">3.3.4.</span> <span class="toc-text">3) Fair Representation learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dataset-creation"><span class="toc-number">3.3.5.</span> <span class="toc-text">Dataset creation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Result"><span class="toc-number">3.3.6.</span> <span class="toc-text">Result</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#24-Three-Revisits-to-Node-Level-Graph-Anomaly-Detection"><span class="toc-number">3.4.</span> <span class="toc-text">24 Three Revisits to Node-Level Graph Anomaly Detection</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Previous-Outlier-injection-method"><span class="toc-number">3.4.1.</span> <span class="toc-text">Previous Outlier injection method</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Score-function"><span class="toc-number">3.4.1.1.</span> <span class="toc-text">Score function</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Novel-Anomaly-injection-method"><span class="toc-number">3.4.2.</span> <span class="toc-text">Novel Anomaly injection method</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sum-in-terms-of-Dataset"><span class="toc-number">3.5.</span> <span class="toc-text">Sum in terms of Dataset</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#FairGAD-1"><span class="toc-number">3.5.1.</span> <span class="toc-text">FairGAD:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-05-31-Meeting"><span class="toc-number">4.</span> <span class="toc-text">2024.05.31 Meeting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Dataset"><span class="toc-number">4.1.</span> <span class="toc-text">Dataset</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-06-03-Meeting"><span class="toc-number">5.</span> <span class="toc-text">2024.06.03 Meeting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Execute"><span class="toc-number">5.1.</span> <span class="toc-text">Execute</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-06-12-Meeting"><span class="toc-number">6.</span> <span class="toc-text">2024.06.12 Meeting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-12-%E9%97%AE%E9%A2%98"><span class="toc-number">6.1.</span> <span class="toc-text">6.12 问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GPU"><span class="toc-number">6.1.1.</span> <span class="toc-text">GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1"><span class="toc-number">6.1.1.1.</span> <span class="toc-text">1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2"><span class="toc-number">6.1.1.2.</span> <span class="toc-text">2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-14-CF"><span class="toc-number">6.1.2.</span> <span class="toc-text">6.14 CF</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GEAR%E9%85%8D%E7%8E%AF%E5%A2%83%E8%B8%A9%E5%9D%91"><span class="toc-number">6.1.3.</span> <span class="toc-text">GEAR配环境踩坑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gu%E5%AD%A6%E5%A7%90%E7%9A%84%E4%B8%89%E4%B8%AAmodel"><span class="toc-number">6.1.4.</span> <span class="toc-text">Gu学姐的三个model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Batch%E9%97%AE%E9%A2%98"><span class="toc-number">6.1.5.</span> <span class="toc-text">Batch问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Python-%E6%8F%92%E4%BB%B6"><span class="toc-number">6.1.6.</span> <span class="toc-text">Python 插件</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-06-24-Meeting"><span class="toc-number">7.</span> <span class="toc-text">2024.06.24 Meeting</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2024-06-19"><span class="toc-number">7.1.</span> <span class="toc-text">2024.06.19</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-07-14"><span class="toc-number">8.</span> <span class="toc-text">2024.07.14</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2024-06-10%E5%BC%80%E4%BC%9A"><span class="toc-number">8.1.</span> <span class="toc-text">2024.06.10开会</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2024-08-15"><span class="toc-number">9.</span> <span class="toc-text">2024.08.15</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me"><img src="/img/bc3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-25-About-me"/></a><div class="content"><a class="title" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me">2024-11-25-About-me</a><time datetime="2024-11-25T14:36:31.000Z" title="Created 2024-11-25 22:36:31">2024-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes"><img src="/img/bc15.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-16 DIP Notes"/></a><div class="content"><a class="title" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes">2024-11-16 DIP Notes</a><time datetime="2024-11-16T03:12:55.000Z" title="Created 2024-11-16 11:12:55">2024-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/10/hello/" title="hello"><img src="/img/bc16.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hello"/></a><div class="content"><a class="title" href="/2024/11/10/hello/" title="hello">hello</a><time datetime="2024-11-10T12:01:44.000Z" title="Created 2024-11-10 20:01:44">2024-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic"><img src="/img/bc9.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-26-Magic"/></a><div class="content"><a class="title" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic">2024-10-26-Magic</a><time datetime="2024-10-25T18:46:12.000Z" title="Created 2024-10-26 02:46:12">2024-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection"><img src="/img/bc21.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-25 Duke courses selection"/></a><div class="content"><a class="title" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection">2024-10-25 Duke courses selection</a><time datetime="2024-10-25T10:06:08.000Z" title="Created 2024-10-25 18:06:08">2024-10-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/bc6.jpeg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

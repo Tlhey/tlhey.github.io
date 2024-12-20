@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LHY ML | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="https:&#x2F;&#x2F;speech.ee.ntu.edu.tw&#x2F;~hylee&#x2F;ml&#x2F;2022-spring.php 2&#x2F;18Video 2Piecewise Linear $y &#x3D; c * Sigmoid(b+wx_1)$, w, b, c, $\theta$: A vector of all unknown variableGradient $ g &#x3D;\nabla L(\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LHY ML">
+<meta property="og:url" content="http://example.com/2024/03/08/2024-03-08-LHY-ML/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="https:&#x2F;&#x2F;speech.ee.ntu.edu.tw&#x2F;~hylee&#x2F;ml&#x2F;2022-spring.php 2&#x2F;18Video 2Piecewise Linear $y &#x3D; c * Sigmoid(b+wx_1)$, w, b, c, $\theta$: A vector of all unknown variableGradient $ g &#x3D;\nabla L(\">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/bc3.jpg">
+<meta property="article:published_time" content="2024-03-08T02:36:24.000Z">
+<meta property="article:modified_time" content="2024-12-15T03:58:17.745Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bc3.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "LHY ML",
+  "url": "http://example.com/2024/03/08/2024-03-08-LHY-ML/",
+  "image": "http://example.com/img/bc3.jpg",
+  "datePublished": "2024-03-08T02:36:24.000Z",
+  "dateModified": "2024-12-15T03:58:17.745Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/03/08/2024-03-08-LHY-ML/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LHY ML',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/Background2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bc3.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Navi.jpg" alt="Logo"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">LHY ML</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">LHY ML</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-08T02:36:24.000Z" title="Created 2024-03-08 10:36:24">2024-03-08</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-15T03:58:17.745Z" title="Updated 2024-12-15 11:58:17">2024-12-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p><a target="_blank" rel="noopener" href="https://speech.ee.ntu.edu.tw/~hylee/ml/2022-spring.php">https://speech.ee.ntu.edu.tw/~hylee/ml/2022-spring.php</a></p>
+<h2 id="2-18"><a href="#2-18" class="headerlink" title="2&#x2F;18"></a>2&#x2F;18</h2><h3 id="Video-2"><a href="#Video-2" class="headerlink" title="Video 2"></a>Video 2</h3><p>Piecewise Linear</p>
+<p>$y &#x3D; c * Sigmoid(b+wx_1)$, w, b, c,</p>
+<p>$\theta$: A vector of all unknown variable<br>Gradient $ g &#x3D;\nabla L(\theta^{0}) $<br>$\eta$: learning rate<br>Batch, update, Epoch</p>
+<p>Activation function:<br>Sigmoid function<br>Rectified Linear Unit (ReLU) max(0, )</p>
+<h3 id="Pytorch-1-2"><a href="#Pytorch-1-2" class="headerlink" title="Pytorch 1&#x2F;2"></a>Pytorch 1&#x2F;2</h3><p>Mainly introduce some practical advice for coding. </p>
+<h3 id="Background-propagation"><a href="#Background-propagation" class="headerlink" title="Background propagation"></a>Background propagation</h3><p>Back Propagation: an efficient way to calculate Gradient Descent:<br>forward pass, backward pass</p>
+<p>没太懂</p>
+<h3 id="Predicting-Pokemon-CP"><a href="#Predicting-Pokemon-CP" class="headerlink" title="Predicting Pokémon CP"></a>Predicting Pokémon CP</h3><p>Regression: difference in origin $x_{cp}$, and species<br>Gradient descent<br>Overfitting Regularization</p>
+<h3 id="Pokemon-classification"><a href="#Pokemon-classification" class="headerlink" title="Pokemon classification"></a>Pokemon classification</h3><h4 id="Maximum-Likelihood"><a href="#Maximum-Likelihood" class="headerlink" title="Maximum Likelihood"></a>Maximum Likelihood</h4><p>2-D Gaussian distribution:<br>$f_{\mu^1,\Sigma^1}(x) &#x3D; \frac{1}{(2\pi)^{D&#x2F;2}|\Sigma^1|^{1&#x2F;2}} \exp\left(-\frac{1}{2}(x - \mu^1)^T(\Sigma^1)^{-1}(x - \mu^1)\right)$</p>
+<p>$\mu$ mean $\sum$ covariance<br>$\mu^1 &#x3D; \begin{bmatrix}<br>75.0 \<br>71.3 \<br>\end{bmatrix}<br>\quad<br>\Sigma^1 &#x3D; \begin{bmatrix}<br>874 &amp; 327 \<br>327 &amp; 929 \<br>\end{bmatrix}$</p>
+<p>$P(C_1|x) &#x3D; \frac{P(x|C_1)P(C_1)}{P(x|C_1)P(C_1) + P(x|C_2)P(C_2)}$</p>
+<p>Simplify the function, substitute Gaussian into probability<br>$P(C_1|x)&#x3D;\sigma(z) &#x3D; \sigma(wx+b)$<br>$w&#x3D;(\mu^1-\mu^2)^T\sum^{-1}, b&#x3D;…(scalar)$<br>So the Boundary for shared $\sum$ is linear.</p>
+<h3 id="Logistic-Regression"><a href="#Logistic-Regression" class="headerlink" title="Logistic Regression"></a>Logistic Regression</h3><p>（数学推导比较多）</p>
+<h4 id="Loss-function"><a href="#Loss-function" class="headerlink" title="Loss function"></a>Loss function</h4><p>Cross Entropy for a Bernoulli distribution<br>$H(p,q)&#x3D;−[p\log(q)+(1−p)\log(1−q)]$<br>which is better than Square Error. </p>
+<p>Discriminative: Logistic Regression: Directly find $w$ and $b$, which generally have better performance<br>Generative: Gaussian description: Have assumptions (Naive Bayes, or …) of model and find $\mu^1$, $\mu^2$, $\sum$ </p>
+<h4 id="Multiclass-Classification"><a href="#Multiclass-Classification" class="headerlink" title="Multiclass Classification"></a>Multiclass Classification</h4><p>跳过了，想做hw再听，觉得现在对$f_{w, b}(x)$的理解还不深</p>
+<h2 id="2-25"><a href="#2-25" class="headerlink" title="2&#x2F;25"></a>2&#x2F;25</h2><h3 id="Video-1"><a href="#Video-1" class="headerlink" title="Video 1"></a>Video 1</h3><p>Loss on training data large: Model Bias (need a more complex model) or Optimization<br>Loss on testing data large: Overfitting or mismatch -&gt; more data </p>
+<h3 id="Video-2-1"><a href="#Video-2-1" class="headerlink" title="Video 2"></a>Video 2</h3><p>How to Optimize:<br>$<br>L(\theta) \approx L(\theta’) + (\theta - \theta’)^T \vec{g} + \frac{1}{2} (\theta - \theta’)^T H (\theta - \theta’)<br>$<br>Gradient $\vec{g}$:<br>$\vec{g} &#x3D; \nabla L(\theta’)$<br>$g_i &#x3D; \frac{\partial L(\theta’)}{\partial \theta_i}$<br>$\vec{g} &#x3D;<br>\begin{bmatrix}<br>\frac{\partial L}{\partial \theta_1} \<br>\frac{\partial L}{\partial \theta_2} \<br>\vdots \<br>\frac{\partial L}{\partial \theta_n}<br>\end{bmatrix}$<br>Hessian $H$ is a matrix $H_{ij} &#x3D; \frac{\partial^2 L(\theta’)}{\partial \theta_i \partial \theta_j}$<br>For all $v$:</p>
+<ol>
+<li>$v^T Hv &gt; 0$: $H$ is positive definite, $L(\theta) &gt; L(\theta’)$: Local minima</li>
+<li>$v^T Hv &lt; 0$: $H$ is negative definite, $L(\theta) &lt; L(\theta’)$: Local maxima</li>
+<li>Some eigenvalues are $+$, some are $-$: Saddle point<br>Empirical learning:</li>
+</ol>
+<h3 id="Video-3"><a href="#Video-3" class="headerlink" title="Video 3"></a>Video 3</h3><p>Batch: large batch $N$ not necessarily need longer time for gradient computing (parallel computing)</p>
+<h3 id="Video-4"><a href="#Video-4" class="headerlink" title="Video 4"></a>Video 4</h3><p>Adaptive $\eta$ (learning rate):<br>Error surface<br>Critical points (local minima, saddle point):</p>
+<ol>
+<li>Adagrad </li>
+<li>RMSProp</li>
+<li>Adam: RMSProp + Momentum</li>
+</ol>
+<p>Learning Rate Scheduling:<br>Learning rate Decay<br>Warm up (Residual Network, Transformer Classification)</p>
+<h3 id="Video-5"><a href="#Video-5" class="headerlink" title="Video 5"></a>Video 5</h3><p>Regression:<br>Right answer: $\hat{y} \leftrightarrow y$<br>Classification: class: one-hot vector: $\hat{y} \leftrightarrow y’ &#x3D; \text{softmax}(y)$<br>Soft-max (Normalize): $n \geq 3$: $y_i’ &#x3D; \frac{\exp(y_i)}{\sum_j \exp(y_j)}$<br>$n&#x3D;2$ $y’ &#x3D; \text{sigmoid}(y)$</p>
+<p>Distance $e$:<br>Mean Square Error (MSE): $e &#x3D; \sum (\hat{y_i} - y_i’)^2$<br>Cross-entropy: $e &#x3D; -\sum \hat{y_i} \ln y_i’$<br>Minimize Cross-entropy $\leftrightarrow$ Maximize likelihood</p>
+<h3 id="Basic-Theory"><a href="#Basic-Theory" class="headerlink" title="Basic Theory"></a>Basic Theory</h3><p>We want $L(h_{\text{train}}, D_{\text{all}}) - L(h_{\text{all}}, D_{\text{all}}) \leq \delta$<br>$\forall h \in \mathcal{H}, |L(h, D_{\text{train}}) - L(h, D_{\text{all}})| \leq \frac{\delta}{2}$</p>
+<h3 id="Gradient-Descent"><a href="#Gradient-Descent" class="headerlink" title="Gradient Descent"></a>Gradient Descent</h3><h3 id="Beyond-Adam-1"><a href="#Beyond-Adam-1" class="headerlink" title="Beyond Adam 1"></a>Beyond Adam 1</h3><h3 id="Beyond-Adam-2"><a href="#Beyond-Adam-2" class="headerlink" title="Beyond Adam 2"></a>Beyond Adam 2</h3><h2 id="3-04-CNN"><a href="#3-04-CNN" class="headerlink" title="3&#x2F;04 CNN"></a>3&#x2F;04 CNN</h2><h3 id="Video"><a href="#Video" class="headerlink" title="Video"></a>Video</h3><p>Image as input</p>
+<h4 id="V1"><a href="#V1" class="headerlink" title="V1"></a>V1</h4><p>Tensor: a Matrix &gt;&#x3D; 3 dimensional  </p>
+<ol>
+<li>Observation 1:<br>Receptive Field: Kernel Size (3x3), Stride (1 or 2, padding 0, hope receptive field are intersecting)  </li>
+<li>Observation 2<br>Shared parameters: filter<br>1 + 2 -&gt; Convolution Layer -&gt; CNN (designed for image)</li>
+</ol>
+<h4 id="V2"><a href="#V2" class="headerlink" title="V2"></a>V2</h4><p>Each filter detects a small pattern (3 * 3 * channel_num, which is a tensor)<br>Feature Map<br>3. Observation 3<br>Max Pooling: Operator<br>Convolutional Layer + Pooling  </p>
+<h3 id="Spatial-Transformer-Layer"><a href="#Spatial-Transformer-Layer" class="headerlink" title="Spatial Transformer Layer"></a>Spatial Transformer Layer</h3><p>CNN is not invariant to scaling and rotation<br>Interpolation.</p>
+<h2 id="3-11-Self-attention"><a href="#3-11-Self-attention" class="headerlink" title="3&#x2F;11 Self-attention"></a>3&#x2F;11 Self-attention</h2><h3 id="Video-1-1"><a href="#Video-1-1" class="headerlink" title="Video 1"></a>Video 1</h3><p>Sequence Labeling<br>Self-Attention: dot product additive </p>
+<h3 id="Video-2-2"><a href="#Video-2-2" class="headerlink" title="Video 2"></a>Video 2</h3><p>Self-attention<br>Multihead self-attention<br>Truncated self-attention<br>CNN is a simplified self-attention (limited to receptive field)<br>RNN, GNN (Graph Neural Network)</p>
+<h3 id="GNN-1"><a href="#GNN-1" class="headerlink" title="GNN 1"></a>GNN 1</h3><p>Convolution (spatial-based&#x2F;Spectral-based)</p>
+<h4 id="Spatial-based"><a href="#Spatial-based" class="headerlink" title="Spatial-based"></a>Spatial-based</h4><p>Terminology:<br>Aggregate: use neighbor features to update the next hidden state<br>Readout: use all nodes’ features to represent the whole graph<br>NN4G<br>DCNN<br>GAT (Graph Attention Network)<br>Graph Isomorphism Network</p>
+<h3 id="GNN-2"><a href="#GNN-2" class="headerlink" title="GNN 2"></a>GNN 2</h3><p>Deep Graph Library</p>
+<h4 id="Graph-Signal-Processing"><a href="#Graph-Signal-Processing" class="headerlink" title="Graph Signal Processing"></a>Graph Signal Processing</h4><p>Graph Laplacian:<br>Degree Matrix $D$, Adjacency Matrix: $A$, $L$ is an operation on graph<br>$L &#x3D; D - A &#x3D; U \Lambda U^T$<br>Discrete time Fourier basis $\lambda$ wave length<br>$(Lf)(v_i) &#x3D; \sum_{v_j \in V} w_{i,j}(f(v_i) - f(v_j))$<br>$\begin{aligned}<br>f^T L f &amp;&#x3D; \sum_{v_i \in V} f(v_i) \sum_{v_j \in V} w_{i,j}(f(v_i) - f(v_j))\<br>&amp;&#x3D; \frac{1}{2} \sum_{v_i \in V} \sum_{v_j \in V} w_{i,j}(f(v_i) - f(v_j))^2<br>\end{aligned}<br>$</p>
+<p>Graph Fourier Transform of signal $\hat{x}$: $\hat{x} &#x3D; U ^T x, \hat{x}_i &#x3D; u_i \cdot x$<br>Inverse Graph Fourier Transform of signal $\hat{x}$: $x &#x3D; U ^T \hat{x}$</p>
+<p>Filtering: Convolution in time domain is multiplication in frequency domain</p>
+<p>ChebNet<br>听不懂在干什么</p>
+<h4 id="Spectral-based"><a href="#Spectral-based" class="headerlink" title="Spectral-based"></a>Spectral-based</h4><h2 id="3-18"><a href="#3-18" class="headerlink" title="3&#x2F;18"></a>3&#x2F;18</h2><h3 id="Video-1-Batch-Normalization"><a href="#Video-1-Batch-Normalization" class="headerlink" title="Video 1 Batch Normalization"></a>Video 1 Batch Normalization</h3><p>Batch Normalization<br>Internal Covariate Shift</p>
+<h3 id="Video-2-Seq2seq"><a href="#Video-2-Seq2seq" class="headerlink" title="Video 2 Seq2seq"></a>Video 2 Seq2seq</h3><p>Transformer<br>Seq2seq:<br>Chatbox,<br>NLP</p>
+<h2 id="Video-3-Decoder"><a href="#Video-3-Decoder" class="headerlink" title="Video 3 Decoder"></a>Video 3 Decoder</h2><p>Autoregressive<br>Masked Self-attention</p>
+<h2 id="NAT-Non-autoregressive-translation"><a href="#NAT-Non-autoregressive-translation" class="headerlink" title="NAT Non autoregressive translation"></a>NAT Non autoregressive translation</h2><p>像一个NAT发展的论文综述<br>Naive approach,<br>autoregressive,<br>GAN, </p>
+<p>Improvement</p>
+<ol>
+<li>Fertility</li>
+<li>Sequence-level knowledge distillation</li>
+<li>Noisy Parallel Decoding NPD</li>
+</ol>
+<p>Vanilla NAT, Iterative Refinement, Insertion-based, Insertion+Deletion, CTC-based, Masked-predict, Kermit, CTC, LAS, Imputer (CTC+Mask-Predict)</p>
+<h2 id="Pointer-Network"><a href="#Pointer-Network" class="headerlink" title="Pointer Network"></a>Pointer Network</h2><h2 id="3-25"><a href="#3-25" class="headerlink" title="3&#x2F;25"></a>3&#x2F;25</h2><h3 id="Video-1-GAN"><a href="#Video-1-GAN" class="headerlink" title="Video 1 GAN"></a>Video 1 GAN</h3><p>Discriminator</p>
+<h3 id="Video-2-GAN"><a href="#Video-2-GAN" class="headerlink" title="Video 2 GAN"></a>Video 2 GAN</h3><p>JS Divergence<br>$G^*&#x3D; \arg \min(G) \max(D) \mathcal{V}(G, D)$<br><img src="/LHY-ML/image-1.png" alt="alt text"><br>$JS(P \parallel Q) &#x3D; \frac{1}{2} KL(P \parallel M) + \frac{1}{2} KL(Q \parallel M)$<br>$KL(P \parallel Q) &#x3D; \sum_{x} P(x) \log\left(\frac{P(x)}{Q(x)}\right)$</p>
+<p>WGAN\<br>Wasserstein distance: improve JS divergence: $JS(P_G, P_{\text{data}}) \rightarrow W(P_G, P_{\text{data}})$<br>$\max_{D \in 1-\text{Lipschitz}} \left{ \mathbb{E}<em>{x \sim P</em>{\text{data}}} [D(x)] - \mathbb{E}<em>{x \sim P</em>{G}} [D(x)] \right}$<br>the $D(x)$ should be smooth enough</p>
+<h3 id="Video-3-BERT-anecdote"><a href="#Video-3-BERT-anecdote" class="headerlink" title="Video 3 BERT anecdote"></a>Video 3 BERT anecdote</h3><p>CBOW (2 transforms): word embedding<br>contextualized word embedding<br>Multi BERT: Zero-shot Reading Comprehension, alignment</p>
+<h3 id="Video-4-Cycle-GAN"><a href="#Video-4-Cycle-GAN" class="headerlink" title="Video 4 Cycle GAN"></a>Video 4 Cycle GAN</h3><p>Cycle&#x2F;Dual&#x2F;Disco GAN: $G_{x\rightarrow y}$, $G_{y\rightarrow x}$</p>
+<h3 id="The-theory-of-GAN-1"><a href="#The-theory-of-GAN-1" class="headerlink" title="The theory of GAN (1)"></a>The theory of GAN (1)</h3><p>$\max_{D} \mathcal{V}(G, D)$ maximize the discriminator D in GAN  </p>
+<p>$\mathcal{V}(G, D) &#x3D; \mathbb{E}<em>{x \sim P</em>{\text{data}}} [\log D(x)] + \mathbb{E}<em>{x \sim P</em>{G}} [\log(1 - D(x))]$<br>$\mathcal{V}(G, D) &#x3D; \int_{x} P_{\text{data}}(x)\log D(x) , dx + \int_{x} P_{G}(x)\log(1 - D(x)) , dx$</p>
+<p>$\mathcal{V}(G, D) &#x3D; P_{\text{data}}(x)\log D(x) + P_{G}(x)\log(1 - D(x))$ </p>
+<p>$D^*(x) &#x3D; \frac{P_{\text{data}}(x)}{P_{\text{data}}(x) + P_{G}(x)}$</p>
+<h2 id="4-01"><a href="#4-01" class="headerlink" title="4&#x2F;01"></a>4&#x2F;01</h2><h3 id="Video-1-2"><a href="#Video-1-2" class="headerlink" title="Video 1"></a>Video 1</h3><p>Self-supervised Learning</p>
+<h3 id="Video-2-BERT-intro"><a href="#Video-2-BERT-intro" class="headerlink" title="Video 2 BERT intro"></a>Video 2 BERT intro</h3><p>Masking Input: Mask<br>Next Sentence Prediction: [CLS] sentence 1. [SEP] sentence 2.<br>Pre-trained Fine-tune for Downstream Tasks:<br>GLUE: General Language Understanding Evaluation<br>in seq, out class: sentiment analysis<br>in seq ((n)), out seq (n): POG tagging<br>in 2 seqs, out class: NLI Natural language inference<br>in seqs, out seqs: QA Extract-based Question Answer</p>
+<p>MASS\ BART T5, C4 (open sourced resource)</p>
+<h3 id="Video-3-BERT-anecdote-1"><a href="#Video-3-BERT-anecdote-1" class="headerlink" title="Video 3 BERT anecdote"></a>Video 3 BERT anecdote</h3><p>Same with above</p>
+<h3 id="Video-4-GPT-outlook"><a href="#Video-4-GPT-outlook" class="headerlink" title="Video 4 GPT outlook"></a>Video 4 GPT outlook</h3><p>Linear Transform -&gt; Softmax -&gt; distribution<br>Few-shot learning, one-shot, zero-shot learning<br>SimCLR, BYOL,<br>Speech GLUE - SUPERB</p>
+<h2 id="4-15"><a href="#4-15" class="headerlink" title="4&#x2F;15"></a>4&#x2F;15</h2><p>????</p>
+<h2 id="4-22"><a href="#4-22" class="headerlink" title="4&#x2F;22"></a>4&#x2F;22</h2><p>Auto encoder</p>
+<h3 id="Video-1-basic-idea"><a href="#Video-1-basic-idea" class="headerlink" title="Video 1 basic idea"></a>Video 1 basic idea</h3><p>same idea with Cycle GAN, embedding, representation, code<br>Dimension reduction: not deep learning based PCA, t-SNE<br>De-noising Auto-encoder</p>
+<p>Video 2-8 are all anomaly detection</p>
+<h3 id="Video-2-3"><a href="#Video-2-3" class="headerlink" title="Video 2"></a>Video 2</h3><p>Feature disentanglement: know the content of embedding: Voice Conversion<br>Discrete Representation: VQVAE</p>
+<h3 id="Video-3-1"><a href="#Video-3-1" class="headerlink" title="Video 3"></a>Video 3</h3><p>Anomaly detection: other methods outlier, novelty, exception<br>one class classifier: Approach: Auto-encoder</p>
+<h3 id="Video-4-1"><a href="#Video-4-1" class="headerlink" title="Video 4"></a>Video 4</h3><p>A confidence score $c$, a threshold $\lambda$, smaller than, anomaly.</p>
+<h3 id="Video-5-1"><a href="#Video-5-1" class="headerlink" title="Video 5"></a>Video 5</h3><p>Generating anomaly data</p>
+<h3 id="Video-6"><a href="#Video-6" class="headerlink" title="Video 6"></a>Video 6</h3><p>Without Labels<br><a target="_blank" rel="noopener" href="https://github.com/ahaque/twitch-troll-detection">https://github.com/ahaque/twitch-troll-detection</a> </p>
+<h3 id="Video-7"><a href="#Video-7" class="headerlink" title="Video 7"></a>Video 7</h3><p>Gaussian Distribution<br>Assume the data points are samples from a probability density function $f_{\theta}(x)$<br>$\theta$ determine the shape of $f_{\theta}(x)$<br>$L(\theta)&#x3D;f_{\theta}(x^1)f_{\theta}(x^2)…f_{\theta}(x^N)$<br>$\theta^* &#x3D; \arg \max_\theta L(\theta), \theta&#x3D;(\mu, \Sigma)$<br>$f_{\mu,\Sigma}(x) &#x3D; \frac{1}{(2\pi)^{D&#x2F;2}}\frac{1}{|\Sigma|^{1&#x2F;2}} \exp\left(-\frac{1}{2}(x-\mu)^T\Sigma^{-1}(x-\mu)\right)$</p>
+<h3 id="Video-8"><a href="#Video-8" class="headerlink" title="Video 8"></a>Video 8</h3><p>Auto-encoder</p>
+<h2 id="4-29"><a href="#4-29" class="headerlink" title="4&#x2F;29"></a>4&#x2F;29</h2><h3 id="Video-1-Explainable-ML-Local"><a href="#Video-1-Explainable-ML-Local" class="headerlink" title="Video 1 Explainable ML Local"></a>Video 1 Explainable ML Local</h3><p>Loss of an example: Gradient: Saliency Map<br>Limitation: Noisy Gradient, SmoothGrad<br>MFCC<br>Attention is Explainable<br>Probing: CNN BLSTM</p>
+<h3 id="Video-2-Explainable-ML-Global"><a href="#Video-2-Explainable-ML-Global" class="headerlink" title="Video 2 Explainable ML Global"></a>Video 2 Explainable ML Global</h3><h2 id="5-06"><a href="#5-06" class="headerlink" title="5&#x2F;06"></a>5&#x2F;06</h2><h3 id="Video-1-3"><a href="#Video-1-3" class="headerlink" title="Video 1"></a>Video 1</h3><p>Attack<br>$x^* &#x3D; \arg_{d(x^0, x)&lt;\epsilon} \min L(x)$</p>
+<h4 id="Non-targeted"><a href="#Non-targeted" class="headerlink" title="Non-targeted"></a>Non-targeted</h4><p>$e(,)$ cross entropy<br>$L(x) &#x3D; -e(y, \hat y)$</p>
+<h4 id="Targeted"><a href="#Targeted" class="headerlink" title="Targeted"></a>Targeted</h4><p>$L(x) &#x3D; -e(y, \hat y) + e(y, y_{\text{target}})$<br>$\hat y$: real case<br>$y_{\text{target}}$: what you wish to be perceived</p>
+<h4 id="Non-perceivable"><a href="#Non-perceivable" class="headerlink" title="Non-perceivable"></a>Non-perceivable</h4><p>$d(x^0, x) &lt; \epsilon$,<br>L2-norm, L-infinity</p>
+<h3 id="Video-2-4"><a href="#Video-2-4" class="headerlink" title="Video 2"></a>Video 2</h3><p>Black box attack: Proxy Network<br>Ensemble Network, one-pixel, universal adversarial attack<br>Beyond Images, speech processing, Natural<br>Adversarial reprogramming<br>Filter</p>
+<h2 id="7-03"><a href="#7-03" class="headerlink" title="7&#x2F;03"></a>7&#x2F;03</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1734y1c7Hb?p=2&spm_id_from=pageDriver&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1734y1c7Hb?p=2&amp;spm_id_from=pageDriver&amp;vd_source=441679270dda23308fe16f3c5602b058</a></p>
+<h3 id="Video-1-Diffusion-Model"><a href="#Video-1-Diffusion-Model" class="headerlink" title="Video 1 Diffusion Model"></a>Video 1 Diffusion Model</h3><p>Denoise module: picture + noise -&gt; predict noise, then -noise -&gt; picture<br>Train the noise predictor</p>
+<p>Diffuse process: </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for step in range(1000): </span><br><span class="line">    generate noise[i] pic[i] = pic[i-1] + noise[i]</span><br><span class="line">train: </span><br><span class="line">    given pic[i-1], pic[i]</span><br><span class="line">    learn noise[i]</span><br></pre></td></tr></table></figure>
+<p><img src="/2024-03-08-LHY-ML/image-2.png" alt="alt text"></p>
+<h3 id="Video-2-5"><a href="#Video-2-5" class="headerlink" title="Video 2"></a>Video 2</h3><p>Text to picture<br>DALL-E Decoder: Autoregressive&#x2F;Diffusion Model<br>Imagen (Google):</p>
+<p>Framework:<br>Encoder: GPT&#x2F;BERT<br>Encoder -&gt; Generation model (Latent Representation) -&gt; Decoder</p>
+<h3 id="Video-3-原理"><a href="#Video-3-原理" class="headerlink" title="Video 3 原理"></a>Video 3 原理</h3><p>解释 Training， Sampling</p>
+<p>$x_0:$ a picture,</p>
+<p>$x_t:$ pic + noise $t$</p>
+<h3 id="Video-4-2"><a href="#Video-4-2" class="headerlink" title="Video 4"></a>Video 4</h3><p>Maximum likelihood Estimation:<br>$P_{\text{data}}(x)$ True Distribution of Data<br>$P_{\theta}(x)$ Probability distribution of data $x$ given parameters $\theta$<br>${x^1, x^2, \cdots, x^m}$ Observed data samples</p>
+<p>Network: $z \rightarrow \theta \rightarrow P_{\theta}(x) \rightarrow P_{\text{data}}(x)$<br>maximize $P_{\theta}(x^1)P_{\theta}(x^2) \cdots P_{\theta}(x^m)$</p>
+<p>$\theta^* &#x3D; \arg \max_\theta \log P_{\theta}(x^1)P_{\theta}(x^2) \cdots P_{\theta}(x^m)$</p>
+<p>$\theta^* &#x3D; \arg \max_\theta \mathbb{E}<em>{x \sim P</em>{\text{data}}} \log P_{\theta}(x)$</p>
+<p>$\theta^* &#x3D; \arg \max_\theta \int_{x} P_{\text{data}}(x) \log P_{\theta}(x) dx$</p>
+<p>$\theta^* &#x3D; \arg \max_\theta \left( \int_{x} P_{\text{data}}(x) \log P_{\theta}(x) dx - \int_{x} P_{\text{data}}(x) \log P_{\text{data}}(x) dx \right)$</p>
+<p>$\theta^* &#x3D; \arg \max_\theta \int_{x} P_{\text{data}}(x) \log \frac{P_{\theta}(x)}{P_{\text{data}}(x)} dx$</p>
+<p>$\theta^* &#x3D; \arg \max_\theta -KL(P_{\text{data}} || P_{\theta})$</p>
+<h4 id="VAE"><a href="#VAE" class="headerlink" title="VAE"></a>VAE</h4><p>Compute $P_{\theta}(x)$<br>Network: $G(z) &#x3D; x$<br>$P_{\theta}(x) &#x3D; \int P_{\theta}(x|z)P_{\theta}(z) dz$</p>
+<p>$P_{\theta}(z|x) &#x3D; \frac{P_{\theta}(x|z)P_{\theta}(z)}{P_{\theta}(x)}$</p>
+<p>DDPM</p>
+<h3 id="Video-5-2"><a href="#Video-5-2" class="headerlink" title="Video 5"></a>Video 5</h3><p>VAE: Variational Auto-encoder<br>$P_{\theta}(x) &#x3D; \int P_{\theta}(x|z)P_{\theta}(z) dz$<br>$P_{\theta}(z|x) &#x3D; \frac{P_{\theta}(x|z)P_{\theta}(z)}{P_{\theta}(x)}$</p>
+<h1 id="VAE-1"><a href="#VAE-1" class="headerlink" title="VAE"></a>VAE</h1><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1yD4y1i7Jm/?p=44&vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1yD4y1i7Jm/?p=44&amp;vd_source=441679270dda23308fe16f3c5602b058</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wxkang/p/17128108.html">https://www.cnblogs.com/wxkang/p/17128108.html</a><br>比较主流的生成模型：HMM, NB, GMM (Gaussian Mixture Model)</p>
+<p>KL divergence: $KL(P||Q) &#x3D; \int P(x) \log \frac{P(x)}{Q(x)} dx$, $KL(P||Q) \neq KL(Q||P)$</p>
+<p>AE: 与 PCA, SVD 目的相同，矩阵降维技术。</p>
+<p>latent variable $z$, assume it follows the prior distribution of $P(z) \sim N(0,1)$</p>
+<p>$P(x|z) \sim N(\mu(z), \sigma(z))$ </p>
+<p>$P(x) &#x3D; \int P(z) P(x|z) dz$</p>
+<p>To Maximize Likelihood of observed $x$: $L &#x3D; \sum_x \log P(x)$</p>
+<p>ELBO Evidence Lower Bound</p>
+<h1 id="MCMC"><a href="#MCMC" class="headerlink" title="MCMC"></a>MCMC</h1><p>看不懂：仿佛在谈收敛快慢和平衡状态 $\pi$ 的问题<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/143016455">https://zhuanlan.zhihu.com/p/143016455</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/p/6625739.html">https://www.cnblogs.com/pinard/p/6625739.html</a></p>
+<h3 id="Monte-Carlo-Integration"><a href="#Monte-Carlo-Integration" class="headerlink" title="Monte Carlo Integration"></a>Monte Carlo Integration</h3><p>If $X$ is uniformly distributed on $[a,b]$:<br>$\int_a^b f(x)dx &#x3D; \int_a^b f(x) \frac{1}{b-a}dx &#x3D; \mathbb{E}<em>{x \sim U(a,b)}[f(x)] &#x3D; \frac{1}{N}\sum</em>{i&#x3D;1}^N f(x_i)$</p>
+<p>If we know the distribution of $X$ on $[a, b] &#x3D; p(x)$:<br>$\int_a^b f(x)dx &#x3D; \int_a^b \frac{f(x)}{p(x)} p(x) dx &#x3D; \mathbb{E}<em>{x \sim p(x)}[f(x)] &#x3D; \frac{1}{N}\sum</em>{i&#x3D;1}^N \frac{f(x_i)}{p(x_i)}$</p>
+<h3 id="Acceptance-Rejection-Sampling"><a href="#Acceptance-Rejection-Sampling" class="headerlink" title="Acceptance-Rejection Sampling"></a>Acceptance-Rejection Sampling</h3><p><a target="_blank" rel="noopener" href="https://blog.quantitations.com/inference/2012/11/24/rejection-sampling-proof">https://blog.quantitations.com/inference/2012/11/24/rejection-sampling-proof</a></p>
+<p>方便采样的常用概率分布函数 (proposal distribution) $q(x)$ 以及一个常量 $k$ 使得 $p(x)$ 总在 $k q(x)$ 的下方</p>
+<h3 id="MCMC-1"><a href="#MCMC-1" class="headerlink" title="MCMC"></a>MCMC</h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/03/08/2024-03-08-LHY-ML/">http://example.com/2024/03/08/2024-03-08-LHY-ML/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/bc3.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-18"><span class="toc-number">1.</span> <span class="toc-text">2&#x2F;18</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2"><span class="toc-number">1.1.</span> <span class="toc-text">Video 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pytorch-1-2"><span class="toc-number">1.2.</span> <span class="toc-text">Pytorch 1&#x2F;2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Background-propagation"><span class="toc-number">1.3.</span> <span class="toc-text">Background propagation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Predicting-Pokemon-CP"><span class="toc-number">1.4.</span> <span class="toc-text">Predicting Pokémon CP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pokemon-classification"><span class="toc-number">1.5.</span> <span class="toc-text">Pokemon classification</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Maximum-Likelihood"><span class="toc-number">1.5.1.</span> <span class="toc-text">Maximum Likelihood</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Logistic-Regression"><span class="toc-number">1.6.</span> <span class="toc-text">Logistic Regression</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Loss-function"><span class="toc-number">1.6.1.</span> <span class="toc-text">Loss function</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Multiclass-Classification"><span class="toc-number">1.6.2.</span> <span class="toc-text">Multiclass Classification</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-25"><span class="toc-number">2.</span> <span class="toc-text">2&#x2F;25</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1"><span class="toc-number">2.1.</span> <span class="toc-text">Video 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-1"><span class="toc-number">2.2.</span> <span class="toc-text">Video 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-3"><span class="toc-number">2.3.</span> <span class="toc-text">Video 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-4"><span class="toc-number">2.4.</span> <span class="toc-text">Video 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-5"><span class="toc-number">2.5.</span> <span class="toc-text">Video 5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Basic-Theory"><span class="toc-number">2.6.</span> <span class="toc-text">Basic Theory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gradient-Descent"><span class="toc-number">2.7.</span> <span class="toc-text">Gradient Descent</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Beyond-Adam-1"><span class="toc-number">2.8.</span> <span class="toc-text">Beyond Adam 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Beyond-Adam-2"><span class="toc-number">2.9.</span> <span class="toc-text">Beyond Adam 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-04-CNN"><span class="toc-number">3.</span> <span class="toc-text">3&#x2F;04 CNN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video"><span class="toc-number">3.1.</span> <span class="toc-text">Video</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#V1"><span class="toc-number">3.1.1.</span> <span class="toc-text">V1</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#V2"><span class="toc-number">3.1.2.</span> <span class="toc-text">V2</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spatial-Transformer-Layer"><span class="toc-number">3.2.</span> <span class="toc-text">Spatial Transformer Layer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-11-Self-attention"><span class="toc-number">4.</span> <span class="toc-text">3&#x2F;11 Self-attention</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-1"><span class="toc-number">4.1.</span> <span class="toc-text">Video 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-2"><span class="toc-number">4.2.</span> <span class="toc-text">Video 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNN-1"><span class="toc-number">4.3.</span> <span class="toc-text">GNN 1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Spatial-based"><span class="toc-number">4.3.1.</span> <span class="toc-text">Spatial-based</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GNN-2"><span class="toc-number">4.4.</span> <span class="toc-text">GNN 2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Graph-Signal-Processing"><span class="toc-number">4.4.1.</span> <span class="toc-text">Graph Signal Processing</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Spectral-based"><span class="toc-number">4.4.2.</span> <span class="toc-text">Spectral-based</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-18"><span class="toc-number">5.</span> <span class="toc-text">3&#x2F;18</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-Batch-Normalization"><span class="toc-number">5.1.</span> <span class="toc-text">Video 1 Batch Normalization</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-Seq2seq"><span class="toc-number">5.2.</span> <span class="toc-text">Video 2 Seq2seq</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Video-3-Decoder"><span class="toc-number">6.</span> <span class="toc-text">Video 3 Decoder</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NAT-Non-autoregressive-translation"><span class="toc-number">7.</span> <span class="toc-text">NAT Non autoregressive translation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Pointer-Network"><span class="toc-number">8.</span> <span class="toc-text">Pointer Network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-25"><span class="toc-number">9.</span> <span class="toc-text">3&#x2F;25</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-GAN"><span class="toc-number">9.1.</span> <span class="toc-text">Video 1 GAN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-GAN"><span class="toc-number">9.2.</span> <span class="toc-text">Video 2 GAN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-3-BERT-anecdote"><span class="toc-number">9.3.</span> <span class="toc-text">Video 3 BERT anecdote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-4-Cycle-GAN"><span class="toc-number">9.4.</span> <span class="toc-text">Video 4 Cycle GAN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#The-theory-of-GAN-1"><span class="toc-number">9.5.</span> <span class="toc-text">The theory of GAN (1)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-01"><span class="toc-number">10.</span> <span class="toc-text">4&#x2F;01</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-2"><span class="toc-number">10.1.</span> <span class="toc-text">Video 1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-BERT-intro"><span class="toc-number">10.2.</span> <span class="toc-text">Video 2 BERT intro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-3-BERT-anecdote-1"><span class="toc-number">10.3.</span> <span class="toc-text">Video 3 BERT anecdote</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-4-GPT-outlook"><span class="toc-number">10.4.</span> <span class="toc-text">Video 4 GPT outlook</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-15"><span class="toc-number">11.</span> <span class="toc-text">4&#x2F;15</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-22"><span class="toc-number">12.</span> <span class="toc-text">4&#x2F;22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-basic-idea"><span class="toc-number">12.1.</span> <span class="toc-text">Video 1 basic idea</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-3"><span class="toc-number">12.2.</span> <span class="toc-text">Video 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-3-1"><span class="toc-number">12.3.</span> <span class="toc-text">Video 3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-4-1"><span class="toc-number">12.4.</span> <span class="toc-text">Video 4</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-5-1"><span class="toc-number">12.5.</span> <span class="toc-text">Video 5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-6"><span class="toc-number">12.6.</span> <span class="toc-text">Video 6</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-7"><span class="toc-number">12.7.</span> <span class="toc-text">Video 7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-8"><span class="toc-number">12.8.</span> <span class="toc-text">Video 8</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-29"><span class="toc-number">13.</span> <span class="toc-text">4&#x2F;29</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-Explainable-ML-Local"><span class="toc-number">13.1.</span> <span class="toc-text">Video 1 Explainable ML Local</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-Explainable-ML-Global"><span class="toc-number">13.2.</span> <span class="toc-text">Video 2 Explainable ML Global</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-06"><span class="toc-number">14.</span> <span class="toc-text">5&#x2F;06</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-3"><span class="toc-number">14.1.</span> <span class="toc-text">Video 1</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Non-targeted"><span class="toc-number">14.1.1.</span> <span class="toc-text">Non-targeted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Targeted"><span class="toc-number">14.1.2.</span> <span class="toc-text">Targeted</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Non-perceivable"><span class="toc-number">14.1.3.</span> <span class="toc-text">Non-perceivable</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-4"><span class="toc-number">14.2.</span> <span class="toc-text">Video 2</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-03"><span class="toc-number">15.</span> <span class="toc-text">7&#x2F;03</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-1-Diffusion-Model"><span class="toc-number">15.1.</span> <span class="toc-text">Video 1 Diffusion Model</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-2-5"><span class="toc-number">15.2.</span> <span class="toc-text">Video 2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-3-%E5%8E%9F%E7%90%86"><span class="toc-number">15.3.</span> <span class="toc-text">Video 3 原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-4-2"><span class="toc-number">15.4.</span> <span class="toc-text">Video 4</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#VAE"><span class="toc-number">15.4.1.</span> <span class="toc-text">VAE</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Video-5-2"><span class="toc-number">15.5.</span> <span class="toc-text">Video 5</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#VAE-1"><span class="toc-number"></span> <span class="toc-text">VAE</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#MCMC"><span class="toc-number"></span> <span class="toc-text">MCMC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Monte-Carlo-Integration"><span class="toc-number">0.1.</span> <span class="toc-text">Monte Carlo Integration</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Acceptance-Rejection-Sampling"><span class="toc-number">0.2.</span> <span class="toc-text">Acceptance-Rejection Sampling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MCMC-1"><span class="toc-number">0.3.</span> <span class="toc-text">MCMC</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me"><img src="/img/bc3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-25-About-me"/></a><div class="content"><a class="title" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me">2024-11-25-About-me</a><time datetime="2024-11-25T14:36:31.000Z" title="Created 2024-11-25 22:36:31">2024-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes"><img src="/img/bc15.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-16 DIP Notes"/></a><div class="content"><a class="title" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes">2024-11-16 DIP Notes</a><time datetime="2024-11-16T03:12:55.000Z" title="Created 2024-11-16 11:12:55">2024-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/10/hello/" title="hello"><img src="/img/bc16.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hello"/></a><div class="content"><a class="title" href="/2024/11/10/hello/" title="hello">hello</a><time datetime="2024-11-10T12:01:44.000Z" title="Created 2024-11-10 20:01:44">2024-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic"><img src="/img/bc9.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-26-Magic"/></a><div class="content"><a class="title" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic">2024-10-26-Magic</a><time datetime="2024-10-25T18:46:12.000Z" title="Created 2024-10-26 02:46:12">2024-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection"><img src="/img/bc21.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-25 Duke courses selection"/></a><div class="content"><a class="title" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection">2024-10-25 Duke courses selection</a><time datetime="2024-10-25T10:06:08.000Z" title="Created 2024-10-25 18:06:08">2024-10-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/bc3.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

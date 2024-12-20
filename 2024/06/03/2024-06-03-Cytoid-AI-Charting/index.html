@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Cytoid AI Charting | Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="相关论文实现  Survey 1: https:&#x2F;&#x2F;www.qbitai.com&#x2F;2022&#x2F;03&#x2F;33133.html 1.1 现有技术(1)：100k songs, 44GB datahttps:&#x2F;&#x2F;github.com&#x2F;chrisdonahue&#x2F;ddchttps:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1703.06891.pdf 1.2 GeneLive在DDC基础上improve：现有技术2：G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cytoid AI Charting">
+<meta property="og:url" content="http://example.com/2024/06/03/2024-06-03-Cytoid-AI-Charting/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="相关论文实现  Survey 1: https:&#x2F;&#x2F;www.qbitai.com&#x2F;2022&#x2F;03&#x2F;33133.html 1.1 现有技术(1)：100k songs, 44GB datahttps:&#x2F;&#x2F;github.com&#x2F;chrisdonahue&#x2F;ddchttps:&#x2F;&#x2F;arxiv.org&#x2F;pdf&#x2F;1703.06891.pdf 1.2 GeneLive在DDC基础上improve：现有技术2：G">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/img/bc1.jpg">
+<meta property="article:published_time" content="2024-06-03T07:58:56.000Z">
+<meta property="article:modified_time" content="2024-12-15T03:50:10.855Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/bc1.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Cytoid AI Charting",
+  "url": "http://example.com/2024/06/03/2024-06-03-Cytoid-AI-Charting/",
+  "image": "http://example.com/img/bc1.jpg",
+  "datePublished": "2024-06-03T07:58:56.000Z",
+  "dateModified": "2024-12-15T03:50:10.855Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "url": "http://example.com/"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/06/03/2024-06-03-Cytoid-AI-Charting/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Cytoid AI Charting',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg" style="background-image: url(/img/Background2.png);"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bc1.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/Navi.jpg" alt="Logo"><span class="site-name">Hexo</span></a><a class="nav-page-title" href="/"><span class="site-name">Cytoid AI Charting</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><span class="site-page group"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></span><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Cytoid AI Charting</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-06-03T07:58:56.000Z" title="Created 2024-06-03 15:58:56">2024-06-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-12-15T03:50:10.855Z" title="Updated 2024-12-15 11:50:10">2024-12-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><ol>
+<li>相关论文实现</li>
+</ol>
+<p>Survey 1: <a target="_blank" rel="noopener" href="https://www.qbitai.com/2022/03/33133.html">https://www.qbitai.com/2022/03/33133.html</a></p>
+<p>1.1 现有技术(1)：100k songs, 44GB data<br><a target="_blank" rel="noopener" href="https://github.com/chrisdonahue/ddc">https://github.com/chrisdonahue/ddc</a><br><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1703.06891.pdf">https://arxiv.org/pdf/1703.06891.pdf</a></p>
+<p>1.2 GeneLive在DDC基础上improve：<br>现有技术2：GenéLive! Generating Rhythm Actions in Love Live! | Proceedings of the AAAI Conference on Artificial Intelligence<br><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.12823">https://arxiv.org/abs/2202.12823</a><br><a target="_blank" rel="noopener" href="https://github.com/chrisdonahue/ddc">https://github.com/chrisdonahue/ddc</a></p>
+<p>1.3 现有技术3：<br>MuG Diffusion:<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Sg4y1j7sz/?vd_source=441679270dda23308fe16f3c5602b058">https://www.bilibili.com/video/BV1Sg4y1j7sz/?vd_source=441679270dda23308fe16f3c5602b058</a><br><a target="_blank" rel="noopener" href="https://github.com/Keytoyze/Mug-Diffusion">https://github.com/Keytoyze/Mug-Diffusion</a></p>
+<ol start="2">
+<li>音游相关特征</li>
+</ol>
+<ul>
+<li>这次使用的音游：<br>  <a target="_blank" rel="noopener" href="https://cytoid.io/">https://cytoid.io/</a></li>
+<li>扒谱网站：<br>  <a target="_blank" rel="noopener" href="https://cytoid.io/levels">https://cytoid.io/levels</a></li>
+<li>扒谱工具：（应该用不到）<br>  <a target="_blank" rel="noopener" href="https://sites.google.com/site/cytoidcommunity/charting/introduction-cy2unity">https://sites.google.com/site/cytoidcommunity/charting/introduction-cy2unity</a></li>
+<li>谱面格式介绍：<br>  <a target="_blank" rel="noopener" href="https://github.com/openmusicgame/omgc">https://github.com/openmusicgame/omgc</a></li>
+<li>这个教授研究很多音乐：<br>  <a target="_blank" rel="noopener" href="https://scholar.google.com/citations?user=MgzHAPQAAAAJ&hl=en&oi=ao">https://scholar.google.com/citations?user=MgzHAPQAAAAJ&amp;hl=en&amp;oi=ao</a></li>
+</ul>
+<ol start="3">
+<li><p>前人一些工程上经验（按照规模排序）</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/107010304">https://zhuanlan.zhihu.com/p/107010304</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://www.mirrorange.com/ai-beatmap-generator-train/">https://www.mirrorange.com/ai-beatmap-generator-train/</a></p>
+</li>
+<li><p>MuG Diffusion</p>
+</li>
+</ol>
+<p>ChoreoGraph Chart for Musical Game<br>Step Placement: When to place step<br>Step Selection: Which step to place</p>
+<p>4.音游数据<br><a target="_blank" rel="noopener" href="https://drive.google.com/drive/folders/1J43x9f8u2lIzaHBolQaZveCv62XQM8Lv">https://drive.google.com/drive/folders/1J43x9f8u2lIzaHBolQaZveCv62XQM8Lv</a></p>
+<p>Music library:<br><a target="_blank" rel="noopener" href="https://soundcloud.com/openai_audio/rachmaninoff">https://soundcloud.com/openai_audio/rachmaninoff</a></p>
+<h1 id="DDC-Paper-17"><a href="#DDC-Paper-17" class="headerlink" title="DDC Paper 17"></a>DDC Paper 17</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1703.06891">https://arxiv.org/pdf/1703.06891</a></p>
+<p>MIR Music information retrival<br>onset detection:<br>tasks: (learning to choreograph)</p>
+<ol>
+<li>step placement</li>
+<li>step selection</li>
+</ol>
+<h1 id="GeneLive-23"><a href="#GeneLive-23" class="headerlink" title="GeneLive 23"></a>GeneLive 23</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2202.12823">https://arxiv.org/abs/2202.12823</a><br>generatiive deep learning</p>
+<p>文中提及 BiLSTM 比 Transformer也许更适合。<br>two novel techniques: beat guide, multi-sclae conv-stack</p>
+<ol>
+<li>beat guide寻找节奏型</li>
+<li></li>
+</ol>
+<h1 id="TaikoNation-21"><a href="#TaikoNation-21" class="headerlink" title="TaikoNation 21:"></a>TaikoNation 21:</h1><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2107.12506">https://arxiv.org/pdf/2107.12506</a><br>LSTM</p>
+<h1 id="Other-related-papers"><a href="#Other-related-papers" class="headerlink" title="Other related papers"></a>Other related papers</h1><h2 id="19-via-DL"><a href="#19-via-DL" class="headerlink" title="19 via DL"></a>19 via DL</h2><p><a target="_blank" rel="noopener" href="https://inria.hal.science/hal-03652042v1/document">https://inria.hal.science/hal-03652042v1/document</a></p>
+<h2 id="19-aaai-keysounded"><a href="#19-aaai-keysounded" class="headerlink" title="19 aaai keysounded"></a>19 aaai keysounded</h2><p><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1806.11170">https://arxiv.org/pdf/1806.11170</a></p>
+<h1 id="problems-encountered"><a href="#problems-encountered" class="headerlink" title="problems encountered"></a>problems encountered</h1><p>0.首先做的是关于给定t和diffculty ，生成对应的对应的（是预测下个tick 是否放置key还是预测下一个note的出现时间）</p>
+<ol>
+<li><h2 id="combine-of-level-and-others-可以看一下前人论文Genelive-是怎么解决的-Hetergenous-variable-in-BiLSTM-a-type-on-RNN"><a href="#combine-of-level-and-others-可以看一下前人论文Genelive-是怎么解决的-Hetergenous-variable-in-BiLSTM-a-type-on-RNN" class="headerlink" title="combine of level and others- 可以看一下前人论文Genelive 是怎么解决的- Hetergenous variable in BiLSTM(a type on RNN)"></a>combine of level and others<br>- 可以看一下前人论文Genelive 是怎么解决的<br>- Hetergenous variable in BiLSTM(a type on RNN)</h2></li>
+<li>time series</li>
+<li>how to pose x.</li>
+</ol>
+<p>最后实现，就是， 并没有参考任何技术，直接LSTM就上了。</p>
+<p> </p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="http://example.com">John Doe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/03/2024-06-03-Cytoid-AI-Charting/">http://example.com/2024/06/03/2024-06-03-Cytoid-AI-Charting/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/bc1.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/Avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">John Doe</div><div class="author-info-description"></div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">2</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#DDC-Paper-17"><span class="toc-number">1.</span> <span class="toc-text">DDC Paper 17</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#GeneLive-23"><span class="toc-number">2.</span> <span class="toc-text">GeneLive 23</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#TaikoNation-21"><span class="toc-number">3.</span> <span class="toc-text">TaikoNation 21:</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Other-related-papers"><span class="toc-number">4.</span> <span class="toc-text">Other related papers</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#19-via-DL"><span class="toc-number">4.1.</span> <span class="toc-text">19 via DL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19-aaai-keysounded"><span class="toc-number">4.2.</span> <span class="toc-text">19 aaai keysounded</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#problems-encountered"><span class="toc-number">5.</span> <span class="toc-text">problems encountered</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#combine-of-level-and-others-%E5%8F%AF%E4%BB%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E5%89%8D%E4%BA%BA%E8%AE%BA%E6%96%87Genelive-%E6%98%AF%E6%80%8E%E4%B9%88%E8%A7%A3%E5%86%B3%E7%9A%84-Hetergenous-variable-in-BiLSTM-a-type-on-RNN"><span class="toc-number">5.1.</span> <span class="toc-text">combine of level and others- 可以看一下前人论文Genelive 是怎么解决的- Hetergenous variable in BiLSTM(a type on RNN)</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me"><img src="/img/bc3.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-25-About-me"/></a><div class="content"><a class="title" href="/2024/11/25/2024-11-25-About-me/" title="2024-11-25-About-me">2024-11-25-About-me</a><time datetime="2024-11-25T14:36:31.000Z" title="Created 2024-11-25 22:36:31">2024-11-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes"><img src="/img/bc15.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-11-16 DIP Notes"/></a><div class="content"><a class="title" href="/2024/11/16/2024-11-16-DIP-Notes/" title="2024-11-16 DIP Notes">2024-11-16 DIP Notes</a><time datetime="2024-11-16T03:12:55.000Z" title="Created 2024-11-16 11:12:55">2024-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/11/10/hello/" title="hello"><img src="/img/bc16.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="hello"/></a><div class="content"><a class="title" href="/2024/11/10/hello/" title="hello">hello</a><time datetime="2024-11-10T12:01:44.000Z" title="Created 2024-11-10 20:01:44">2024-11-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic"><img src="/img/bc9.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-26-Magic"/></a><div class="content"><a class="title" href="/2024/10/26/2024-10-26-Magic/" title="2024-10-26-Magic">2024-10-26-Magic</a><time datetime="2024-10-25T18:46:12.000Z" title="Created 2024-10-26 02:46:12">2024-10-26</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection"><img src="/img/bc21.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2024-10-25 Duke courses selection"/></a><div class="content"><a class="title" href="/2024/10/25/2024-10-25-Duke-courses-selection/" title="2024-10-25 Duke courses selection">2024-10-25 Duke courses selection</a><time datetime="2024-10-25T10:06:08.000Z" title="Created 2024-10-25 18:06:08">2024-10-25</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url(/img/bc1.jpg);"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2024 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
